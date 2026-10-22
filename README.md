@@ -1,6 +1,6 @@
 # dynare-rust
 
-[![CI](https://github.com/HaisWell/dynare-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/HaisWell/dynare-rust/actions/workflows/ci.yml)
+[![CI](https://github.com/haiswell/dynare-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/haiswell/dynare-rust/actions/workflows/ci.yml)
 [![License: GPL v3+](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](LICENSE)
 
 An unofficial Rust port of [Dynare 7.2](https://www.dynare.org) for solving, simulating and
@@ -36,7 +36,7 @@ named with `DYNARE_RS_LAPACK=lapack,blas`, and a library directory added with
 `DYNARE_RS_LAPACK_DIR`). On Windows, see [Windows](#windows) below.
 
 ```sh
-git clone https://github.com/HaisWell/dynare-rust
+git clone https://github.com/haiswell/dynare-rust
 cd dynare-rust
 cargo build --release          # target/release/dynare-rs
 cargo install --path .         # optional: puts dynare-rs on the PATH
@@ -55,7 +55,7 @@ or `winget install Rustlang.Rustup`) and the Visual Studio C++ Build Tools (MSVC
 `PATH` (where `dynare-rs.exe` finds `libopenblas.dll` at run time):
 
 ```powershell
-git clone https://github.com/HaisWell/dynare-rust
+git clone https://github.com/haiswell/dynare-rust
 cd dynare-rust
 powershell -ExecutionPolicy Bypass -File scripts\setup-windows.ps1
 # open a new terminal so the variables are picked up, then
