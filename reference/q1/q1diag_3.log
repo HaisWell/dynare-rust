@@ -1,0 +1,45 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DCASE=3 nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+WARNING: Parameter(s) gam  not used in the model
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Normalization failed with cutoff, trying symbolic normalization...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+================================================================================
+MODEL_DIAGNOSTICS: Singularity in Static Jacobian
+================================================================================
+The Jacobian of the static model is singular.
+There are 1 collinear relationship(s) between the variables and the equations.
+
+--- Static Jacobian: Collinear variables (relation 1 of 1) ---
+    w
+
+--- Static Jacobian: Collinear equations (relation 1 of 1) ---
+    Equation 4: w
+
+MODEL_DIAGNOSTICS:  The singularity seems to be (partly) caused by the presence of a unit root
+MODEL_DIAGNOSTICS:  as the absolute value of one eigenvalue is in the range of +-1e-6 to 1.
+MODEL_DIAGNOSTICS:  If the model is actually supposed to feature unit root behavior, such a warning is expected,
+MODEL_DIAGNOSTICS:  but you should nevertheless check whether there is an additional singularity problem.
+MODEL_DIAGNOSTICS:  The presence of a singularity problem typically indicates that there is one
+MODEL_DIAGNOSTICS:  redundant equation entered in the model block, while another non-redundant equation
+MODEL_DIAGNOSTICS:  is missing. The problem often derives from Walras Law.
+Total computing time : 0h00m00s
+Note: 1 warning(s) encountered in the preprocessor

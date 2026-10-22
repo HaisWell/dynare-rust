@@ -1,0 +1,196 @@
+{
+ "endo_names": [
+  "y",
+  "c",
+  "z",
+  "w",
+  "AUX_DIFF_11",
+  "AUX_EXPECT_LAG_1_19",
+  "LOG_y",
+  "AUX_ENDO_LEAD_58"
+ ],
+ "exo_names": [
+  "e"
+ ],
+ "param_names": [
+  "rho"
+ ],
+ "orig_endo_nbr": 4,
+ "aux_vars": [
+  {
+   "endo_index": 5,
+   "type": 8,
+   "orig_index": 1,
+   "orig_lead_lag": 0,
+   "orig_expr": "diff(y)"
+  },
+  {
+   "endo_index": 6,
+   "type": 4,
+   "orig_expr": "EXPECTATION(-1)(y(1))"
+  },
+  {
+   "endo_index": 7,
+   "type": 7,
+   "orig_index": 1,
+   "orig_lead_lag": 0,
+   "orig_expr": "log(y)"
+  },
+  {
+   "endo_index": 8,
+   "type": 0,
+   "orig_expr": "exp(LOG_y(1))"
+  }
+ ],
+ "lead_lag_incidence": [
+  [
+   0,
+   4,
+   0
+  ],
+  [
+   0,
+   5,
+   0
+  ],
+  [
+   1,
+   6,
+   0
+  ],
+  [
+   0,
+   7,
+   0
+  ],
+  [
+   0,
+   8,
+   0
+  ],
+  [
+   2,
+   9,
+   0
+  ],
+  [
+   3,
+   10,
+   12
+  ],
+  [
+   0,
+   11,
+   13
+  ]
+ ],
+ "dynamic_g1_sparse_rowval": [
+  1,
+  3,
+  2,
+  5,
+  7,
+  2,
+  4,
+  3,
+  4,
+  3,
+  5,
+  6,
+  1,
+  5,
+  7,
+  8,
+  4,
+  8,
+  6,
+  1,
+  3
+ ],
+ "dynamic_g1_sparse_colval": [
+  3,
+  3,
+  6,
+  7,
+  9,
+  10,
+  10,
+  11,
+  12,
+  13,
+  13,
+  14,
+  15,
+  15,
+  15,
+  16,
+  23,
+  23,
+  24,
+  25,
+  25
+ ],
+ "static_g1_sparse_rowval": [
+  7,
+  2,
+  4,
+  1,
+  3,
+  4,
+  3,
+  5,
+  2,
+  6,
+  1,
+  4,
+  7,
+  8,
+  6,
+  8
+ ],
+ "static_g1_sparse_colval": [
+  1,
+  2,
+  2,
+  3,
+  3,
+  4,
+  5,
+  5,
+  6,
+  6,
+  7,
+  7,
+  7,
+  7,
+  8,
+  8
+ ],
+ "params": [
+  0.9
+ ],
+ "orig_maximum_lag": 1,
+ "orig_maximum_lead": 1,
+ "equations_tags": [
+  [
+   1,
+   "name",
+   "y"
+  ],
+  [
+   2,
+   "name",
+   "c"
+  ],
+  [
+   3,
+   "name",
+   "z"
+  ],
+  [
+   4,
+   "name",
+   "w"
+  ]
+ ]
+}

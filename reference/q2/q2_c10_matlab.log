@@ -1,0 +1,64 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DCASE=10 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 2).
+Computing static model derivatives w.r.t. parameters (order 2).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 3).
+Computing dynamic model derivatives w.r.t. parameters (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m03s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+======== Identification Analysis ========
+Based on Pruned State Space System (order=2)
+
+Testing prior mean
+  
+Note that differences in the criteria could be due to numerical settings,
+numerical errors or the method used to find problematic parameter sets.
+Settings:
+    Derivation mode for Jacobians:                         Numerical
+    Method to find problematic parameters:                 Nullspace and multicorrelation coefficients
+    Normalize Jacobians:                                   Yes
+    Tolerance level for rank computations:                 robust
+    Tolerance level for selecting nonzero columns:         1e-08
+    Tolerance level for selecting nonzero singular values: 1e-03
+
+REDUCED-FORM:
+    All parameters are identified in the Jacobian of steady state and reduced-form solution matrices (rank(Tau) is full with tol = robust).
+
+MINIMAL SYSTEM (KOMUNJER AND NG, 2011):
+    All parameters are identified in the Jacobian of first-order minimal system and second-order accurate mean (rank(Deltabar) is full with tol = robust).
+
+SPECTRUM (MUTSCHLER, 2015):
+    All parameters are identified in the Jacobian of mean and spectrum (rank(Gbar) is full with tol = robust).
+
+MOMENTS (MUTSCHLER, 2015):
+    All parameters are identified in the Jacobian of first two moments (rank(Mbar) is full with tol = robust).
+
+==== Identification analysis completed ====
+
+Total computing time : 0h00m05s

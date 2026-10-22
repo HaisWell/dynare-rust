@@ -1,0 +1,31 @@
+// macro language: arrays, tuples, comprehensions, macro functions, @#for with tuples/when (stream PP)
+var
+  y_fr
+  y_de
+  y_it
+  ybar;
+varexo
+  e_fr
+  e_de
+  e_it
+;
+parameters rho;
+rho = 0.5;
+model;
+y_fr = rho*y_fr(-1) + 0.1*e_fr;
+y_de = rho*y_de(-1) + 0.2*e_de;
+y_it = rho*y_it(-1) + 0.3*e_it;
+ybar = 0
+  + 0.5*y_fr
+  + 0.3*y_de
+  + 0.2*y_it
+  + 0*y_fr(+4)
+  + 0*y_de(+4)
+;
+end;
+shocks;
+var e_fr; stderr 0.01;
+var e_de; stderr 0.01;
+var e_it; stderr 0.01;
+end;
+stoch_simul(order=1, irf=0, nograph);

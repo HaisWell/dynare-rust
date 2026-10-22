@@ -1,0 +1,12 @@
+var x p q;
+varexo e;
+parameters b k;
+b=0.9; k=0.2;
+model(block, cutoff=0);
+x = x(+1) - 0.5*(q - p(+1));
+p = b*p(+1) + k*x + e;
+exp(q) = exp(1.5*p);
+end;
+steady;
+shocks; var e; stderr 0.01; end;
+stoch_simul(order=1, irf=0);

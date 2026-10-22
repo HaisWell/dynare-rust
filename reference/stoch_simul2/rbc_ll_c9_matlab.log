@@ -1,0 +1,127 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=9 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+
+MATRIX OF COVARIANCE OF MEASUREMENT ERRORS
+Variables        SE_y      SE_c
+SE_y         0.000000  0.000000
+SE_c         0.000000  0.000025
+
+POLICY AND TRANSITION FUNCTIONS
+                                   c               n               y
+Constant                    0.689189        0.385847        1.163254
+(correction)               -0.000346        0.000202        0.000408
+k(-1)                       0.037683       -0.009851        0.015199
+g(-1)                      -0.118632        0.069278        0.139959
+a(-1)                       0.331666        0.188852        1.486235
+ea                          0.349122        0.198792        1.564458
+eg                         -0.029658        0.017319        0.034990
+k(-1),k(-1)                -0.000595        0.000384       -0.000984
+g(-1),k(-1)                 0.001417       -0.004495       -0.003677
+g(-1),g(-1)                 0.149089       -0.081520       -0.168842
+a(-1),k(-1)                 0.008498        0.005945        0.041183
+a(-1),g(-1)                 0.003680       -0.037740        0.034099
+a(-1),a(-1)                -0.008558       -0.133217        0.062492
+ea,ea                      -0.009483       -0.147609        0.069243
+eg,ea                       0.000968       -0.009932        0.008973
+eg,eg                      -0.009218        0.005730        0.011316
+k(-1),ea                    0.008945        0.006258        0.043350
+k(-1),eg                    0.000354       -0.001124       -0.000919
+g(-1),ea                    0.003874       -0.039726        0.035894
+g(-1),eg                   -0.073745        0.045837        0.090528
+a(-1),ea                   -0.018017       -0.280458        0.131562
+a(-1),eg                    0.000920       -0.009435        0.008525
+
+
+APPROXIMATED THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+c              0.6899     0.0304     0.0009
+n              0.3857     0.0049     0.0000
+y              1.1639     0.0564     0.0032
+
+
+
+APPROXIMATED VARIANCE DECOMPOSITION (in percent)
+         ea      eg
+c     99.52    0.48
+n     97.26    2.74
+y     99.96    0.04
+
+
+APPROXIMATED VARIANCE DECOMPOSITION (in percent) WITH MEASUREMENT ERROR
+         ea      eg      ME
+c     96.89    0.47    2.64
+y     99.96    0.04   -0.00
+
+APPROXIMATED CONDITIONAL VARIANCE DECOMPOSITION (in percent)
+Period 2:
+         ea      eg
+c     97.48    2.52
+n     97.09    2.91
+y     99.84    0.16
+
+APPROXIMATED CONDITIONAL VARIANCE DECOMPOSITION (in percent) - WITH MEASUREMENT ERROR
+Period 2:
+         ea      eg      ME
+c     50.72    1.31   47.97
+y     99.84    0.16    0.00
+
+
+
+APPROXIMATED MATRIX OF CORRELATIONS
+Variables          c        n        y
+c             1.0000  -0.0101   0.9037
+n            -0.0101   1.0000   0.4190
+y             0.9037   0.4190   1.0000
+
+
+
+APPROXIMATED COEFFICIENTS OF AUTOCORRELATION
+Order          1
+c         0.9929
+n         0.9093
+y         0.9606
+Total computing time : 0h00m00s

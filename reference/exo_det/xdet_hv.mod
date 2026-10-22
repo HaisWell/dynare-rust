@@ -1,0 +1,27 @@
+// varexo_det reference (dump_exo_det.m): varexo_det declared before varexo, histval (incl. a varexo_det), perfect_foresight_setup, check, forecast from histval
+var y c k a;
+varexo_det g;
+varexo e;
+parameters alpha beta delta rho;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9;
+model;
+1/c = beta/c(+1)*(alpha*exp(a(+1))*k^(alpha-1) + 1 - delta);
+y = exp(a)*k(-1)^alpha;
+k = y - c - g + (1-delta)*k(-1);
+a = rho*a(-1) + e;
+end;
+initval;
+k = 30; c = 2; y = 3; a = 0; g = 0.1;
+end;
+steady;
+histval;
+k(0) = 28; g(0) = 0.11;
+end;
+shocks;
+var e; stderr 0.01;
+var g; periods 1:2 4; values 0.15 0.2;
+end;
+perfect_foresight_setup(periods=20);
+check;
+stoch_simul(order=1, irf=0, nograph);
+forecast(periods=6);

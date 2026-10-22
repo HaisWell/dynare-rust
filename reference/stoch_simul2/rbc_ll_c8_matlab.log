@@ -1,0 +1,71 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=8 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c
+Constant                    1.163254        0.689189
+(correction)                0.000408       -0.000346
+k(-1)                       0.015199        0.037683
+g(-1)                       0.139959       -0.118632
+a(-1)                       1.486235        0.331666
+ea                          1.564458        0.349122
+eg                          0.034990       -0.029658
+k(-1),k(-1)                -0.000984       -0.000595
+g(-1),k(-1)                -0.003677        0.001417
+g(-1),g(-1)                -0.168842        0.149089
+a(-1),k(-1)                 0.041183        0.008498
+a(-1),g(-1)                 0.034099        0.003680
+a(-1),a(-1)                 0.062492       -0.008558
+ea,ea                       0.069243       -0.009483
+eg,ea                       0.008973        0.000968
+eg,eg                       0.011316       -0.009218
+k(-1),ea                    0.043350        0.008945
+k(-1),eg                   -0.000919        0.000354
+g(-1),ea                    0.035894        0.003874
+g(-1),eg                    0.090528       -0.073745
+a(-1),ea                    0.131562       -0.018017
+a(-1),eg                    0.008525        0.000920
+Total computing time : 0h00m00s

@@ -1,0 +1,38 @@
+dynare-rust
+===========
+
+dynare-rust is an unofficial Rust port of Dynare 7.2 (https://www.dynare.org).
+It is not affiliated with or endorsed by the Dynare Team.
+
+Dynare is Copyright (C) 1996-2026 Dynare Team and is distributed under the
+GNU General Public License, version 3 or (at your option) any later version.
+The Dynare Team's members and former members are listed in Dynare's
+license.txt.
+
+Most algorithms in this repository were translated from Dynare's MATLAB
+sources (the `matlab/` tree of Dynare 7.2) and its C++ components (notably the
+preprocessor's DataTree and model transformations), and checked against
+Dynare's output. This port is therefore a derivative work of Dynare and is
+distributed under the same license, GPL-3.0-or-later. See LICENSE for the full
+text.
+
+Reference data
+--------------
+The JSON, MAT, CSV and log files under reference/ were produced by running
+Dynare (7.1 and 7.2, under MATLAB R2025b) on the .mod files next to them, with
+the dump scripts in the same folders. They are test fixtures, not part of
+Dynare itself.
+
+Third-party content under reference/
+------------------------------------
+- reference/examples72/: example models shipped with Dynare 7.2
+  (`examples/` of the Dynare distribution), Copyright Dynare Team,
+  GPL-3.0-or-later, some lightly edited for the tests (headers kept).
+- reference/examples72/schorfheide_2000/schorfheide_2000_data.m and
+  reference/misc/schorfheide_2000_data.m: data of Schorfheide (2000),
+  "Loss function-based evaluation of DSGE models", Journal of Applied
+  Econometrics. Copyright 2000-2022 Frank Schorfheide, 2023 Dynare Team,
+  licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/legalcode),
+  as distributed with Dynare.
+- Other .mod files under reference/ are test models written for this project
+  or adapted from Dynare's examples and test suite (GPL-3.0-or-later).

@@ -1,0 +1,122 @@
+# dynare-rust
+
+[![CI](https://github.com/HaisWell/dynare-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/HaisWell/dynare-rust/actions/workflows/ci.yml)
+[![License: GPL v3+](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](LICENSE)
+
+An unofficial Rust port of [Dynare 7.2](https://www.dynare.org) for solving, simulating and
+estimating DSGE models from `.mod` files. `dynare-rs` reads Dynare `.mod` files and runs them
+without MATLAB or Octave, translating Dynare's algorithms (same branches, tolerances, defaults
+and fallbacks) so that it reproduces Dynare's numbers, not just its methods. This project is
+not affiliated with or endorsed by the Dynare Team.
+
+## Features
+
+- Preprocessor: macro language, auxiliary variables, symbolic derivatives, `steady_state_model`,
+  model editing, JSON output, block decomposition.
+- Steady state, perturbation at orders 1-3 (pruning, GIRFs, theoretical and simulated moments).
+- Perfect foresight, expectation errors, controlled paths, extended path, OccBin, optimal
+  policy (Ramsey, discretion, OSR).
+- Kalman filters and smoothers (diffuse, univariate, measurement errors, missing data).
+- Maximum-likelihood and Bayesian estimation: all mode finders, MCMC samplers (with parallel
+  chains), SMC, `mode_check`, Laplace and harmonic-mean marginal densities.
+- Forecasts, conditional forecasts, shock and realtime decompositions.
+- Identification, global sensitivity analysis, method of moments, particle filters.
+- BVAR, MS-SBVAR, VAR/PAC models, heterogeneous-agent models, LaTeX output and figures.
+
+Coverage: of the 173 commands, blocks and macro directives of the Dynare 7.2 reference manual,
+153 are ported and 20 are not applicable (MATLAB-only or code-generation features). See
+[docs/COVERAGE.md](docs/COVERAGE.md) for every command and option, and
+[docs/FEATURES.md](docs/FEATURES.md) for the details per area.
+
+## Build
+
+Requirements: Rust 1.89 or later. On macOS, Apple's Accelerate framework provides BLAS/LAPACK;
+on Linux, install OpenBLAS (`sudo apt-get install libopenblas-dev`; another library can be
+named with `DYNARE_RS_LAPACK=lapack,blas`).
+
+```sh
+git clone https://github.com/HaisWell/dynare-rust
+cd dynare-rust
+cargo build --release          # target/release/dynare-rs
+cargo install --path .         # optional: puts dynare-rs on the PATH
+cargo test --release           # the test suite (no MATLAB needed)
+```
+
+macOS on Apple silicon is the validated platform. Linux builds and runs; Windows is untested.
+
+## Usage
+
+```sh
+dynare-rs [OPTIONS] model.mod [DYNARE_OPTIONS]...
+```
+
+`DYNARE_OPTIONS` are Dynare's own options (`nograph`, `savemacro`, `nolog`, `json=compute`,
+`-DNAME=VALUE`, `-I<path>`, ...). Extra options include `--seed N`, `--mh-replic N`,
+`--threads N`, `--blas accelerate|rust` and `--quiet`; `dynare-rs --help` lists them all.
+Outputs go where Dynare puts them (`<dir of .mod>/<fname>/Output/`, `<fname>/metropolis/`,
+`<fname>/graphs/`); mode files and MCMC files use Dynare's format, so either program can read
+the other's.
+
+Example, with a model shipped with Dynare 7.2:
+
+```sh
+mkdir -p /tmp/bkk && cp reference/examples72/bkk_1992/bkk_1992.mod /tmp/bkk/
+target/release/dynare-rs /tmp/bkk/bkk_1992.mod nograph
+```
+
+This prints the steady state, eigenvalues, decision rules, moments and IRFs, as Dynare does.
+
+## Accuracy
+
+The test suite (about 750 tests) compares dynare-rust with Dynare 7.2 reference outputs
+committed under `reference/`: decision rules, likelihoods, smoothers, forecasts and most other
+outputs agree to 1e-10 or better. Results that depend on random draws (MCMC, simulations,
+particle filters) use dynare-rust's seeded ChaCha8 streams instead of MATLAB's generators, so
+they agree statistically, and to rounding when fed the same draws.
+[docs/REFERENCES.md](docs/REFERENCES.md) describes the reference models, how the references
+are generated and the known differences from Dynare.
+
+## Performance
+
+Apple M5 Pro (18 cores), MATLAB R2025b + Dynare 7.2, on the public Smets-Wouters (2007)
+reference model `reference/sw07/sw07.mod`:
+
+| | MATLAB + Dynare 7.2 | dynare-rs |
+|---|---|---|
+| one posterior evaluation at the mode, 1 thread | 1.64 ms | 0.48 ms |
+| full estimation run from mode file (Laplace, smoother) | 3.1 s (incl. MATLAB start) | 0.01 s |
+| `mh_tune_jscale` | ~136 s | 69 s |
+| 6 chains × 10,000 MH draws | 157 s | 32 s |
+
+dynare-rs runs the MCMC chains in parallel (MATLAB runs them one after the other) and
+pre-fetches likely proposals on spare cores; the draws do not depend on the thread count. To
+reproduce, build the release binary and run `sh reference/sw07/timing.sh [JSCALE]` (needs MATLAB
+and Dynare 7.2; see the script header).
+
+## Limitations
+
+- MATLAB code is not executed: `<fname>_steadystate.m` files are accepted only when they follow
+  Dynare's template (they are translated into a `steady_state_model` block), external
+  functions written in MATLAB work for simple scalar code only, and MATLAB statements and
+  `verbatim` blocks are interpreted for the common cases only.
+- MEX-only and code-generation features (`use_dll`, `bytecode`, ...) are not applicable;
+  `mode_compute=13` (`lsqnonlin`) is replaced by a bounded Levenberg-Marquardt.
+- Random draws come from dynare-rust's own streams, not MATLAB's Mersenne twister.
+- A few results that Dynare decides by rounding (numerically multiple unit roots, forecast-error
+  covariances near `kalman_tol`) can differ.
+- Some options are not read yet (e.g. the OccBin particle-filter and posterior importance
+  sampling options); [docs/COVERAGE.md](docs/COVERAGE.md) gives the status of every
+  option and [docs/REFERENCES.md](docs/REFERENCES.md) the known differences.
+- The library API (`dynare::...`) is not stable; the command-line interface follows Dynare's.
+
+## License and credits
+
+GPL-3.0-or-later, the license of Dynare; see [LICENSE](LICENSE).
+
+dynare-rust is a port of [Dynare](https://www.dynare.org), Copyright (C) 1996-2026 Dynare Team.
+The algorithms are translated from Dynare's MATLAB and C++ sources, the reference data under
+`reference/` was produced by running Dynare, and the example models under
+`reference/examples72/` are Dynare's. See [NOTICE](NOTICE) for details and third-party content.
+
+Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md), [DESIGN.md](DESIGN.md) and
+[CHANGELOG.md](CHANGELOG.md).

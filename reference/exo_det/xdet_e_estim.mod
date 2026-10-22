@@ -1,0 +1,24 @@
+// varexo_det reference (dump_exo_det.m): error: stderr of a varexo_det in estimated_params
+var y c k a;
+varexo e;
+varexo_det g;
+parameters alpha beta delta rho;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9;
+model;
+1/c = beta/c(+1)*(alpha*exp(a(+1))*k^(alpha-1) + 1 - delta);
+y = exp(a)*k(-1)^alpha;
+k = y - c - g + (1-delta)*k(-1);
+a = rho*a(-1) + e;
+end;
+initval;
+k = 30; c = 2; y = 3; a = 0; g = 0.1;
+end;
+steady;
+shocks;
+var e; stderr 0.01;
+var g; periods 1:2 4; values 0.15 0.2;
+end;
+varobs y;
+estimated_params;
+stderr g, inv_gamma_pdf, 0.01, inf;
+end;

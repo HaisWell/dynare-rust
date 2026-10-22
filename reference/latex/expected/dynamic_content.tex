@@ -1,0 +1,22 @@
+\begin{dmath*}
+r = {i}_{t}-{\pi}_{t+1}
+\end{dmath*}
+% Equation 1
+\noindent[name= `IS curve']
+\begin{dmath}
+{y}_{t}={\varepsilon_y}_{t}+{\rho_y}\, {y}_{t-1}+0.1\, {AUX\_ENDO\_LAG\_0\_1}_{t-1}-\left({i}_{t}-{\pi}_{t+1}\right)\, 0.1
+\end{dmath}
+% Equation 2
+\noindent[mcp= `pi>0', name= `Phillips curve']
+\begin{dmath}
+{\pi}_{t}={\pi}_{t+1}\, 0.5\, {\beta}+0.4\, {\pi}_{t-1}+{y}_{t}\, {\kappa}+{\varepsilon_\pi}_{t}
+\end{dmath}
+% Equation 3
+\noindent[name= `Taylor rule']
+\begin{dmath}
+{i}_{t}={rho\_i}\, {i}_{t-1}+\left(1-{rho\_i}\right)\, \left({\pi}_{t}\, {\phi_\pi}+{y}_{t}\, 0.5\right)+{e\_i}_{t}
+\end{dmath}
+% Equation 4
+\begin{dmath}
+{AUX\_ENDO\_LAG\_0\_1}_{t}={y}_{t-1}
+\end{dmath}

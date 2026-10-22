@@ -1,0 +1,25 @@
+// varexo_det reference (dump_exo_det.m): error: order 3 (k-order solver)
+var y c k a i;
+varexo e u;
+varexo_det g tau;
+parameters alpha beta delta rho;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9;
+model;
+1/c = beta/c(+1)*((1-tau)*alpha*exp(a(+1))*k^(alpha-1) + 1 - delta);
+y = exp(a)*k(-1)^alpha;
+k = y - c - g*exp(u) + (1-delta)*k(-1);
+a = rho*a(-1) + e;
+i = k - (1-delta)*k(-1);
+end;
+initval;
+k = 30; c = 2; y = 3; a = 0; i = 0.7; g = 0.1; tau = 0.05;
+end;
+steady;
+shocks;
+var e; stderr 0.01;
+var u; stderr 0.02;
+corr e, u = 0.3;
+var g; periods 1:2 4; values 0.15 0.2;
+var tau; periods 2 3; values 0.08 0.02;
+end;
+stoch_simul(order=3, irf=0);

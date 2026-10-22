@@ -1,0 +1,11 @@
+parameters g;
+g = 1.02;
+trend_var(growth_factor=g) A;
+var(deflator=A) y;
+var x;
+varexo e;
+model;
+y = 0.5*y(-1)^0.5 + x;
+x = 0.5*x(-1) + e;
+end;
+initval; y=1; x = 0.1; end;

@@ -1,0 +1,92 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=4 nointeractive noclearall
+Starting preprocessing of the model file ...
+WARNING: rbc_ll.mod: line 58, cols 22-31: The 'aim_solver' option is deprecated. It has been superseded by the 'dr=aim' option.
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+    0.9525
+    0.8000
+    0.9500
+
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c               k
+Constant                    1.162846        0.689535       10.932421
+k(-1)                       0.015199        0.037683        0.952515
+g(-1)                       0.139959       -0.118632       -0.541409
+a(-1)                       1.486235        0.331666        1.154570
+ea                          1.564458        0.349122        1.215336
+eg                          0.034990       -0.029658       -0.135352
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              1.1628     0.0564     0.0032
+c              0.6895     0.0304     0.0009
+k             10.9324     0.5735     0.3289
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+         ea      eg
+y     99.96    0.04
+c     99.52    0.48
+k     99.51    0.49
+
+
+
+MATRIX OF CORRELATIONS
+Variables         y       c       k
+y            1.0000  0.9037  0.7878
+c            0.9037  1.0000  0.9748
+k            0.7878  0.9748  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1
+y         0.9606
+c         0.9929
+k         0.9987
+Total computing time : 0h00m00s
+Note: 1 warning(s) encountered in the preprocessor

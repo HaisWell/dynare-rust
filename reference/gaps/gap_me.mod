@@ -1,0 +1,24 @@
+// Gap checks: TeX covar_ME table and forecast bands with measurement errors.
+var c k y;
+varexo x z;
+parameters alph bet sig;
+alph = 0.36; bet = 0.95; sig = 0.01;
+model;
+  c + k = k(-1)^alph*exp(x) + z;
+  1/c = bet/c(+1)*alph*k^(alph-1)*exp(x(+1));
+  y = k(-1)^alph*exp(x);
+end;
+steady_state_model;
+  k = (alph*bet)^(1/(1-alph));
+  c = k^alph - k;
+  y = k^alph;
+end;
+varobs y c;
+shocks;
+  var x; stderr 0.02;
+  var z; stderr 0.01;
+  var y; stderr 0.1;
+  var c = 0.01;
+end;
+stoch_simul(order = 1, irf = 0, tex);
+forecast(periods = 6);

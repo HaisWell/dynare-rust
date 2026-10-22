@@ -1,0 +1,18 @@
+parameters g lg rho;
+g = 1.02; lg = 0.01; rho = 0.5;
+trend_var(growth_factor=g) A;
+log_trend_var(log_growth_factor=lg) LX;
+var(deflator=A) y;
+var(log_deflator=LX) ly;
+var(log) x;
+var w;
+varexo e;
+model;
+y = 0.5*y(-1) + x*A;
+ly = ly(-1) + 0.3*(ly(+1) - ly(-1)) + lg;
+x = x(-1)^rho*exp(e);
+w = y(+2)/y + x(+1);
+end;
+initval; y=1; x = 1; ly=0; end;
+shocks; var e; stderr 0.01; end;
+stoch_simul(order=1,irf=0);

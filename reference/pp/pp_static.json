@@ -1,0 +1,154 @@
+{
+ "endo_names": [
+  "c",
+  "y",
+  "r",
+  "k",
+  "i"
+ ],
+ "exo_names": [
+  "e"
+ ],
+ "param_names": [
+  "beta",
+  "alpha",
+  "delta",
+  "rstar",
+  "phi",
+  "ilb",
+  "occbin_zlb_bind"
+ ],
+ "orig_endo_nbr": 5,
+ "aux_vars": [],
+ "lead_lag_incidence": [
+  [
+   0,
+   2,
+   7
+  ],
+  [
+   0,
+   3,
+   0
+  ],
+  [
+   0,
+   4,
+   0
+  ],
+  [
+   1,
+   5,
+   0
+  ],
+  [
+   0,
+   6,
+   0
+  ]
+ ],
+ "dynamic_g1_sparse_rowval": [
+  2,
+  3,
+  1,
+  4,
+  2,
+  4,
+  5,
+  1,
+  5,
+  3,
+  3,
+  4,
+  1,
+  2
+ ],
+ "dynamic_g1_sparse_colval": [
+  4,
+  4,
+  6,
+  6,
+  7,
+  7,
+  7,
+  8,
+  8,
+  9,
+  10,
+  10,
+  11,
+  16
+ ],
+ "static_g1_sparse_rowval": [
+  1,
+  4,
+  2,
+  4,
+  1,
+  5,
+  2,
+  3,
+  3,
+  4
+ ],
+ "static_g1_sparse_colval": [
+  1,
+  1,
+  2,
+  2,
+  3,
+  3,
+  4,
+  4,
+  5,
+  5
+ ],
+ "params": [
+  0.99,
+  0.33,
+  0.025,
+  1.01010101010101,
+  1.5,
+  0.02,
+  0.0
+ ],
+ "orig_maximum_lag": 1,
+ "orig_maximum_lead": 1,
+ "equations_tags": [
+  [
+   1,
+   "name",
+   "euler"
+  ],
+  [
+   2,
+   "dynamic",
+   ""
+  ],
+  [
+   2,
+   "name",
+   "y"
+  ],
+  [
+   3,
+   "name",
+   "k"
+  ],
+  [
+   4,
+   "name",
+   "4"
+  ],
+  [
+   5,
+   "dynamic",
+   ""
+  ],
+  [
+   5,
+   "name",
+   "mp"
+  ]
+ ]
+}

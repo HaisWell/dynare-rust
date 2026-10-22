@@ -1,0 +1,127 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DCASE=5 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y  		 0
+pi 		 0
+i  		 0
+g  		 0
+u  		 0
+[Warning: sensitivity: sensitivity does only support order=1, resetting to
+order=1.] 
+[> In gsa.run (line 93)
+In nk_ce.driver (line 365)
+In dynare (line 300)
+In dump_calib_est (line 96)
+In run (line 112)] 
+
+stability_mapping: GSA with priors requires bounded support. Setting options_.prior_trunc=1e-10.
+
+Sensitivity Analysis: Stability mapping:
+72.3% of the prior support gives unique saddle-path solution.
+ 9.4% of the prior support gives explosive dynamics.
+18.4% of the prior support gives indeterminacy.
+
+39.1% of the prior support violates prior restrictions.
+
+
+
+
+Smirnov statistics in driving unique solution
+Parameter            d-stat         p-value
+phi_pi                0.704           0.000
+rho_g                 0.366           0.000
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for unique Stable Saddle-Path
+
+
+
+
+Smirnov statistics in driving indeterminacy
+Parameter            d-stat         p-value
+phi_pi                0.960           0.000
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for NO indeterminacy
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for indeterminacy
+
+
+
+
+Smirnov statistics in driving instability
+Parameter            d-stat         p-value
+rho_g                 1.000           0.000
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for NO explosive solution
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for explosive solution
+
+
+
+
+Smirnov statistics in driving prior restrictions
+Parameter            d-stat         p-value
+rho_u                 0.413           0.000
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for prior IRF/moment calibration
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for NO prior IRF/moment calibration
+
+
+
+Sensitivity analysis for calibration criteria
+
+
+Deleting old IRF calibration plots ...
+done !
+
+100.0% of the prior support matches IRF i vs e_i(1) inside [ 0.0,  Inf]
+95.1% of the prior support matches IRF pi vs e_u(1) inside [ 0.0,  Inf]
+
+
+
+Smirnov statistics in driving pi vs e_u(1)
+Parameter            d-stat         p-value
+phi_y                 0.835           0.000
+rho_u                 0.693           0.000
+
+
+
+Deleting old MOMENT calibration plots ...
+done !
+
+50.3% of the prior support matches MOMENT y vs y(-1) inside [ 0.5,  0.9]
+
+
+
+Smirnov statistics in driving y vs y(-1)
+Parameter            d-stat         p-value
+rho_u                 0.492           0.000
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for moment restriction
+
+No correlation term with pvalue <1e-05 and |corr. coef.| >0 found for NO moment restriction
+
+
+Total computing time : 0h00m36s
+Note: warning(s) encountered in MATLAB/Octave code

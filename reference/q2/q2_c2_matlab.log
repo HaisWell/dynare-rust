@@ -1,0 +1,160 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=2 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c               k               i               n               a               g
+Constant                    1.162846        0.689535       10.932421        0.273311        0.385645        1.000000        0.200000
+k(-1)                       0.015199        0.037683        0.952515       -0.022485       -0.009851               0               0
+g(-1)                       0.139959       -0.118632       -0.541409       -0.541409        0.069278               0        0.800000
+a(-1)                       1.486235        0.331666        1.154570        1.154570        0.188852        0.950000               0
+ea                          1.564458        0.349122        1.215336        1.215336        0.198792        1.000000               0
+eg                          0.034990       -0.029658       -0.135352       -0.135352        0.017319               0        0.200000
+
+
+THEORETICAL MOMENTS (Bandpass filter, (6 32))
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              1.1628     0.0187     0.0004
+c              0.6895     0.0046     0.0000
+k             10.9324     0.0492     0.0024
+i              0.2733     0.0148     0.0002
+n              0.3856     0.0024     0.0000
+a              1.0000     0.0119     0.0001
+g              0.2000     0.0044     0.0000
+
+
+
+VARIANCE DECOMPOSITION (in percent) (Bandpass filter, (6 32))
+         ea      eg
+y     99.83    0.17
+c     97.53    2.47
+k     96.60    3.40
+i     96.02    3.98
+n     97.51    2.49
+a    100.00    0.00
+g      0.00  100.00
+
+
+
+MATRIX OF CORRELATIONS (Bandpass filter, (6 32))
+Variables          y        c        k        i        n        a        g
+y             1.0000   0.9141   0.3346   0.9644   0.9649   0.9984   0.0409
+c             0.9141   1.0000   0.6615   0.8821   0.7755   0.9052  -0.1385
+k             0.3346   0.6615   1.0000   0.2327   0.0926   0.2993  -0.0562
+i             0.9644   0.8821   0.2327   1.0000   0.9302   0.9771  -0.1991
+n             0.9649   0.7755   0.0926   0.9302   1.0000   0.9681   0.1534
+a             0.9984   0.9052   0.2993   0.9771   0.9681   1.0000  -0.0000
+g             0.0409  -0.1385  -0.0562  -0.1991   0.1534  -0.0000   1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION (Bandpass filter, (6 32))
+Order          1       2
+y         0.9010  0.6460
+c         0.9150  0.6932
+k         0.9537  0.8240
+i         0.8986  0.6376
+n         0.8988  0.6384
+a         0.9003  0.6436
+g         0.8811  0.5791
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c               i               n
+Constant                    1.162846        0.689535        0.273311        0.385645
+k(-1)                       0.015199        0.037683       -0.022485       -0.009851
+g(-1)                       0.139959       -0.118632       -0.541409        0.069278
+a(-1)                       1.486235        0.331666        1.154570        0.188852
+ea                          1.564458        0.349122        1.215336        0.198792
+eg                          0.034990       -0.029658       -0.135352        0.017319
+
+
+MOMENTS OF SIMULATED VARIABLES (Bandpass filter, (6 32))
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+y                 1.151668        0.020326        0.000413        0.148869       -0.398954
+c                 0.682838        0.005340        0.000029        0.208198       -0.317077
+i                 0.270491        0.016002        0.000256        0.114968       -0.194867
+n                 0.385669        0.002629        0.000007       -0.007524       -0.195553
+
+
+CORRELATION OF SIMULATED VARIABLES (Bandpass filter, (6 32))
+VARIABLE         y       c       i       n
+y           1.0000  0.8951  0.9709  0.9504
+c           0.8951  1.0000  0.8431  0.7120
+i           0.9709  0.8431  1.0000  0.9409
+n           0.9504  0.7120  0.9409  1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES (Bandpass filter, (6 32))
+VARIABLE         1       2
+y           0.9018  0.6619
+c           0.9292  0.7520
+i           0.9017  0.6596
+n           0.8952  0.6384
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent) (Bandpass filter, (6 32))
+                   ea                eg  Tot. lin. contr.
+y              100.42              0.12            100.55
+c               97.28              1.62             98.90
+i               96.53              2.87             99.40
+n               98.55              1.84            100.39
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h00m00s

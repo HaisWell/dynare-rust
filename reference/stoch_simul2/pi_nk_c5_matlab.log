@@ -1,0 +1,119 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=5 nointeractive noclearall
+Starting preprocessing of the model file ...
+WARNING: pi_nk.mod: line 91, cols 13-22: The 'aim_solver' option is deprecated. It has been superseded by the 'dr=aim' option.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+    0.4005
+    0.8000
+    0.5000
+
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               r               v               u
+r(-1)                      -0.800938       -0.199062        0.400469               0               0
+v(-1)                       1.429210        0.570790        0.485395        0.800000               0
+u(-1)                      -0.663539        0.663539        0.331769               0        0.500000
+ev                          1.786513        0.713487        0.606744        1.000000               0
+eu                         -1.327077        1.327077        0.663539               0        1.000000
+er                         -1.334897       -0.331769        0.667449               0               0
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              0.0000     1.2803     1.6391
+pi             0.0000     0.6558     0.4301
+r              0.0000     0.8410     0.7072
+v              0.0000     0.8333     0.6944
+u              0.0000     0.3464     0.1200
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+          ev      eu      er
+y      71.78   23.04    5.18
+pi     54.89   43.89    1.22
+r      83.65   13.35    3.00
+v     100.00    0.00    0.00
+u       0.00  100.00    0.00
+
+
+
+MATRIX OF CORRELATIONS
+Variables          y       pi        r        v        u
+y             1.0000   0.3629   0.4138   0.7905  -0.4490
+pi            0.3629   1.0000   0.8028   0.7260   0.6574
+r             0.4138   0.8028   1.0000   0.8847   0.3418
+v             0.7905   0.7260   0.8847   1.0000   0.0000
+u            -0.4490   0.6574   0.3418   0.0000   1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1       2
+y         0.5983  0.3737
+pi        0.5520  0.3423
+r         0.8727  0.7133
+v         0.8000  0.6400
+u         0.5000  0.2500
+    0.4005
+    0.8000
+    0.5000
+
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi
+r(-1)                      -0.800938       -0.199062
+v(-1)                       1.429210        0.570790
+u(-1)                      -0.663539        0.663539
+ev                          1.786513        0.713487
+eu                         -1.327077        1.327077
+er                         -1.334897       -0.331769
+Total computing time : 0h00m00s
+Note: 1 warning(s) encountered in the preprocessor

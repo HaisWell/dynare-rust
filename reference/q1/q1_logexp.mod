@@ -1,0 +1,17 @@
+var(log) y;
+var c z w;
+varexo e;
+parameters rho;
+rho=0.9;
+model;
+# lc = log(c);
+y = exp(e)*z(-1) + 0.1;
+c = EXPECTATION(-1)(y(1)) + exp(lc)*0;
+z = rho*z(-1) + e + diff(y);
+w = y(+1) + c;
+end;
+initval;
+y = 2; c = 1;
+end;
+shocks; var e; stderr 0.01; end;
+stoch_simul(order=1, irf=0);

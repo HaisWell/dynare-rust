@@ -1,0 +1,362 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP nointeractive
+Starting preprocessing of the model file ...
+Substitution of endo leads >= 2: added 1 auxiliary variables and equations.
+Substitution of endo lags >= 2: added 2 auxiliary variables and equations.
+Found 11 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Normalization failed with cutoff, trying symbolic normalization...
+Finding the optimal block decomposition of the static model...
+5 block(s) found:
+  4 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m03s.
+
+STEADY-STATE RESULTS:
+
+y                		 0
+pi               		 0
+i                		 0
+a                		 0
+p                		 0
+q                		 0
+dp4              		 0
+ey2              		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+               0                0                0
+               0                0                0
+               0                0                0
+          0.4326           0.4326                0
+             0.8              0.8                0
+               1                1                0
+               1                1                0
+           1.184            1.183          0.05262
+           1.184            1.183         -0.05262
+       6.621e+16        6.621e+16                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s).
+The order and rank conditions are verified.
+
+
+MODEL SUMMARY
+
+  Number of variables:         11
+  Number of stochastic shocks: 4
+  Number of state variables:   7
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         e_a       e_d       e_i       e_q
+e_a          0.250000  0.000000  0.000000  0.000000
+e_d          0.000000  0.640000  0.060000  0.000000
+e_i          0.000000  0.060000  0.062500  0.000000
+e_q          0.000000  0.000000  0.000000  1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               i               a               p               q             dp4             ey2
+i(-1)                      -0.568887       -0.119397        0.432564               0       -0.119397               0       -0.119397       -0.106445
+a(-1)                      -1.671479        2.224695        1.156368        0.800000        2.224695               0        2.224695       -1.880581
+p(-1)                              0               0               0               0        1.000000               0               0               0
+q(-1)                              0               0               0               0               0        1.000000               0               0
+pi(-2)                             0               0               0               0               0               0        1.000000               0
+pi(-3)                             0               0               0               0               0               0        1.000000               0
+pi(-1)                             0               0               0               0               0               0        1.000000               0
+e_a                        -2.089349        2.780869        1.445460        1.000000        2.780869               0        2.780869       -2.350726
+e_d                         0.775479        0.072878        0.170719               0        0.072878               0        0.072878       -0.042010
+e_i                        -0.948146       -0.198995        0.720940               0       -0.198995               0       -0.198995       -0.177409
+e_q                                0               0               0               0               0        0.500000               0               0
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              0.0000     2.7420     7.5188
+pi             0.0000     2.1477     4.6125
+i              0.0000     1.9378     3.7551
+a              0.0000     0.8333     0.6944
+p                 NaN        NaN        NaN
+q                 NaN        NaN        NaN
+dp4            0.0000     7.3977    54.7256
+ey2            0.0000     2.1210     4.4985
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+          e_a     e_d     e_i     e_q
+y       94.96    4.21    0.84    0.00
+pi      99.89    0.05    0.06    0.00
+i       97.84    1.19    0.97    0.00
+a      100.00    0.00    0.00    0.00
+dp4     99.95    0.01    0.04    0.00
+ey2     99.89    0.06    0.05    0.00
+
+CONDITIONAL VARIANCE DECOMPOSITION (in percent)
+Period 1:
+          e_a     e_d     e_i     e_q
+y       75.57   20.89    3.54    0.00
+pi      99.79    0.10    0.12    0.00
+i       88.80    6.18    5.03    0.00
+a      100.00    0.00    0.00    0.00
+p       99.79    0.10    0.12    0.00
+q        0.00    0.00    0.00  100.00
+dp4     99.79    0.10    0.12    0.00
+ey2     99.71    0.16    0.13    0.00
+Period 4:
+          e_a     e_d     e_i     e_q
+y       93.04    5.81    1.15    0.00
+pi      99.87    0.06    0.07    0.00
+i       96.95    1.68    1.37    0.00
+a      100.00    0.00    0.00    0.00
+p       99.93    0.01    0.06    0.00
+q        0.00    0.00    0.00  100.00
+dp4     99.93    0.01    0.06    0.00
+ey2     99.86    0.07    0.06    0.00
+Period 10:
+          e_a     e_d     e_i     e_q
+y       94.86    4.29    0.85    0.00
+pi      99.88    0.06    0.06    0.00
+i       97.79    1.22    0.99    0.00
+a      100.00    0.00    0.00    0.00
+p       99.97    0.00    0.03    0.00
+q        0.00    0.00    0.00  100.00
+dp4     99.95    0.01    0.04    0.00
+ey2     99.89    0.06    0.05    0.00
+
+
+
+MATRIX OF CORRELATIONS
+Variables          y       pi        i        a      dp4      ey2
+y             1.0000  -0.9138  -0.9551  -0.9407  -0.9288   0.9521
+pi           -0.9138   1.0000   0.9282   0.9971   0.8184  -0.9903
+i            -0.9551   0.9282   1.0000   0.9505   0.9485  -0.9699
+a            -0.9407   0.9971   0.9505   1.0000   0.8545  -0.9976
+dp4          -0.9288   0.8184   0.9485   0.8545   1.0000  -0.8831
+ey2           0.9521  -0.9903  -0.9699  -0.9976  -0.8831   1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1       2       3
+y         0.8618  0.7365  0.6095
+pi        0.7607  0.5919  0.4663
+i         0.9053  0.7697  0.6355
+a         0.8000  0.6400  0.5120
+dp4       0.9469  0.8297  0.6824
+ey2       0.8314  0.6787  0.5488
+
+MODEL SUMMARY
+
+  Number of variables:         11
+  Number of stochastic shocks: 4
+  Number of state variables:   7
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         e_a       e_d       e_i       e_q
+e_a          0.250000  0.000000  0.000000  0.000000
+e_d          0.000000  0.640000  0.060000  0.000000
+e_i          0.000000  0.060000  0.062500  0.000000
+e_q          0.000000  0.000000  0.000000  1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               i               p             dp4
+i(-1)                      -0.568887       -0.119397        0.432564       -0.119397       -0.119397
+a(-1)                      -1.671479        2.224695        1.156368        2.224695        2.224695
+p(-1)                              0               0               0        1.000000               0
+pi(-2)                             0               0               0               0        1.000000
+pi(-3)                             0               0               0               0        1.000000
+pi(-1)                             0               0               0               0        1.000000
+e_a                        -2.089349        2.780869        1.445460        2.780869        2.780869
+e_d                         0.775479        0.072878        0.170719        0.072878        0.072878
+e_i                        -0.948146       -0.198995        0.720940       -0.198995       -0.198995
+
+
+THEORETICAL MOMENTS (HP filter, lambda = 1600)
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              0.0000     1.8599     3.4593
+pi             0.0000     1.6047     2.5749
+i              0.0000     1.2843     1.6494
+p              0.0000     4.4761    20.0359
+dp4            0.0000     4.7745    22.7960
+
+
+
+VARIANCE DECOMPOSITION (in percent) (HP filter, lambda = 1600)
+          e_a     e_d     e_i     e_q
+y       89.64    8.86    1.51    0.00
+pi      99.81    0.10    0.09    0.00
+i       95.92    2.25    1.83    0.00
+p       99.95    0.01    0.04    0.00
+dp4     99.92    0.02    0.06    0.00
+
+CONDITIONAL VARIANCE DECOMPOSITION (in percent)
+Period 1:
+          e_a     e_d     e_i     e_q
+y       75.57   20.89    3.54    0.00
+pi      99.79    0.10    0.12    0.00
+i       88.80    6.18    5.03    0.00
+p       99.79    0.10    0.12    0.00
+dp4     99.79    0.10    0.12    0.00
+Period 4:
+          e_a     e_d     e_i     e_q
+y       93.04    5.81    1.15    0.00
+pi      99.87    0.06    0.07    0.00
+i       96.95    1.68    1.37    0.00
+p       99.93    0.01    0.06    0.00
+dp4     99.93    0.01    0.06    0.00
+Period 10:
+          e_a     e_d     e_i     e_q
+y       94.86    4.29    0.85    0.00
+pi      99.88    0.06    0.06    0.00
+i       97.79    1.22    0.99    0.00
+p       99.97    0.00    0.03    0.00
+dp4     99.95    0.01    0.04    0.00
+
+
+
+MATRIX OF CORRELATIONS (HP filter, lambda = 1600)
+Variables          y       pi        i        p      dp4
+y             1.0000  -0.8493  -0.9079  -0.3701  -0.8478
+pi           -0.8493   1.0000   0.8808   0.1792   0.6637
+i            -0.9079   0.8808   1.0000   0.3964   0.8893
+p            -0.3701   0.1792   0.3964   1.0000   0.5333
+dp4          -0.8478   0.6637   0.8893   0.5333   1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION (HP filter, lambda = 1600)
+Order          1       2
+y         0.7090  0.4635
+pi        0.5781  0.2954
+i         0.7943  0.5151
+p         0.9357  0.7972
+dp4       0.8836  0.6347
+
+MODEL SUMMARY
+
+  Number of variables:         11
+  Number of stochastic shocks: 4
+  Number of state variables:   7
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         e_a       e_d       e_i       e_q
+e_a          0.250000  0.000000  0.000000  0.000000
+e_d          0.000000  0.640000  0.060000  0.000000
+e_i          0.000000  0.060000  0.062500  0.000000
+e_q          0.000000  0.000000  0.000000  1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               i               p             dp4
+i(-1)                      -0.568887       -0.119397        0.432564       -0.119397       -0.119397
+a(-1)                      -1.671479        2.224695        1.156368        2.224695        2.224695
+p(-1)                              0               0               0        1.000000               0
+pi(-2)                             0               0               0               0        1.000000
+pi(-3)                             0               0               0               0        1.000000
+pi(-1)                             0               0               0               0        1.000000
+e_a                        -2.089349        2.780869        1.445460        2.780869        2.780869
+e_d                         0.775479        0.072878        0.170719        0.072878        0.072878
+e_i                        -0.948146       -0.198995        0.720940       -0.198995       -0.198995
+
+
+MOMENTS OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+y                -0.105918        1.746518        3.050325       -0.038287        0.037249
+pi                0.078304        1.552059        2.408886        0.010194       -0.068668
+i                 0.082662        1.208981        1.461636        0.013920       -0.077781
+p               145.344334        3.986466       15.891913        0.072336       -0.165967
+dp4               0.314499        4.436560       19.683066        0.075945        0.043541
+
+
+CORRELATION OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE          y       pi        i        p      dp4
+y            1.0000  -0.8331  -0.8963  -0.3836  -0.8302
+pi          -0.8331   1.0000   0.8750   0.1936   0.6329
+i           -0.8963   0.8750   1.0000   0.4077   0.8699
+p           -0.3836   0.1936   0.4077   1.0000   0.5560
+dp4         -0.8302   0.6329   0.8699   0.5560   1.0000
+
+STOCH_SIMUL: conditional_variance_decomposition requires theoretical moments, i.e. periods=0.
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE         1       2       3
+y           0.6685  0.3986  0.1685
+pi          0.5183  0.2394  0.0507
+i           0.7602  0.4570  0.1857
+p           0.9234  0.7681  0.5758
+dp4         0.8689  0.6002  0.2765
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent) (HP filter, lambda = 1600)
+                    e_a               e_d               e_i               e_q  Tot. lin. contr.
+y                 89.40             10.12              1.74              0.00            101.26
+pi                99.76              0.11              0.10              0.00             99.96
+i                 94.97              2.45              2.09              0.00             99.51
+p                 99.76              0.01              0.06              0.00             99.82
+dp4               99.80              0.02              0.07              0.00             99.90
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+
+MODEL SUMMARY
+
+  Number of variables:         11
+  Number of stochastic shocks: 4
+  Number of state variables:   7
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables         e_a       e_d       e_i       e_q
+e_a          0.250000  0.000000  0.000000  0.000000
+e_d          0.000000  0.640000  0.060000  0.000000
+e_i          0.000000  0.060000  0.062500  0.000000
+e_q          0.000000  0.000000  0.000000  1.000000
+
+
+
+MOMENTS OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+y                 0.007689        1.828580        3.343706       -0.015845       -0.213779
+pi               -0.001593        1.557943        2.427187        0.008061       -0.260171
+i                 0.005247        1.259261        1.585740        0.075516       -0.120104
+
+STOCH_SIMUL: conditional_variance_decomposition requires theoretical moments, i.e. periods=0.
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE         1       2       3
+y           0.7234  0.4812  0.2420
+pi          0.5767  0.2981  0.1153
+i           0.7946  0.5175  0.2672
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent) (HP filter, lambda = 1600)
+                   e_a               e_d               e_i               e_q  Tot. lin. contr.
+y                88.29              8.63              1.39              0.00             98.31
+pi              100.21              0.10              0.08              0.00            100.39
+i                95.01              2.16              1.70              0.00             98.87
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h00m03s

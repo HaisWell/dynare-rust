@@ -1,0 +1,1 @@
+{"err":"All input arguments must be dates objects.","exo_names":["e"],"exo_det_names":["g"],"param_names":["alpha","beta","delta","rho"],"exo_det_simul":[],"exo_det_steady_state":0.1,"exo_simul":[],"endo_simul":[],"steady_state":[3.0153183214857684,2.2066175387282714,28.348031310299969,0],"Sigma_e":0.0001,"params":[0.33,0.99,0.025,0.9]}

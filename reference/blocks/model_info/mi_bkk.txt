@@ -1,0 +1,907 @@
+Information about mi_bkk (static model)
+=========================================
+The model has 54 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          2 |   SOLVE FORWARD COMPLETE       | 10                           10 | 8                      LAMBDA_H |
+|            |            |                                | 21                           21 | 19                     LAMBDA_F |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          6 |   EVALUATE FORWARD             | 27                              | 27            AUX_ENDO_LEAD_362 |
+|            |            |                                | 28                              | 28            AUX_ENDO_LEAD_366 |
+|            |            |                                | 29                              | 29            AUX_ENDO_LEAD_129 |
+|            |            |                                | 36                              | 36            AUX_ENDO_LEAD_422 |
+|            |            |                                | 37                              | 37            AUX_ENDO_LEAD_426 |
+|            |            |                                | 38                              | 38            AUX_ENDO_LEAD_281 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |         44 |   SOLVE FORWARD COMPLETE       | 1                           Y_H | 3                           N_H |
+|            |            |                                | 2                           K_H | 9                           S_H |
+|            |            |                                | 3                           X_H | 7                           X_H |
+|            |            |                                | 4                           A_H | 4                           A_H |
+|            |            |                                | 5                           L_H | 2                           L_H |
+|            |            |                                | 6                             6 | 23                          LGM |
+|            |            |                                | 7                             7 | 11                          Y_H |
+|            |            |                                | 8                             8 | 5                           K_H |
+|            |            |                                | 9                           LGM | 6                           Z_H |
+|            |            |                                | 54                              | 54            AUX_ENDO_LAG_32_2 |
+|            |            |                                | 12                          Y_F | 22                          Y_F |
+|            |            |                                | 13                          K_F | 20                          S_F |
+|            |            |                                | 14                          X_F | 18                          X_F |
+|            |            |                                | 15                          A_F | 15                          A_F |
+|            |            |                                | 16                          L_F | 13                          L_F |
+|            |            |                                | 17                           17 | 12                          C_F |
+|            |            |                                | 18                           18 | 14                          N_F |
+|            |            |                                | 19                           19 | 16                          K_F |
+|            |            |                                | 20                           20 | 17                          Z_F |
+|            |            |                                | 53                              | 53            AUX_ENDO_LAG_32_1 |
+|            |            |                                | 23                           23 | 1                           C_H |
+|            |            |                                | 24                              | 24            AUX_ENDO_LEAD_106 |
+|            |            |                                | 25                              | 25            AUX_ENDO_LEAD_111 |
+|            |            |                                | 26                              | 26            AUX_ENDO_LEAD_122 |
+|            |            |                                | 30                              | 30            AUX_ENDO_LEAD_375 |
+|            |            |                                | 31                              | 31            AUX_ENDO_LEAD_379 |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_132 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_390 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_394 |
+|            |            |                                | 35                              | 35            AUX_ENDO_LEAD_137 |
+|            |            |                                | 39                              | 39            AUX_ENDO_LEAD_435 |
+|            |            |                                | 40                              | 40            AUX_ENDO_LEAD_439 |
+|            |            |                                | 41                              | 41            AUX_ENDO_LEAD_284 |
+|            |            |                                | 42                              | 42            AUX_ENDO_LEAD_450 |
+|            |            |                                | 43                              | 43            AUX_ENDO_LEAD_454 |
+|            |            |                                | 44                              | 44            AUX_ENDO_LEAD_289 |
+|            |            |                                | 45                              | 45             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 46                              | 46             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 47                              | 47             AUX_ENDO_LAG_4_3 |
+|            |            |                                | 48                              | 48             AUX_ENDO_LAG_8_1 |
+|            |            |                                | 49                              | 49             AUX_ENDO_LAG_8_2 |
+|            |            |                                | 50                              | 50            AUX_ENDO_LAG_28_1 |
+|            |            |                                | 51                              | 51            AUX_ENDO_LAG_28_2 |
+|            |            |                                | 52                              | 52            AUX_ENDO_LAG_28_3 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          2 |   EVALUATE FORWARD             | 22                         NX_F | 21                         NX_F |
+|            |            |                                | 11                         NX_H | 10                         NX_H |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+C_H                                6     7    11    23
+L_H                                5     6     7
+N_H                                1     4     5     7    30
+A_H                                4     5
+K_H                                2     8    45
+Z_H                                1     9
+X_H                                3    11    23
+LAMBDA_H                           1     7    10    21    27
+S_H                                2     3    48
+NX_H                              11
+Y_H                                1     7     9    11    23    33
+C_F                               17    18    22    23
+L_F                               16    17    18
+N_F                               12    15    16    18    39
+A_F                               15    16
+K_F                               13    19    50
+Z_F                               12    20
+X_F                               14    22    23
+LAMBDA_F                          10    12    18    21    36
+S_F                               13    14    53
+NX_F                              22
+Y_F                               12    18    20    22    23    42
+LGM                                6     7     8     9    17    18    19    20    24
+AUX_ENDO_LEAD_106                  8    19    24    25
+AUX_ENDO_LEAD_111                  8    19    25    26
+AUX_ENDO_LEAD_122                  8    19    26
+AUX_ENDO_LEAD_362                 27    28
+AUX_ENDO_LEAD_366                 28    29
+AUX_ENDO_LEAD_129                  8    29
+AUX_ENDO_LEAD_375                 30    31
+AUX_ENDO_LEAD_379                 31    32
+AUX_ENDO_LEAD_132                  8    32
+AUX_ENDO_LEAD_390                 33    34
+AUX_ENDO_LEAD_394                 34    35
+AUX_ENDO_LEAD_137                  8    35
+AUX_ENDO_LEAD_422                 36    37
+AUX_ENDO_LEAD_426                 37    38
+AUX_ENDO_LEAD_281                 19    38
+AUX_ENDO_LEAD_435                 39    40
+AUX_ENDO_LEAD_439                 40    41
+AUX_ENDO_LEAD_284                 19    41
+AUX_ENDO_LEAD_450                 42    43
+AUX_ENDO_LEAD_454                 43    44
+AUX_ENDO_LEAD_289                 19    44
+AUX_ENDO_LAG_4_1                  45    46
+AUX_ENDO_LAG_4_2                  46    47
+AUX_ENDO_LAG_4_3                   1     7    47
+AUX_ENDO_LAG_8_1                   3    48    49
+AUX_ENDO_LAG_8_2                   3    49
+AUX_ENDO_LAG_28_1                 50    51
+AUX_ENDO_LAG_28_2                 51    52
+AUX_ENDO_LAG_28_3                 12    18    52
+AUX_ENDO_LAG_32_1                 14    53    54
+AUX_ENDO_LAG_32_2                 14    54
+
+
+Information about mi_bkk (static model)
+=========================================
+The model has 54 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          2 |   SOLVE FORWARD COMPLETE       | 10                           10 | 8                      LAMBDA_H |
+|            |            |                                | 21                           21 | 19                     LAMBDA_F |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          6 |   EVALUATE FORWARD             | 27                              | 27            AUX_ENDO_LEAD_362 |
+|            |            |                                | 28                              | 28            AUX_ENDO_LEAD_366 |
+|            |            |                                | 29                              | 29            AUX_ENDO_LEAD_129 |
+|            |            |                                | 36                              | 36            AUX_ENDO_LEAD_422 |
+|            |            |                                | 37                              | 37            AUX_ENDO_LEAD_426 |
+|            |            |                                | 38                              | 38            AUX_ENDO_LEAD_281 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |         44 |   SOLVE FORWARD COMPLETE       | 1                           Y_H | 3                           N_H |
+|            |            |                                | 2                           K_H | 9                           S_H |
+|            |            |                                | 3                           X_H | 7                           X_H |
+|            |            |                                | 4                           A_H | 4                           A_H |
+|            |            |                                | 5                           L_H | 2                           L_H |
+|            |            |                                | 6                             6 | 23                          LGM |
+|            |            |                                | 7                             7 | 11                          Y_H |
+|            |            |                                | 8                             8 | 5                           K_H |
+|            |            |                                | 9                           LGM | 6                           Z_H |
+|            |            |                                | 54                              | 54            AUX_ENDO_LAG_32_2 |
+|            |            |                                | 12                          Y_F | 22                          Y_F |
+|            |            |                                | 13                          K_F | 20                          S_F |
+|            |            |                                | 14                          X_F | 18                          X_F |
+|            |            |                                | 15                          A_F | 15                          A_F |
+|            |            |                                | 16                          L_F | 13                          L_F |
+|            |            |                                | 17                           17 | 12                          C_F |
+|            |            |                                | 18                           18 | 14                          N_F |
+|            |            |                                | 19                           19 | 16                          K_F |
+|            |            |                                | 20                           20 | 17                          Z_F |
+|            |            |                                | 53                              | 53            AUX_ENDO_LAG_32_1 |
+|            |            |                                | 23                           23 | 1                           C_H |
+|            |            |                                | 24                              | 24            AUX_ENDO_LEAD_106 |
+|            |            |                                | 25                              | 25            AUX_ENDO_LEAD_111 |
+|            |            |                                | 26                              | 26            AUX_ENDO_LEAD_122 |
+|            |            |                                | 30                              | 30            AUX_ENDO_LEAD_375 |
+|            |            |                                | 31                              | 31            AUX_ENDO_LEAD_379 |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_132 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_390 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_394 |
+|            |            |                                | 35                              | 35            AUX_ENDO_LEAD_137 |
+|            |            |                                | 39                              | 39            AUX_ENDO_LEAD_435 |
+|            |            |                                | 40                              | 40            AUX_ENDO_LEAD_439 |
+|            |            |                                | 41                              | 41            AUX_ENDO_LEAD_284 |
+|            |            |                                | 42                              | 42            AUX_ENDO_LEAD_450 |
+|            |            |                                | 43                              | 43            AUX_ENDO_LEAD_454 |
+|            |            |                                | 44                              | 44            AUX_ENDO_LEAD_289 |
+|            |            |                                | 45                              | 45             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 46                              | 46             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 47                              | 47             AUX_ENDO_LAG_4_3 |
+|            |            |                                | 48                              | 48             AUX_ENDO_LAG_8_1 |
+|            |            |                                | 49                              | 49             AUX_ENDO_LAG_8_2 |
+|            |            |                                | 50                              | 50            AUX_ENDO_LAG_28_1 |
+|            |            |                                | 51                              | 51            AUX_ENDO_LAG_28_2 |
+|            |            |                                | 52                              | 52            AUX_ENDO_LAG_28_3 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          2 |   EVALUATE FORWARD             | 22                         NX_F | 21                         NX_F |
+|            |            |                                | 11                         NX_H | 10                         NX_H |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+C_H                                6     7    11    23
+L_H                                5     6     7
+N_H                                1     4     5     7    30
+A_H                                4     5
+K_H                                2     8    45
+Z_H                                1     9
+X_H                                3    11    23
+LAMBDA_H                           1     7    10    21    27
+S_H                                2     3    48
+NX_H                              11
+Y_H                                1     7     9    11    23    33
+C_F                               17    18    22    23
+L_F                               16    17    18
+N_F                               12    15    16    18    39
+A_F                               15    16
+K_F                               13    19    50
+Z_F                               12    20
+X_F                               14    22    23
+LAMBDA_F                          10    12    18    21    36
+S_F                               13    14    53
+NX_F                              22
+Y_F                               12    18    20    22    23    42
+LGM                                6     7     8     9    17    18    19    20    24
+AUX_ENDO_LEAD_106                  8    19    24    25
+AUX_ENDO_LEAD_111                  8    19    25    26
+AUX_ENDO_LEAD_122                  8    19    26
+AUX_ENDO_LEAD_362                 27    28
+AUX_ENDO_LEAD_366                 28    29
+AUX_ENDO_LEAD_129                  8    29
+AUX_ENDO_LEAD_375                 30    31
+AUX_ENDO_LEAD_379                 31    32
+AUX_ENDO_LEAD_132                  8    32
+AUX_ENDO_LEAD_390                 33    34
+AUX_ENDO_LEAD_394                 34    35
+AUX_ENDO_LEAD_137                  8    35
+AUX_ENDO_LEAD_422                 36    37
+AUX_ENDO_LEAD_426                 37    38
+AUX_ENDO_LEAD_281                 19    38
+AUX_ENDO_LEAD_435                 39    40
+AUX_ENDO_LEAD_439                 40    41
+AUX_ENDO_LEAD_284                 19    41
+AUX_ENDO_LEAD_450                 42    43
+AUX_ENDO_LEAD_454                 43    44
+AUX_ENDO_LEAD_289                 19    44
+AUX_ENDO_LAG_4_1                  45    46
+AUX_ENDO_LAG_4_2                  46    47
+AUX_ENDO_LAG_4_3                   1     7    47
+AUX_ENDO_LAG_8_1                   3    48    49
+AUX_ENDO_LAG_8_2                   3    49
+AUX_ENDO_LAG_28_1                 50    51
+AUX_ENDO_LAG_28_2                 51    52
+AUX_ENDO_LAG_28_3                 12    18    52
+AUX_ENDO_LAG_32_1                 14    53    54
+AUX_ENDO_LAG_32_2                 14    54
+
+
+Gross incidence matrix
+=======================
+    C  L  N  A  K  Z  X  L  S  N  Y  C  L  N  A  K  Z  X  L  S  N  Y  L  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A
+    _  _  _  _  _  _  _  A  _  X  _  _  _  _  _  _  _  _  A  _  X  _  G  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U
+    H  H  H  H  H  H  H  M  H  _  H  F  F  F  F  F  F  F  M  F  _  F  M  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X
+                         B     H                          B     F        _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+                         D                                D              E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E
+                         A                                A              N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N
+                         _                                _              D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D
+                         H                                F              O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O
+                                                                         _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+                                                                         L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L
+                                                                         E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  A  A  A  A  A  A  A  A  A  A
+                                                                         A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  G  G  G  G  G  G  G  G  G  G
+                                                                         D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  _  _  _  _  _  _  _  _  _  _
+                                                                         _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  4  4  4  8  8  2  2  2  3  3
+                                                                         1  1  1  3  3  1  3  3  1  3  3  1  4  4  2  4  4  2  4  4  2  _  _  _  _  _  8  8  8  2  2
+                                                                         0  1  2  6  6  2  7  7  3  9  9  3  2  2  8  3  3  8  5  5  8  1  2  3  1  2  _  _  _  _  _
+                                                                         6  1  2  2  6  9  5  9  2  0  4  7  2  6  1  5  9  4  0  4  9                 1  2  3  1  2
+
+ 1        1        X     X        1                                                                                                           X                     
+ 2              X           X                                                                                                                                       
+ 3                    1     X                                                                                                                    X  X               
+ 4        1  X                                                                                                                                                      
+ 5     1  1  X                                                                                                                                                      
+ 6  1  1                                                              1                                                                                             
+ 7  1  1  1              X        1                                   1                                                                       X                     
+ 8              X                                                     1  1  1  1        1        1        1                                                         
+ 9                 X              1                                   1                                                                                             
+10                       X                                X                                                                                                         
+11  1                 1        1  1                                                                                                                                 
+12                                         1        X     X        1                                                                                         X      
+13                                               X           X                                                                                                      
+14                                                     1     X                                                                                                  X  X
+15                                         1  X                                                                                                                     
+16                                      1  1  X                                                                                                                     
+17                                   1  1                             1                                                                                             
+18                                   1  1  1              X        1  1                                                                                      X      
+19                                               X                    1  1  1  1                                   1        1        1                              
+20                                                  X              1  1                                                                                             
+21                       X                                X                                                                                                         
+22                                   1                 1        1  1                                                                                                
+23  1                 1           1  1                 1           1                                                                                                
+24                                                                    1  1                                                                                          
+25                                                                       1  1                                                                                       
+26                                                                          1  1                                                                                    
+27                       X                                                        1                                                                                 
+28                                                                                1  1                                                                              
+29                                                                                   1  1                                                                           
+30        1                                                                                1                                                                        
+31                                                                                         1  1                                                                     
+32                                                                                            1  1                                                                  
+33                                1                                                                 1                                                               
+34                                                                                                  1  1                                                            
+35                                                                                                     1  1                                                         
+36                                                        X                                                  1                                                      
+37                                                                                                           1  1                                                   
+38                                                                                                              1  1                                                
+39                                         1                                                                          1                                             
+40                                                                                                                    1  1                                          
+41                                                                                                                       1  1                                       
+42                                                                 1                                                           1                                    
+43                                                                                                                             1  1                                 
+44                                                                                                                                1  1                              
+45              X                                                                                                                       X                           
+46                                                                                                                                      X  X                        
+47                                                                                                                                         X  X                     
+48                          X                                                                                                                    X                  
+49                                                                                                                                               X  X               
+50                                               X                                                                                                     X            
+51                                                                                                                                                     X  X         
+52                                                                                                                                                        X  X      
+53                                                           X                                                                                                  X   
+54                                                                                                                                                              X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+    L  L| A  A  A  A  A  A| N  S  X  A  L  L  Y  K  Z  A  Y  S  X  A  L  C  N  K  Z  A  C  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A| N  N
+    A  A| U  U  U  U  U  U| _  _  _  _  _  G  _  _  _  U  _  _  _  _  _  _  _  _  _  U  _  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U| X  X
+    M  M| X  X  X  X  X  X| H  H  H  H  H  M  H  H  H  X  F  F  F  F  F  F  F  F  F  X  H  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X| _  _
+    B  B| _  _  _  _  _  _|                            _                             _     _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _| F  H
+    D  D| E  E  E  E  E  E|                            E                             E     E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E|     
+    A  A| N  N  N  N  N  N|                            N                             N     N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N|     
+    _  _| D  D  D  D  D  D|                            D                             D     D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D|     
+    H  F| O  O  O  O  O  O|                            O                             O     O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O|     
+        | _  _  _  _  _  _|                            _                             _     _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _|     
+        | L  L  L  L  L  L|                            L                             L     L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L|     
+        | E  E  E  E  E  E|                            A                             A     E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  A  A  A  A  A  A  A  A|     
+        | A  A  A  A  A  A|                            G                             G     A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  G  G  G  G  G  G  G  G|     
+        | D  D  D  D  D  D|                            _                             _     D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  _  _  _  _  _  _  _  _|     
+        | _  _  _  _  _  _|                            3                             3     _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  4  4  4  8  8  2  2  2|     
+        | 3  3  1  4  4  2|                            2                             2     1  1  1  3  3  1  3  3  1  4  4  2  4  4  2  _  _  _  _  _  8  8  8|     
+        | 6  6  2  2  2  8|                            _                             _     0  1  2  7  7  3  9  9  3  3  3  8  5  5  8  1  2  3  1  2  _  _  _|     
+        | 2  6  9  2  6  1|                            2                             1     6  1  2  5  9  2  0  4  7  5  9  4  0  4  9                 1  2  3|     
+
+10  X  X|                 |                                                                                                                                   |     
+21  X  X|                 |                                                                                                                                   |     
+27  X     1               |                                                                                                                                   |     
+28        1  1            |                                                                                                                                   |     
+29           1  1         |                                                                                                                                   |     
+36     X           1      |                                                                                                                                   |     
+37                 1  1   |                                                                                                                                   |     
+38                    1  1|                                                                                                                                   |     
+ 1  X                       1                 1     X                                                                                         X               |     
+ 2                             X                 X                                                                                                            |     
+ 3                             X  1                                                                                                              X  X         |     
+ 4                          1        X                                                                                                                        |     
+ 5                          1        X  1                                                                                                                     |     
+ 6                                      1  1                                            1                                                                     |     
+ 7  X                       1           1  1  1                                         1                                                     X               |     
+ 8              1                          1     X                                         1  1  1        1        1                                          |     
+ 9                                         1  1     X                                                                                                         |     
+54                                                     X                             X                                                                        |     
+12     X                                                  1                 1     X                                                                          X|     
+13                                                           X                 X                                                                              |     
+14                                                     X     X  1                    X                                                                        |     
+15                                                                 X        1                                                                                 |     
+16                                                                 X  1     1                                                                                 |     
+17                                         1                          1  1                                                                                    |     
+18     X                                   1              1           1  1  1                                                                                X|     
+19                       1                 1                                   X           1  1  1                          1        1                        |     
+20                                         1              1                       X                                                                           |     
+53                                                           X                       X                                                                        |     
+23                                1           1           1     1        1              1                                                                     |     
+24                                         1                                               1                                                                  |     
+25                                                                                         1  1                                                               |     
+26                                                                                            1  1                                                            |     
+30                          1                                                                       1                                                         |     
+31                                                                                                  1  1                                                      |     
+32                                                                                                     1  1                                                   |     
+33                                            1                                                              1                                                |     
+34                                                                                                           1  1                                             |     
+35                                                                                                              1  1                                          |     
+39                                                                          1                                         1                                       |     
+40                                                                                                                    1  1                                    |     
+41                                                                                                                       1  1                                 |     
+42                                                        1                                                                    1                              |     
+43                                                                                                                             1  1                           |     
+44                                                                                                                                1  1                        |     
+45                                               X                                                                                      X                     |     
+46                                                                                                                                      X  X                  |     
+47                                                                                                                                         X  X               |     
+48                             X                                                                                                                 X            |     
+49                                                                                                                                               X  X         |     
+50                                                                             X                                                                       X      |     
+51                                                                                                                                                     X  X   |     
+52                                                                                                                                                        X  X|     
+22                                                        1     1        1                                                                                      1   
+11                                1           1                                         1                                                                          1
+
+1: non-null element, X: non-null element related to a state variable
+
+Information about mi_bkk (dynamic model)
+==========================================
+The model has 54 equations and is decomposed into 8 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          2 |   SOLVE FORWARD COMPLETE       | 10                           10 | 8                      LAMBDA_H |
+|            |            |                                | 21                           21 | 19                     LAMBDA_F |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   EVALUATE FORWARD             | 27                              | 27            AUX_ENDO_LEAD_362 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          1 |   EVALUATE FORWARD             | 28                              | 28            AUX_ENDO_LEAD_366 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          2 |   EVALUATE FORWARD             | 29                              | 29            AUX_ENDO_LEAD_129 |
+|            |            |                                | 36                              | 36            AUX_ENDO_LEAD_422 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |          1 |   EVALUATE FORWARD             | 37                              | 37            AUX_ENDO_LEAD_426 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          1 |   EVALUATE FORWARD             | 38                              | 38            AUX_ENDO_LEAD_281 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          7 |         44 |  SOLVE TWO BOUNDARIES COMPLETE | 3                           X_H | 7                           X_H |
+|            |            |                                | 5                           L_H | 2                           L_H |
+|            |            |                                | 6                             6 | 1                           C_H |
+|            |            |                                | 14                          X_F | 18                          X_F |
+|            |            |                                | 16                          L_F | 13                          L_F |
+|            |            |                                | 17                           17 | 12                          C_F |
+|            |            |                                | 2                           K_H | 9                           S_H |
+|            |            |                                | 4                           A_H | 4                           A_H |
+|            |            |                                | 8                             8 | 5                           K_H |
+|            |            |                                | 9                           LGM | 6                           Z_H |
+|            |            |                                | 54                              | 54            AUX_ENDO_LAG_32_2 |
+|            |            |                                | 13                          K_F | 20                          S_F |
+|            |            |                                | 15                          A_F | 15                          A_F |
+|            |            |                                | 19                           19 | 16                          K_F |
+|            |            |                                | 20                           20 | 17                          Z_F |
+|            |            |                                | 53                              | 53            AUX_ENDO_LAG_32_1 |
+|            |            |                                | 45                              | 45             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 46                              | 46             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 47                              | 47             AUX_ENDO_LAG_4_3 |
+|            |            |                                | 48                              | 48             AUX_ENDO_LAG_8_1 |
+|            |            |                                | 49                              | 49             AUX_ENDO_LAG_8_2 |
+|            |            |                                | 50                              | 50            AUX_ENDO_LAG_28_1 |
+|            |            |                                | 51                              | 51            AUX_ENDO_LAG_28_2 |
+|            |            |                                | 52                              | 52            AUX_ENDO_LAG_28_3 |
+|            |            |                                | 1                           Y_H | 11                          Y_H |
+|            |            |                                | 7                             7 | 3                           N_H |
+|            |            |                                | 12                          Y_F | 14                          N_F |
+|            |            |                                | 18                           18 | 23                          LGM |
+|            |            |                                | 23                           23 | 22                          Y_F |
+|            |            |                                | 24                              | 24            AUX_ENDO_LEAD_106 |
+|            |            |                                | 25                              | 25            AUX_ENDO_LEAD_111 |
+|            |            |                                | 26                              | 26            AUX_ENDO_LEAD_122 |
+|            |            |                                | 30                              | 30            AUX_ENDO_LEAD_375 |
+|            |            |                                | 31                              | 31            AUX_ENDO_LEAD_379 |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_132 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_390 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_394 |
+|            |            |                                | 35                              | 35            AUX_ENDO_LEAD_137 |
+|            |            |                                | 39                              | 39            AUX_ENDO_LEAD_435 |
+|            |            |                                | 40                              | 40            AUX_ENDO_LEAD_439 |
+|            |            |                                | 41                              | 41            AUX_ENDO_LEAD_284 |
+|            |            |                                | 42                              | 42            AUX_ENDO_LEAD_450 |
+|            |            |                                | 43                              | 43            AUX_ENDO_LEAD_454 |
+|            |            |                                | 44                              | 44            AUX_ENDO_LEAD_289 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          8 |          2 |   EVALUATE FORWARD             | 22                         NX_F | 21                         NX_F |
+|            |            |                                | 11                         NX_H | 10                         NX_H |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+A_H                                4     5
+K_H                                2    45
+Z_H                                1    11    23
+LAMBDA_H                          10    21
+S_H                                3    48
+A_F                               15    16
+K_F                               13    50
+Z_F                               12    22    23
+LAMBDA_F                          10    21
+S_F                               14    53
+AUX_ENDO_LAG_4_1                  46
+AUX_ENDO_LAG_4_2                  47
+AUX_ENDO_LAG_4_3                   1     7
+AUX_ENDO_LAG_8_1                   3    49
+AUX_ENDO_LAG_8_2                   3
+AUX_ENDO_LAG_28_1                 51
+AUX_ENDO_LAG_28_2                 52
+AUX_ENDO_LAG_28_3                 12    18
+AUX_ENDO_LAG_32_1                 14    54
+AUX_ENDO_LAG_32_2                 14
+
+The variable                   is used in the following equations contemporaneously
+C_H                                6     7    11    23
+L_H                                5     6     7
+N_H                                1     4     5     7
+A_H                                4
+K_H                                2     8
+Z_H                                9    11    23
+X_H                                3    11    23
+LAMBDA_H                           1     7    10
+S_H                                2     3
+NX_H                              11
+Y_H                                1     7    11    23
+C_F                               17    18    22    23
+L_F                               16    17    18
+N_F                               12    15    16    18
+A_F                               15
+K_F                               13    19
+Z_F                               20    22    23
+X_F                               14    22    23
+LAMBDA_F                          12    18    21
+S_F                               13    14
+NX_F                              22
+Y_F                               12    18    22    23
+LGM                                6     7     8     9    17    18    19    20
+AUX_ENDO_LEAD_106                 24
+AUX_ENDO_LEAD_111                 25
+AUX_ENDO_LEAD_122                 26
+AUX_ENDO_LEAD_362                 27
+AUX_ENDO_LEAD_366                 28
+AUX_ENDO_LEAD_129                 29
+AUX_ENDO_LEAD_375                 30
+AUX_ENDO_LEAD_379                 31
+AUX_ENDO_LEAD_132                 32
+AUX_ENDO_LEAD_390                 33
+AUX_ENDO_LEAD_394                 34
+AUX_ENDO_LEAD_137                 35
+AUX_ENDO_LEAD_422                 36
+AUX_ENDO_LEAD_426                 37
+AUX_ENDO_LEAD_281                 38
+AUX_ENDO_LEAD_435                 39
+AUX_ENDO_LEAD_439                 40
+AUX_ENDO_LEAD_284                 41
+AUX_ENDO_LEAD_450                 42
+AUX_ENDO_LEAD_454                 43
+AUX_ENDO_LEAD_289                 44
+AUX_ENDO_LAG_4_1                  45
+AUX_ENDO_LAG_4_2                  46
+AUX_ENDO_LAG_4_3                  47
+AUX_ENDO_LAG_8_1                  48
+AUX_ENDO_LAG_8_2                  49
+AUX_ENDO_LAG_28_1                 50
+AUX_ENDO_LAG_28_2                 51
+AUX_ENDO_LAG_28_3                 52
+AUX_ENDO_LAG_32_1                 53
+AUX_ENDO_LAG_32_2                 54
+
+The variable                   is used in equations with lead  1
+N_H                               30
+LAMBDA_H                          27
+Y_H                                9    33
+N_F                               39
+LAMBDA_F                          36
+Y_F                               20    42
+LGM                                8     9    19    20    24
+AUX_ENDO_LEAD_106                  8    19    25
+AUX_ENDO_LEAD_111                  8    19    26
+AUX_ENDO_LEAD_122                  8    19
+AUX_ENDO_LEAD_362                 28
+AUX_ENDO_LEAD_366                 29
+AUX_ENDO_LEAD_129                  8
+AUX_ENDO_LEAD_375                 31
+AUX_ENDO_LEAD_379                 32
+AUX_ENDO_LEAD_132                  8
+AUX_ENDO_LEAD_390                 34
+AUX_ENDO_LEAD_394                 35
+AUX_ENDO_LEAD_137                  8
+AUX_ENDO_LEAD_422                 37
+AUX_ENDO_LEAD_426                 38
+AUX_ENDO_LEAD_281                 19
+AUX_ENDO_LEAD_435                 40
+AUX_ENDO_LEAD_439                 41
+AUX_ENDO_LEAD_284                 19
+AUX_ENDO_LEAD_450                 43
+AUX_ENDO_LEAD_454                 44
+AUX_ENDO_LEAD_289                 19
+
+
+Information about mi_bkk (dynamic model)
+==========================================
+The model has 54 equations and is decomposed into 8 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          2 |   SOLVE FORWARD COMPLETE       | 10                           10 | 8                      LAMBDA_H |
+|            |            |                                | 21                           21 | 19                     LAMBDA_F |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   EVALUATE FORWARD             | 27                              | 27            AUX_ENDO_LEAD_362 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          1 |   EVALUATE FORWARD             | 28                              | 28            AUX_ENDO_LEAD_366 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          2 |   EVALUATE FORWARD             | 29                              | 29            AUX_ENDO_LEAD_129 |
+|            |            |                                | 36                              | 36            AUX_ENDO_LEAD_422 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |          1 |   EVALUATE FORWARD             | 37                              | 37            AUX_ENDO_LEAD_426 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          1 |   EVALUATE FORWARD             | 38                              | 38            AUX_ENDO_LEAD_281 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          7 |         44 |  SOLVE TWO BOUNDARIES COMPLETE | 3                           X_H | 7                           X_H |
+|            |            |                                | 5                           L_H | 2                           L_H |
+|            |            |                                | 6                             6 | 1                           C_H |
+|            |            |                                | 14                          X_F | 18                          X_F |
+|            |            |                                | 16                          L_F | 13                          L_F |
+|            |            |                                | 17                           17 | 12                          C_F |
+|            |            |                                | 2                           K_H | 9                           S_H |
+|            |            |                                | 4                           A_H | 4                           A_H |
+|            |            |                                | 8                             8 | 5                           K_H |
+|            |            |                                | 9                           LGM | 6                           Z_H |
+|            |            |                                | 54                              | 54            AUX_ENDO_LAG_32_2 |
+|            |            |                                | 13                          K_F | 20                          S_F |
+|            |            |                                | 15                          A_F | 15                          A_F |
+|            |            |                                | 19                           19 | 16                          K_F |
+|            |            |                                | 20                           20 | 17                          Z_F |
+|            |            |                                | 53                              | 53            AUX_ENDO_LAG_32_1 |
+|            |            |                                | 45                              | 45             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 46                              | 46             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 47                              | 47             AUX_ENDO_LAG_4_3 |
+|            |            |                                | 48                              | 48             AUX_ENDO_LAG_8_1 |
+|            |            |                                | 49                              | 49             AUX_ENDO_LAG_8_2 |
+|            |            |                                | 50                              | 50            AUX_ENDO_LAG_28_1 |
+|            |            |                                | 51                              | 51            AUX_ENDO_LAG_28_2 |
+|            |            |                                | 52                              | 52            AUX_ENDO_LAG_28_3 |
+|            |            |                                | 1                           Y_H | 11                          Y_H |
+|            |            |                                | 7                             7 | 3                           N_H |
+|            |            |                                | 12                          Y_F | 14                          N_F |
+|            |            |                                | 18                           18 | 23                          LGM |
+|            |            |                                | 23                           23 | 22                          Y_F |
+|            |            |                                | 24                              | 24            AUX_ENDO_LEAD_106 |
+|            |            |                                | 25                              | 25            AUX_ENDO_LEAD_111 |
+|            |            |                                | 26                              | 26            AUX_ENDO_LEAD_122 |
+|            |            |                                | 30                              | 30            AUX_ENDO_LEAD_375 |
+|            |            |                                | 31                              | 31            AUX_ENDO_LEAD_379 |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_132 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_390 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_394 |
+|            |            |                                | 35                              | 35            AUX_ENDO_LEAD_137 |
+|            |            |                                | 39                              | 39            AUX_ENDO_LEAD_435 |
+|            |            |                                | 40                              | 40            AUX_ENDO_LEAD_439 |
+|            |            |                                | 41                              | 41            AUX_ENDO_LEAD_284 |
+|            |            |                                | 42                              | 42            AUX_ENDO_LEAD_450 |
+|            |            |                                | 43                              | 43            AUX_ENDO_LEAD_454 |
+|            |            |                                | 44                              | 44            AUX_ENDO_LEAD_289 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          8 |          2 |   EVALUATE FORWARD             | 22                         NX_F | 21                         NX_F |
+|            |            |                                | 11                         NX_H | 10                         NX_H |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+A_H                                4     5
+K_H                                2    45
+Z_H                                1    11    23
+LAMBDA_H                          10    21
+S_H                                3    48
+A_F                               15    16
+K_F                               13    50
+Z_F                               12    22    23
+LAMBDA_F                          10    21
+S_F                               14    53
+AUX_ENDO_LAG_4_1                  46
+AUX_ENDO_LAG_4_2                  47
+AUX_ENDO_LAG_4_3                   1     7
+AUX_ENDO_LAG_8_1                   3    49
+AUX_ENDO_LAG_8_2                   3
+AUX_ENDO_LAG_28_1                 51
+AUX_ENDO_LAG_28_2                 52
+AUX_ENDO_LAG_28_3                 12    18
+AUX_ENDO_LAG_32_1                 14    54
+AUX_ENDO_LAG_32_2                 14
+
+The variable                   is used in the following equations contemporaneously
+C_H                                6     7    11    23
+L_H                                5     6     7
+N_H                                1     4     5     7
+A_H                                4
+K_H                                2     8
+Z_H                                9    11    23
+X_H                                3    11    23
+LAMBDA_H                           1     7    10
+S_H                                2     3
+NX_H                              11
+Y_H                                1     7    11    23
+C_F                               17    18    22    23
+L_F                               16    17    18
+N_F                               12    15    16    18
+A_F                               15
+K_F                               13    19
+Z_F                               20    22    23
+X_F                               14    22    23
+LAMBDA_F                          12    18    21
+S_F                               13    14
+NX_F                              22
+Y_F                               12    18    22    23
+LGM                                6     7     8     9    17    18    19    20
+AUX_ENDO_LEAD_106                 24
+AUX_ENDO_LEAD_111                 25
+AUX_ENDO_LEAD_122                 26
+AUX_ENDO_LEAD_362                 27
+AUX_ENDO_LEAD_366                 28
+AUX_ENDO_LEAD_129                 29
+AUX_ENDO_LEAD_375                 30
+AUX_ENDO_LEAD_379                 31
+AUX_ENDO_LEAD_132                 32
+AUX_ENDO_LEAD_390                 33
+AUX_ENDO_LEAD_394                 34
+AUX_ENDO_LEAD_137                 35
+AUX_ENDO_LEAD_422                 36
+AUX_ENDO_LEAD_426                 37
+AUX_ENDO_LEAD_281                 38
+AUX_ENDO_LEAD_435                 39
+AUX_ENDO_LEAD_439                 40
+AUX_ENDO_LEAD_284                 41
+AUX_ENDO_LEAD_450                 42
+AUX_ENDO_LEAD_454                 43
+AUX_ENDO_LEAD_289                 44
+AUX_ENDO_LAG_4_1                  45
+AUX_ENDO_LAG_4_2                  46
+AUX_ENDO_LAG_4_3                  47
+AUX_ENDO_LAG_8_1                  48
+AUX_ENDO_LAG_8_2                  49
+AUX_ENDO_LAG_28_1                 50
+AUX_ENDO_LAG_28_2                 51
+AUX_ENDO_LAG_28_3                 52
+AUX_ENDO_LAG_32_1                 53
+AUX_ENDO_LAG_32_2                 54
+
+The variable                   is used in equations with lead  1
+N_H                               30
+LAMBDA_H                          27
+Y_H                                9    33
+N_F                               39
+LAMBDA_F                          36
+Y_F                               20    42
+LGM                                8     9    19    20    24
+AUX_ENDO_LEAD_106                  8    19    25
+AUX_ENDO_LEAD_111                  8    19    26
+AUX_ENDO_LEAD_122                  8    19
+AUX_ENDO_LEAD_362                 28
+AUX_ENDO_LEAD_366                 29
+AUX_ENDO_LEAD_129                  8
+AUX_ENDO_LEAD_375                 31
+AUX_ENDO_LEAD_379                 32
+AUX_ENDO_LEAD_132                  8
+AUX_ENDO_LEAD_390                 34
+AUX_ENDO_LEAD_394                 35
+AUX_ENDO_LEAD_137                  8
+AUX_ENDO_LEAD_422                 37
+AUX_ENDO_LEAD_426                 38
+AUX_ENDO_LEAD_281                 19
+AUX_ENDO_LEAD_435                 40
+AUX_ENDO_LEAD_439                 41
+AUX_ENDO_LEAD_284                 19
+AUX_ENDO_LEAD_450                 43
+AUX_ENDO_LEAD_454                 44
+AUX_ENDO_LEAD_289                 19
+
+
+Gross incidence matrix
+=======================
+    C  L  N  A  K  Z  X  L  S  N  Y  C  L  N  A  K  Z  X  L  S  N  Y  L  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A
+    _  _  _  _  _  _  _  A  _  X  _  _  _  _  _  _  _  _  A  _  X  _  G  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U
+    H  H  H  H  H  H  H  M  H  _  H  F  F  F  F  F  F  F  M  F  _  F  M  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X
+                         B     H                          B     F        _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+                         D                                D              E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E
+                         A                                A              N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N
+                         _                                _              D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D
+                         H                                F              O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O  O
+                                                                         _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+                                                                         L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L  L
+                                                                         E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  E  A  A  A  A  A  A  A  A  A  A
+                                                                         A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A  G  G  G  G  G  G  G  G  G  G
+                                                                         D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  D  _  _  _  _  _  _  _  _  _  _
+                                                                         _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  4  4  4  8  8  2  2  2  3  3
+                                                                         1  1  1  3  3  1  3  3  1  3  3  1  4  4  2  4  4  2  4  4  2  _  _  _  _  _  8  8  8  2  2
+                                                                         0  1  2  6  6  2  7  7  3  9  9  3  2  2  8  3  3  8  5  5  8  1  2  3  1  2  _  _  _  _  _
+                                                                         6  1  2  2  6  9  5  9  2  0  4  7  2  6  1  5  9  4  0  4  9                 1  2  3  1  2
+
+ 1        1        X     X        1                                                                                                           X                     
+ 2              X           X                                                                                                                                       
+ 3                    1     X                                                                                                                    X  X               
+ 4        1  X                                                                                                                                                      
+ 5     1  1  X                                                                                                                                                      
+ 6  1  1                                                              1                                                                                             
+ 7  1  1  1              X        1                                   1                                                                       X                     
+ 8              X                                                     1  1  1  1        1        1        1                                                         
+ 9                 X              1                                   1                                                                                             
+10                       X                                X                                                                                                         
+11  1              X  1        1  1                                                                                                                                 
+12                                         1        X     X        1                                                                                         X      
+13                                               X           X                                                                                                      
+14                                                     1     X                                                                                                  X  X
+15                                         1  X                                                                                                                     
+16                                      1  1  X                                                                                                                     
+17                                   1  1                             1                                                                                             
+18                                   1  1  1              X        1  1                                                                                      X      
+19                                               X                    1  1  1  1                                   1        1        1                              
+20                                                  X              1  1                                                                                             
+21                       X                                X                                                                                                         
+22                                   1              X  1        1  1                                                                                                
+23  1              X  1           1  1              X  1           1                                                                                                
+24                                                                    1  1                                                                                          
+25                                                                       1  1                                                                                       
+26                                                                          1  1                                                                                    
+27                       X                                                        1                                                                                 
+28                                                                                1  1                                                                              
+29                                                                                   1  1                                                                           
+30        1                                                                                1                                                                        
+31                                                                                         1  1                                                                     
+32                                                                                            1  1                                                                  
+33                                1                                                                 1                                                               
+34                                                                                                  1  1                                                            
+35                                                                                                     1  1                                                         
+36                                                        X                                                  1                                                      
+37                                                                                                           1  1                                                   
+38                                                                                                              1  1                                                
+39                                         1                                                                          1                                             
+40                                                                                                                    1  1                                          
+41                                                                                                                       1  1                                       
+42                                                                 1                                                           1                                    
+43                                                                                                                             1  1                                 
+44                                                                                                                                1  1                              
+45              X                                                                                                                       X                           
+46                                                                                                                                      X  X                        
+47                                                                                                                                         X  X                     
+48                          X                                                                                                                    X                  
+49                                                                                                                                               X  X               
+50                                               X                                                                                                     X            
+51                                                                                                                                                     X  X         
+52                                                                                                                                                        X  X      
+53                                                           X                                                                                                  X   
+54                                                                                                                                                              X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+    L  L| A| A| A  A| A| A| X  L  C  X  L  C  S  A  K  Z  A  S  A  K  Z  A  A  A  A  A  A  A  A  A  Y  N  N  L  Y  A  A  A  A  A  A  A  A  A  A  A  A  A  A  A| N  N
+    A  A| U| U| U  U| U| U| _  _  _  _  _  _  _  _  _  _  U  _  _  _  _  U  U  U  U  U  U  U  U  U  _  _  _  G  _  U  U  U  U  U  U  U  U  U  U  U  U  U  U  U| X  X
+    M  M| X| X| X  X| X| X| H  H  H  F  F  F  H  H  H  H  X  F  F  F  F  X  X  X  X  X  X  X  X  X  H  H  F  M  F  X  X  X  X  X  X  X  X  X  X  X  X  X  X  X| _  _
+    B  B| _| _| _  _| _| _|                               _              _  _  _  _  _  _  _  _  _                 _  _  _  _  _  _  _  _  _  _  _  _  _  _  _| F  H
+    D  D| E| E| E  E| E| E|                               E              E  E  E  E  E  E  E  E  E                 E  E  E  E  E  E  E  E  E  E  E  E  E  E  E|     
+    A  A| N| N| N  N| N| N|                               N              N  N  N  N  N  N  N  N  N                 N  N  N  N  N  N  N  N  N  N  N  N  N  N  N|     
+    _  _| D| D| D  D| D| D|                               D              D  D  D  D  D  D  D  D  D                 D  D  D  D  D  D  D  D  D  D  D  D  D  D  D|     
+    H  F| O| O| O  O| O| O|                               O              O  O  O  O  O  O  O  O  O                 O  O  O  O  O  O  O  O  O  O  O  O  O  O  O|     
+        | _| _| _  _| _| _|                               _              _  _  _  _  _  _  _  _  _                 _  _  _  _  _  _  _  _  _  _  _  _  _  _  _|     
+        | L| L| L  L| L| L|                               L              L  L  L  L  L  L  L  L  L                 L  L  L  L  L  L  L  L  L  L  L  L  L  L  L|     
+        | E| E| E  E| E| E|                               A              A  A  A  A  A  A  A  A  A                 E  E  E  E  E  E  E  E  E  E  E  E  E  E  E|     
+        | A| A| A  A| A| A|                               G              G  G  G  G  G  G  G  G  G                 A  A  A  A  A  A  A  A  A  A  A  A  A  A  A|     
+        | D| D| D  D| D| D|                               _              _  _  _  _  _  _  _  _  _                 D  D  D  D  D  D  D  D  D  D  D  D  D  D  D|     
+        | _| _| _  _| _| _|                               3              3  4  4  4  8  8  2  2  2                 _  _  _  _  _  _  _  _  _  _  _  _  _  _  _|     
+        | 3| 3| 1  4| 4| 2|                               2              2  _  _  _  _  _  8  8  8                 1  1  1  3  3  1  3  3  1  4  4  2  4  4  2|     
+        | 6| 6| 2  2| 2| 8|                               _              _  1  2  3  1  2  _  _  _                 0  1  2  7  7  3  9  9  3  3  3  8  5  5  8|     
+        | 2| 6| 9  2| 6| 1|                               2              1                 1  2  3                 6  1  2  5  9  2  0  4  7  5  9  4  0  4  9|     
+
+10  X  X|  |  |     |  |  |                                                                                                                                   |     
+21  X  X|  |  |     |  |  |                                                                                                                                   |     
+27  X     1|  |     |  |  |                                                                                                                                   |     
+28        1  1|     |  |  |                                                                                                                                   |     
+29           1  1   |  |  |                                                                                                                                   |     
+36     X           1|  |  |                                                                                                                                   |     
+37                 1  1|  |                                                                                                                                   |     
+38                    1  1|                                                                                                                                   |     
+ 3                          1                 X                                      X  X                                                                     |     
+ 5                             1                 X                                                     1                                                      |     
+ 6                             1  1                                                                          1                                                |     
+14                                   1                    X  X           X                                                                                    |     
+16                                      1                       X                                         1                                                   |     
+17                                      1  1                                                                 1                                                |     
+ 2                                            X     X                                                                                                         |     
+ 4                                               X                                                     1                                                      |     
+ 8              1                                   X                                                        1     1  1  1        1        1                  |     
+ 9                                                     X                                            1        1                                                |     
+54                                                        X              X                                                                                    |     
+13                                                           X     X                                                                                          |     
+15                                                              X                                         1                                                   |     
+19                       1                                         X                                         1     1  1  1                          1        1|     
+20                                                                    X                                      1  1                                             |     
+53                                                           X           X                                                                                    |     
+45                                                  X                       X                                                                                 |     
+46                                                                          X  X                                                                              |     
+47                                                                             X  X                                                                           |     
+48                                            X                                      X                                                                        |     
+49                                                                                   X  X                                                                     |     
+50                                                                 X                       X                                                                  |     
+51                                                                                         X  X                                                               |     
+52                                                                                            X  X                                                            |     
+ 1  X                                                  X                          X                 1  1                                                      |     
+ 7  X                          1  1                                               X                 1  1     1                                                |     
+12     X                                                              X                          X        1     1                                             |     
+18     X                                1  1                                                     X        1  1  1                                             |     
+23                          1     1  1     1           X              X                             1           1                                             |     
+24                                                                                                           1     1                                          |     
+25                                                                                                                 1  1                                       |     
+26                                                                                                                    1  1                                    |     
+30                                                                                                     1                    1                                 |     
+31                                                                                                                          1  1                              |     
+32                                                                                                                             1  1                           |     
+33                                                                                                  1                                1                        |     
+34                                                                                                                                   1  1                     |     
+35                                                                                                                                      1  1                  |     
+39                                                                                                        1                                   1               |     
+40                                                                                                                                            1  1            |     
+41                                                                                                                                               1  1         |     
+42                                                                                                              1                                      1      |     
+43                                                                                                                                                     1  1   |     
+44                                                                                                                                                        1  1|     
+22                                   1     1                          X                                         1                                               1   
+11                          1     1                    X                                            1                                                              1
+
+1: non-null element, X: non-null element related to a state variable

@@ -1,0 +1,147 @@
+Information about mi_backsmfs (static model)
+==============================================
+The model has 5 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   SOLVE FORWARD SIMPLE         | 4                             4 | 4                             g |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   SOLVE FORWARD SIMPLE         | 5                             a | 5                             a |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          2 |   SOLVE FORWARD COMPLETE       | 1                             y | 1                             y |
+|            |            |                                | 2                             k | 2                             k |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   EVALUATE FORWARD             | 3                             c | 3                             c |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+y                                  1     2     3
+k                                  1     2
+c                                  3
+g                                  4
+a                                  1     5
+
+
+Information about mi_backsmfs (static model)
+==============================================
+The model has 5 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   SOLVE FORWARD SIMPLE         | 4                             4 | 4                             g |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   SOLVE FORWARD SIMPLE         | 5                             a | 5                             a |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          2 |   SOLVE FORWARD COMPLETE       | 1                             y | 1                             y |
+|            |            |                                | 2                             k | 2                             k |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   EVALUATE FORWARD             | 3                             c | 3                             c |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+y                                  1     2     3
+k                                  1     2
+c                                  3
+g                                  4
+a                                  1     5
+
+
+Gross incidence matrix
+=======================
+   y  k  c  g  a
+
+1  X  X        X
+2  X  X         
+3  X     1      
+4           1   
+5              X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+   g| a| y  k| c
+
+4  1|  |     |  
+5     X|     |  
+1     X  X  X|  
+2        X  X|  
+3        X     1
+
+1: non-null element, X: non-null element related to a state variable
+
+Information about mi_backsmfs (dynamic model)
+===============================================
+The model has 5 equations and is decomposed into 1 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          5 |   EVALUATE FORWARD             | 5                             a | 5                             a |
+|            |            |                                | 1                             y | 1                             y |
+|            |            |                                | 3                             c | 3                             c |
+|            |            |                                | 4                             4 | 4                             g |
+|            |            |                                | 2                             k | 2                             k |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+y                                  4
+k                                  1     2
+a                                  5
+
+The variable                   is used in the following equations contemporaneously
+y                                  1     2     3     4
+k                                  2
+c                                  3
+g                                  4
+a                                  1     5
+
+
+Information about mi_backsmfs (dynamic model)
+===============================================
+The model has 5 equations and is decomposed into 1 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          5 |   EVALUATE FORWARD             | 5                             a | 5                             a |
+|            |            |                                | 1                             y | 1                             y |
+|            |            |                                | 3                             c | 3                             c |
+|            |            |                                | 4                             4 | 4                             g |
+|            |            |                                | 2                             k | 2                             k |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+y                                  4
+k                                  1     2
+a                                  5
+
+The variable                   is used in the following equations contemporaneously
+y                                  1     2     3     4
+k                                  2
+c                                  3
+g                                  4
+a                                  1     5
+
+
+Gross incidence matrix
+=======================
+   y  k  c  g  a
+
+1  X  X        X
+2  X  X         
+3  X     1      
+4  X        1   
+5              X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+   a  y  c  g  k
+
+5  X            
+1  X  X        X
+3     X  1      
+4     X     1   
+2     X        X
+
+1: non-null element, X: non-null element related to a state variable

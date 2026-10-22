@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+ERROR: xdet_e_leadlag.mod: line 10, cols 25-29: Exogenous deterministic variable g cannot be given a lead or a lag.
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed

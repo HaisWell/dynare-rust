@@ -1,0 +1,44 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DCASE=3 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y  		 0
+pi 		 0
+i  		 0
+g  		 0
+u  		 0
+
+
+Prior mass = 0.19155
+BK indeterminacy share                = 0.17375
+BK unstability share                  = 0.0739
+BK singularity share                  = 0.01745
+Complex Jacobian share                = 0
+mjdgges crash share                   = 0
+Steady state problem share            = 0
+Complex steady state share            = 0
+Endogenous prior violation share      = 0.54335
+Analytical steady state problem share = 0
+
+
+Total computing time : 0h01m41s

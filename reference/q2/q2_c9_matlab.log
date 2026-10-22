@@ -1,0 +1,390 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DCASE=9 nointeractive
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m01s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+
+(Implied) Prior moments of the endogenous variables' expectation
+----------------------------------------------------------------
+
+
+---------------------------------------
+VARIABLE   Prior mean 	 Prior st. dev. 
+---------------------------------------
+y           1.2552 	 0.4242            
+c           0.7466 	 0.2651            
+k           12.3428 	 6.3889           
+i           0.3086 	 0.1597            
+n           0.3874 	 0.0308            
+a           1.0000 	 0.0000            
+g           0.2000 	 0.0000            
+---------------------------------------
+
+
+(Implied) Prior moments of the endogenous variables' (co)variance
+-------------------------------------------------------------
+
+
+----------------------------------------------------
+VARIABLE-1  VARIABLE-2  Prior mean    Prior st.dev. 
+----------------------------------------------------
+y           y             0.00861754    0.01945159  
+y           c             0.00360131    0.00410673  
+y           k             0.06509792    1.11544790  
+y           i             0.00496393    0.00611267  
+y           n             0.00044471    0.00007913  
+y           a             0.00410190    0.00687679  
+y           g             0.00005230    0.00000151  
+c           c             0.00210983    0.00147562  
+c           k             0.04191417    0.48735279  
+c           i             0.00155865    0.00067147  
+c           n             0.00000292    0.00000088  
+c           a             0.00163129    0.00129998  
+c           g            -0.00006717    0.00000218  
+k           k             0.89002911  185.53905620  
+k           i             0.02372482    0.12977126  
+k           n            -0.00105581    0.00085192  
+k           a             0.02664694    0.30303340  
+k           g            -0.00054107    0.00016280  
+i           i             0.00350445    0.00291738  
+i           n             0.00040658    0.00007068  
+i           a             0.00247062    0.00233850  
+i           g            -0.00009917    0.00000608  
+n           n             0.00008723    0.00000388  
+n           a             0.00025721    0.00004066  
+n           g             0.00003521    0.00000072  
+a           a             0.00224196    0.00294165  
+a           g             0.00000000    0.00000000  
+g           g             0.00021864    0.00002104  
+----------------------------------------------------
+
+
+Gradient norm  306.1374
+Minimum Hessian eigenvalue 
+Maximum Hessian eigenvalue 
+ 
+Iteration 1
+Predicted improvement:        4.686006404
+lambda =          1; f =           97.9644922
+lambda =     1.9332; f =           90.8553120
+lambda =     3.7372; f =           79.1343306
+lambda =     7.2247; f =           61.5951486
+Norm of dx   0.030614
+Predicted improvement:    46860.064044540
+lambda =          1; f =        33531.0836175
+lambda =    0.33333; f =         3740.8539705
+lambda =    0.11111; f =          489.3031449
+lambda =   0.037037; f =          143.3695289
+lambda =   0.012346; f =          109.2690462
+lambda =  0.0041152; f =          106.6808542
+lambda =  0.0013717; f =           25.7897634
+lambda = 0.00045725; f =           45.0885091
+Norm of dx     306.14
+Gradient step!!
+Predicted improvement:        1.500307739
+lambda =          1; f =          106.6627848
+lambda =    0.33333; f =           24.5731363
+lambda =    0.64439; f =           22.6878514
+lambda =     1.2457; f =          106.6691427
+lambda =     0.8388; f =           20.3194154
+lambda =     1.0635; f =          106.6632127
+lambda =    0.92232; f =           18.1600508
+lambda =     1.0046; f =          106.6627874
+lambda =    0.95439; f =           16.6495346
+lambda =    0.98419; f =           14.5494144
+lambda =     1.0149; f =          106.6628094
+lambda =    0.99638; f =           37.8835422
+lambda =    0.98541; f =           14.5313721
+Norm of dx    0.32395
+Done for param stderr ea =   0.0046; f =  14.5314
+Predicted improvement:        1.500942950
+lambda =          1; f =          106.6627850
+lambda =    0.33333; f =           13.3143338
+lambda =    0.64439; f =           11.4301138
+lambda =     1.2457; f =          106.6693149
+lambda =     0.8388; f =            9.0790837
+lambda =     1.0635; f =          106.6632347
+lambda =    0.92232; f =            7.0181334
+lambda =     1.0046; f =          106.6627886
+lambda =    0.95439; f =            5.7865873
+lambda =    0.98419; f =            7.5671483
+lambda =     1.0149; f =          106.6628133
+lambda =    0.99638; f =          242.1993359
+lambda =    0.97816; f =            5.7174466
+lambda =    0.98905; f =           13.6948679
+Norm of dx    0.32696
+Done for param stderr eg =   0.0067; f =   5.7174
+Predicted improvement:        0.209148902
+lambda =          1; f =            5.5141769
+Norm of dx    0.03426
+Done for param alpha =   0.3246; f =   5.5142
+Predicted improvement:       18.916288175
+lambda =          1; f =            5.8254794
+lambda =    0.33333; f =           -4.6032346
+lambda =    0.64439; f =           -7.4669976
+Norm of dx     2.0639
+Done for param psi =   1.6698; f =  -7.4670
+Predicted improvement:        8.961438018
+lambda =          1; f =          106.6679267
+lambda =    0.33333; f =          -12.4729775
+lambda =    0.64439; f =          -14.9407055
+Norm of dx    0.43596
+Done for param rho_a =   0.9167; f = -14.9407
+Predicted improvement:        0.085331838
+lambda =          1; f =          -15.0379974
+Norm of dx   0.031433
+Done for param rho_g =   0.8563; f = -15.0380
+Sequence of univariate steps!!
+Actual dxnorm 1.706
+FVAL          -15.038
+Improvement   121.7008
+Ftol          1e-05
+Htol          1e-05
+Elapsed time for iteration 0.76897 s.
+ 
+Iteration 2
+Predicted improvement:       26.403808575
+lambda =          1; f =            7.7233156
+lambda =    0.33333; f =           -5.8378333
+lambda =    0.11111; f =          -11.7492128
+lambda =   0.037037; f =          -14.5751570
+lambda =   0.012346; f =          -15.2493838
+Norm of dx    0.50782
+Predicted improvement:    82672.464854440
+lambda =          1; f =          -14.9899929
+lambda =    0.33333; f =          -14.0314591
+lambda =    0.11111; f =          -14.9612695
+lambda =   0.037037; f =          -15.0367787
+lambda =   0.012346; f =            7.3716072
+lambda =  0.0041152; f =            1.3507369
+lambda =  0.0013717; f =           -3.4727592
+lambda = 0.00045725; f =           -7.3390884
+lambda = 0.00015242; f =          -10.5772416
+lambda = 5.0805e-05; f =          -13.1758652
+lambda = 1.6935e-05; f =          -14.7330194
+lambda =  5.645e-06; f =          -15.2346732
+lambda = 1.8817e-06; f =          -15.2859007
+lambda = 6.2723e-07; f =          -15.2680452
+lambda = 2.0908e-07; f =          -15.2564205
+lambda = 6.9692e-08; f =          -15.2518240
+lambda = 2.3231e-08; f =          -15.2502078
+lambda = 7.7435e-09; f =          -15.2496596
+lambda = 2.5812e-09; f =          -15.2494758
+Norm of dx     406.63
+Predicted improvement:        0.246735644
+lambda =          1; f =          -15.0050335
+lambda =    0.33333; f =          -15.4124771
+lambda =    0.64439; f =          -15.4035929
+Norm of dx  0.0025434
+Done for param stderr ea =   0.0050; f = -15.4125
+Predicted improvement:        0.001310682
+lambda =          1; f =          -15.4138304
+Norm of dx 0.00018273
+Done for param stderr eg =   0.0092; f = -15.4138
+Predicted improvement:        0.134146272
+lambda =          1; f =          -15.5530047
+Norm of dx   0.096964
+Done for param psi =   1.7718; f = -15.5530
+Predicted improvement:        0.025308119
+lambda =          1; f =          -15.5760418
+Norm of dx   0.011641
+Done for param rho_a =   0.9255; f = -15.5760
+Predicted improvement:        0.005522557
+lambda =          1; f =          -15.5817685
+Norm of dx  0.0099151
+Done for param rho_g =   0.8468; f = -15.5818
+Sequence of univariate steps!!
+Actual dxnorm 0.10286
+FVAL          -15.5818
+Improvement   0.54377
+Ftol          1e-05
+Htol          1e-05
+Elapsed time for iteration 0.31848 s.
+ 
+Iteration 3
+Predicted improvement:        1.234516997
+lambda =          1; f =          -15.5812717
+lambda =    0.33333; f =          -15.5817517
+lambda =    0.11111; f =          -11.2673682
+lambda =   0.037037; f =          -15.5182293
+lambda =   0.012346; f =          -15.5988372
+Norm of dx    0.68112
+Predicted improvement:        0.819141586
+lambda =          1; f =          -15.5815890
+lambda =    0.33333; f =          -15.5817667
+lambda =    0.11111; f =          -14.1664883
+lambda =   0.037037; f =          -15.5209338
+lambda =   0.012346; f =          -15.5926583
+lambda =  0.0041152; f =          -15.5985483
+lambda =  0.0013717; f =          -15.5989248
+lambda = 0.00045725; f =          -15.5988864
+lambda = 0.00015242; f =          -15.5988558
+lambda = 5.0805e-05; f =          -15.5988437
+lambda = 1.6935e-05; f =          -15.5988394
+lambda =  5.645e-06; f =          -15.5988380
+lambda = 1.8817e-06; f =          -15.5988375
+lambda = 6.2723e-07; f =          -15.5988373
+lambda = 2.0908e-07; f =          -15.5988373
+lambda = 6.9692e-08; f =          -15.5988373
+lambda = 2.3231e-08; f =          -15.5988373
+lambda = 7.7435e-09; f =          -15.5988372
+lambda = 2.5812e-09; f =          -15.5988372
+Norm of dx    0.43635
+Predicted improvement:        0.000077155
+lambda =          1; f =          -15.5990012
+Norm of dx 2.3659e-05
+Done for param stderr ea =   0.0046; f = -15.5990
+Predicted improvement:        0.000099266
+lambda =          1; f =          -15.5991004
+Norm of dx  0.0028055
+Done for param psi =   1.7778; f = -15.5991
+Predicted improvement:        0.001808495
+lambda =          1; f =          -15.6009486
+Norm of dx  0.0026768
+Done for param rho_a =   0.9243; f = -15.6009
+Sequence of univariate steps!!
+Actual dxnorm 0.0062203
+FVAL          -15.6009
+Improvement   0.01918
+Ftol          1e-05
+Htol          1e-05
+Elapsed time for iteration 0.25434 s.
+ 
+Iteration 4
+Predicted improvement:        0.000029252
+lambda =          1; f =          -15.6006793
+lambda =    0.33333; f =          -15.6009316
+lambda =    0.11111; f =          -15.6009511
+Norm of dx  0.0028937
+Predicted improvement:        0.000013924
+lambda =          1; f =          -15.6008429
+lambda =    0.33333; f =          -15.6009369
+lambda =    0.11111; f =          -15.6009488
+lambda =   0.037037; f =          -15.6009506
+lambda =   0.012346; f =          -15.6009509
+lambda =  0.0041152; f =          -15.6009510
+lambda =  0.0013717; f =          -15.6009510
+lambda = 0.00045725; f =          -15.6009511
+lambda = 0.00015242; f =          -15.6009511
+lambda = 5.0805e-05; f =          -15.6009511
+lambda = 1.6935e-05; f =          -15.6009511
+lambda =  5.645e-06; f =          -15.6009511
+lambda = 1.8817e-06; f =          -15.6009511
+lambda = 6.2723e-07; f =          -15.6009511
+lambda = 2.0908e-07; f =          -15.6009511
+lambda = 6.9692e-08; f =          -15.6009511
+lambda = 2.3231e-08; f =          -15.6009511
+lambda = 7.7435e-09; f =          -15.6009511
+lambda = 2.5812e-09; f =          -15.6009511
+
+lambda =
+
+  -6.2723e-07
+
+lambda = -6.2723e-07; f =          -15.6009511
+Norm of dx  0.0009192
+Sequence of univariate steps!!
+Try diagonal Hessian
+Predicted improvement:        0.000005542
+lambda =          1; f =          -15.6009392
+lambda =    0.33333; f =          -15.6009497
+lambda =    0.11111; f =          -15.6009509
+lambda =   0.037037; f =          -15.6009510
+lambda =   0.012346; f =          -15.6009511
+lambda =  0.0041152; f =          -15.6009511
+lambda =  0.0013717; f =          -15.6009511
+lambda = 0.00045725; f =          -15.6009511
+lambda = 0.00015242; f =          -15.6009511
+lambda = 5.0805e-05; f =          -15.6009511
+lambda = 1.6935e-05; f =          -15.6009511
+lambda =  5.645e-06; f =          -15.6009511
+lambda = 1.8817e-06; f =          -15.6009511
+lambda = 6.2723e-07; f =          -15.6009511
+lambda = 2.0908e-07; f =          -15.6009511
+lambda = 6.9692e-08; f =          -15.6009511
+lambda = 2.3231e-08; f =          -15.6009511
+lambda = 7.7435e-09; f =          -15.6009511
+lambda = 2.5812e-09; f =          -15.6009511
+Norm of dx  0.0002176
+Try gradient direction
+Predicted improvement:        0.000006310
+lambda =          1; f =          -15.6009082
+lambda =    0.33333; f =          -15.6009480
+lambda =    0.11111; f =          -15.6009513
+lambda =   0.037037; f =          -15.6009513
+Norm of dx 3.5525e-05
+No further improvement is possible!
+Actual dxnorm 0.00032177
+FVAL          -15.601
+Improvement   2.6463e-06
+Ftol          1e-05
+Htol          1e-05
+Gradient norm  0.35525
+Minimum Hessian eigenvalue 5.2991
+Maximum Hessian eigenvalue 236918.9706
+No further improvement is possible! Estimation successful.
+
+
+------------------
+PRIOR OPTIMIZATION
+------------------
+
+parameter 1: SE_ea.
+  Initial condition ........ 0.34218.
+  Prior mode ............... 0.0046066.
+  Optimized prior mode ..... 0.0046074.
+
+parameter 2: SE_eg.
+  Initial condition ........ 0.34471.
+  Prior mode ............... 0.0092132.
+  Optimized prior mode ..... 0.0092139.
+
+parameter 3: alpha.
+  Initial condition ........ 0.73547.
+  Prior mode ............... 0.32602.
+  Optimized prior mode ..... 0.3259.
+
+parameter 4: psi.
+  Initial condition ........ 3.0388.
+  Prior mode ............... 1.7778.
+  Optimized prior mode ..... 1.7775.
+
+parameter 5: rho_a.
+  Initial condition ........ 0.12318.
+  Prior mode ............... 0.92424.
+  Optimized prior mode ..... 0.92423.
+
+parameter 6: rho_g.
+  Initial condition ........ 0.95331.
+  Prior mode ............... 0.84615.
+  Optimized prior mode ..... 0.84577.
+
+
+Total computing time : 0h01m12s

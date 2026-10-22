@@ -1,0 +1,707 @@
+Information about mi_qpm (static model)
+=========================================
+The model has 38 equations and is decomposed into 12 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   SOLVE FORWARD SIMPLE         | 4                       pie_tar | 7                       pie_tar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   SOLVE FORWARD SIMPLE         | 9                        rr_bar | 11                       rr_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          1 |   SOLVE FORWARD SIMPLE         | 15                     dl_z_bar | 15                     dl_z_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   SOLVE FORWARD SIMPLE         | 18                        g_bar | 3                         g_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |          1 |   EVALUATE FORWARD             | 19                       dl_gdp | 4                        dl_gdp |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          1 |   SOLVE FORWARD SIMPLE         | 26                    rr_bar_us | 25                    rr_bar_us |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          7 |          3 |   EVALUATE FORWARD             | 30                              | 30            AUX_ENDO_LEAD_284 |
+|            |            |                                | 31                              | 31             AUX_ENDO_LEAD_87 |
+|            |            |                                | 12                         prem | 18                         prem |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          8 |          1 |   SOLVE FORWARD SIMPLE         | 14                      l_z_bar | 14                      l_z_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          9 |          1 |   SOLVE FORWARD SIMPLE         | 17                    l_gdp_bar | 2                     l_gdp_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         10 |         11 |   SOLVE FORWARD COMPLETE       | 38                              | 37            AUX_ENDO_LAG_20_1 |
+|            |            |                                | 37                              | 21                       pie_us |
+|            |            |                                | 20                      ygap_us | 20                      ygap_us |
+|            |            |                                | 21                       pie_us | 34            AUX_ENDO_LEAD_206 |
+|            |            |                                | 22                      pie4_us | 38            AUX_ENDO_LAG_20_2 |
+|            |            |                                | 23                        rs_us | 23                        rs_us |
+|            |            |                                | 24                        rr_us | 24                        rr_us |
+|            |            |                                | 25                    rr_gap_us | 26                    rr_gap_us |
+|            |            |                                | 32                              | 22                      pie4_us |
+|            |            |                                | 33                              | 32            AUX_ENDO_LEAD_300 |
+|            |            |                                | 34                              | 33            AUX_ENDO_LEAD_232 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         11 |         14 |   SOLVE FORWARD COMPLETE       | 2                           pie | 1                          ygap |
+|            |            |                                | 13                        z_gap | 13                          l_z |
+|            |            |                                | 10                          z_e | 17                          z_e |
+|            |            |                                | 3                          pie4 | 5                           pie |
+|            |            |                                | 11                          l_z | 10                           rr |
+|            |            |                                | 1                          ygap | 16                        z_gap |
+|            |            |                                | 6                            rs | 28             AUX_ENDO_LEAD_84 |
+|            |            |                                | 27                              | 6                          pie4 |
+|            |            |                                | 28                              | 27            AUX_ENDO_LEAD_264 |
+|            |            |                                | 29                              | 29             AUX_ENDO_LEAD_35 |
+|            |            |                                | 7                            rr | 9                            rs |
+|            |            |                                | 8                        rr_gap | 12                       rr_gap |
+|            |            |                                | 35                              | 35             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 36                              | 36             AUX_ENDO_LAG_4_2 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         12 |          2 |   EVALUATE FORWARD             | 5                      pie4_exp | 8                      pie4_exp |
+|            |            |                                | 16                         dl_s | 19                         dl_s |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+ygap                               1     2     6
+g_bar                             17    18
+dl_gdp                            19
+pie                                2     3     7    16    35
+pie4                               2     3    27
+pie_tar                            4    30
+pie4_exp                           5
+rs                                 6     7
+rr                                 7     8    11
+rr_bar                             6     8     9    12
+rr_gap                             1     8
+l_z                               10    11    13
+l_z_bar                           13
+dl_z_bar                          10    12    14    15
+z_gap                              1    13
+z_e                               10    11
+prem                              11    12
+dl_s                              16
+ygap_us                            1    20    21    23
+pie_us                            16    21    22    24    37
+pie4_us                           21    22    32
+rs_us                             23    24
+rr_us                             11    24    25
+rr_bar_us                         12    23    25    26
+rr_gap_us                         20    25
+AUX_ENDO_LEAD_264                 27    28
+AUX_ENDO_LEAD_84                   6    28    29
+AUX_ENDO_LEAD_35                   2     5    29
+AUX_ENDO_LEAD_284                 30    31
+AUX_ENDO_LEAD_87                   6    31
+AUX_ENDO_LEAD_300                 32    33
+AUX_ENDO_LEAD_232                 23    33    34
+AUX_ENDO_LEAD_206                 21    34
+AUX_ENDO_LAG_4_1                   3    35    36
+AUX_ENDO_LAG_4_2                   3    36
+AUX_ENDO_LAG_20_1                 22    37    38
+AUX_ENDO_LAG_20_2                 22    38
+
+
+Information about mi_qpm (static model)
+=========================================
+The model has 38 equations and is decomposed into 12 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   SOLVE FORWARD SIMPLE         | 4                       pie_tar | 7                       pie_tar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   SOLVE FORWARD SIMPLE         | 9                        rr_bar | 11                       rr_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          1 |   SOLVE FORWARD SIMPLE         | 15                     dl_z_bar | 15                     dl_z_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   SOLVE FORWARD SIMPLE         | 18                        g_bar | 3                         g_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |          1 |   EVALUATE FORWARD             | 19                       dl_gdp | 4                        dl_gdp |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          1 |   SOLVE FORWARD SIMPLE         | 26                    rr_bar_us | 25                    rr_bar_us |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          7 |          3 |   EVALUATE FORWARD             | 30                              | 30            AUX_ENDO_LEAD_284 |
+|            |            |                                | 31                              | 31             AUX_ENDO_LEAD_87 |
+|            |            |                                | 12                         prem | 18                         prem |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          8 |          1 |   SOLVE FORWARD SIMPLE         | 14                      l_z_bar | 14                      l_z_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          9 |          1 |   SOLVE FORWARD SIMPLE         | 17                    l_gdp_bar | 2                     l_gdp_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         10 |         11 |   SOLVE FORWARD COMPLETE       | 38                              | 37            AUX_ENDO_LAG_20_1 |
+|            |            |                                | 37                              | 21                       pie_us |
+|            |            |                                | 20                      ygap_us | 20                      ygap_us |
+|            |            |                                | 21                       pie_us | 34            AUX_ENDO_LEAD_206 |
+|            |            |                                | 22                      pie4_us | 38            AUX_ENDO_LAG_20_2 |
+|            |            |                                | 23                        rs_us | 23                        rs_us |
+|            |            |                                | 24                        rr_us | 24                        rr_us |
+|            |            |                                | 25                    rr_gap_us | 26                    rr_gap_us |
+|            |            |                                | 32                              | 22                      pie4_us |
+|            |            |                                | 33                              | 32            AUX_ENDO_LEAD_300 |
+|            |            |                                | 34                              | 33            AUX_ENDO_LEAD_232 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         11 |         14 |   SOLVE FORWARD COMPLETE       | 2                           pie | 1                          ygap |
+|            |            |                                | 13                        z_gap | 13                          l_z |
+|            |            |                                | 10                          z_e | 17                          z_e |
+|            |            |                                | 3                          pie4 | 5                           pie |
+|            |            |                                | 11                          l_z | 10                           rr |
+|            |            |                                | 1                          ygap | 16                        z_gap |
+|            |            |                                | 6                            rs | 28             AUX_ENDO_LEAD_84 |
+|            |            |                                | 27                              | 6                          pie4 |
+|            |            |                                | 28                              | 27            AUX_ENDO_LEAD_264 |
+|            |            |                                | 29                              | 29             AUX_ENDO_LEAD_35 |
+|            |            |                                | 7                            rr | 9                            rs |
+|            |            |                                | 8                        rr_gap | 12                       rr_gap |
+|            |            |                                | 35                              | 35             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 36                              | 36             AUX_ENDO_LAG_4_2 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|         12 |          2 |   EVALUATE FORWARD             | 5                      pie4_exp | 8                      pie4_exp |
+|            |            |                                | 16                         dl_s | 19                         dl_s |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+ygap                               1     2     6
+g_bar                             17    18
+dl_gdp                            19
+pie                                2     3     7    16    35
+pie4                               2     3    27
+pie_tar                            4    30
+pie4_exp                           5
+rs                                 6     7
+rr                                 7     8    11
+rr_bar                             6     8     9    12
+rr_gap                             1     8
+l_z                               10    11    13
+l_z_bar                           13
+dl_z_bar                          10    12    14    15
+z_gap                              1    13
+z_e                               10    11
+prem                              11    12
+dl_s                              16
+ygap_us                            1    20    21    23
+pie_us                            16    21    22    24    37
+pie4_us                           21    22    32
+rs_us                             23    24
+rr_us                             11    24    25
+rr_bar_us                         12    23    25    26
+rr_gap_us                         20    25
+AUX_ENDO_LEAD_264                 27    28
+AUX_ENDO_LEAD_84                   6    28    29
+AUX_ENDO_LEAD_35                   2     5    29
+AUX_ENDO_LEAD_284                 30    31
+AUX_ENDO_LEAD_87                   6    31
+AUX_ENDO_LEAD_300                 32    33
+AUX_ENDO_LEAD_232                 23    33    34
+AUX_ENDO_LEAD_206                 21    34
+AUX_ENDO_LAG_4_1                   3    35    36
+AUX_ENDO_LAG_4_2                   3    36
+AUX_ENDO_LAG_20_1                 22    37    38
+AUX_ENDO_LAG_20_2                 22    38
+
+
+Gross incidence matrix
+=======================
+    y  l  g  d  p  p  p  p  r  r  r  r  l  l  d  z  z  p  d  y  p  p  r  r  r  r  A  A  A  A  A  A  A  A  A  A  A  A
+    g  _  _  l  i  i  i  i  s  r  r  r  _  _  l  _  _  r  l  g  i  i  s  r  r  r  U  U  U  U  U  U  U  U  U  U  U  U
+    a  g  b  _  e  e  e  e        _  _  z  z  _  g  e  e  _  a  e  e  _  _  _  _  X  X  X  X  X  X  X  X  X  X  X  X
+    p  d  a  g     4  _  4        b  g     _  z  a     m  s  p  _  4  u  u  b  g  _  _  _  _  _  _  _  _  _  _  _  _
+       p  r  d        t  _        a  a     b  _  p           _  u  _  s  s  a  a  E  E  E  E  E  E  E  E  E  E  E  E
+       _     p        a  e        r  p     a  b              u  s  u        r  p  N  N  N  N  N  N  N  N  N  N  N  N
+       b              r  x                 r  a              s     s        _  _  D  D  D  D  D  D  D  D  D  D  D  D
+       a                 p                    r                             u  u  O  O  O  O  O  O  O  O  O  O  O  O
+       r                                                                    s  s  _  _  _  _  _  _  _  _  _  _  _  _
+                                                                                  L  L  L  L  L  L  L  L  L  L  L  L
+                                                                                  E  E  E  E  E  E  E  E  A  A  A  A
+                                                                                  A  A  A  A  A  A  A  A  G  G  G  G
+                                                                                  D  D  D  D  D  D  D  D  _  _  _  _
+                                                                                  _  _  _  _  _  _  _  _  4  4  2  2
+                                                                                  2  8  3  2  8  3  2  2  _  _  0  0
+                                                                                  6  4  5  8  7  0  3  0  1  2  _  _
+                                                                                  4        4     0  2  6        1  2
+
+ 1  X                                X           X           X                                                      
+ 2  X           X  X                                                                    1                           
+ 3              X  X                                                                                      X  X      
+ 4                    X                                                                                             
+ 5                       1                                                              1                           
+ 6  X                       X     X                                                  1        1                     
+ 7              X           X  1                                                                                    
+ 8                             1  X  X                                                                              
+ 9                                X                                                                                 
+10                                      X     X     1                                                               
+11                             1        X           1  1                 1                                          
+12                                X           X        1                    X                                       
+13                                      X  X     X                                                                  
+14                                            X                                                                     
+15                                            X                                                                     
+16              X                                         1     X                                                   
+17        X                                                                                                         
+18        X                                                                                                         
+19           1                                                                                                      
+20                                                           X                 X                                    
+21                                                           X  X  X                                   1            
+22                                                              X  X                                            X  X
+23                                                           X        X     X                       1               
+24                                                              X     X  1                                          
+25                                                                       1  X  X                                    
+26                                                                          X                                       
+27                 X                                                              1                                 
+28                                                                                1  1                              
+29                                                                                   1  1                           
+30                    X                                                                    1                        
+31                                                                                         1  1                     
+32                                                                 X                             1                  
+33                                                                                               1  1               
+34                                                                                                  1  1            
+35              X                                                                                         X         
+36                                                                                                        X  X      
+37                                                              X                                               X   
+38                                                                                                              X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+    p| r| d| g| d| r| A  A  p| l| l| A  p  y  A  A  r  r  r  p  A  A| y  l  z  p  r  z  A  p  A  A  r  r  A  A| p  d
+    i| r| l| _| l| r| U  U  r| _| _| U  i  g  U  U  s  r  r  i  U  U| g  _  _  i  r  _  U  i  U  U  s  r  U  U| i  l
+    e| _| _| b| _| _| X  X  e| z| g| X  e  a  X  X  _  _  _  e  X  X| a  z  e  e     g  X  e  X  X     _  X  X| e  _
+    _| b| z| a| g| b| _  _  m| _| d| _  _  p  _  _  u  u  g  4  _  _| p              a  _  4  _  _     g  _  _| 4  s
+    t| a| _| r| d| a| E  E   | b| p| E  u  _  E  E  s  s  a  _  E  E|                p  E     E  E     a  E  E| _   
+    a| r| b|  | p| r| N  N   | a| _| N  s  u  N  N        p  u  N  N|                   N     N  N     p  N  N| e   
+    r|  | a|  |  | _| D  D   | r| b| D     s  D  D        _  s  D  D|                   D     D  D        D  D| x   
+     |  | r|  |  | u| O  O   |  | a| O        O  O        u     O  O|                   O     O  O        O  O| p   
+     |  |  |  |  | s| _  _   |  | r| _        _  _        s     _  _|                   _     _  _        _  _|     
+     |  |  |  |  |  | L  L   |  |  | L        L  L              L  L|                   L     L  L        L  L|     
+     |  |  |  |  |  | E  E   |  |  | A        E  A              E  E|                   E     E  E        A  A|     
+     |  |  |  |  |  | A  A   |  |  | G        A  G              A  A|                   A     A  A        G  G|     
+     |  |  |  |  |  | D  D   |  |  | _        D  _              D  D|                   D     D  D        _  _|     
+     |  |  |  |  |  | _  _   |  |  | 2        _  2              _  _|                   _     _  _        4  4|     
+     |  |  |  |  |  | 2  8   |  |  | 0        2  0              3  2|                   8     2  3        _  _|     
+     |  |  |  |  |  | 8  7   |  |  | _        0  _              0  3|                   4     6  5        1  2|     
+     |  |  |  |  |  | 4      |  |  | 1        6  2              0  2|                         4               |     
+
+ 4  X|  |  |  |  |  |        |  |  |                                |                                         |     
+ 9     X|  |  |  |  |        |  |  |                                |                                         |     
+15        X|  |  |  |        |  |  |                                |                                         |     
+18           X|  |  |        |  |  |                                |                                         |     
+19              1|  |        |  |  |                                |                                         |     
+26                 X|        |  |  |                                |                                         |     
+30  X                 1      |  |  |                                |                                         |     
+31                    1  1   |  |  |                                |                                         |     
+12     X  X        X        1|  |  |                                |                                         |     
+14        X                     |  |                                |                                         |     
+17           X                     |                                |                                         |     
+38                                   X           X                  |                                         |     
+37                                   X  X                           |                                         |     
+20                                         X              X         |                                         |     
+21                                      X  X  1              X      |                                         |     
+22                                   X  X        X           X      |                                         |     
+23                 X                       X        X              1|                                         |     
+24                                      X           X  1            |                                         |     
+25                 X                                   1  X         |                                         |     
+32                                                           X  1   |                                         |     
+33                                                              1  1|                                         |     
+34                                            1                    1|                                         |     
+ 2                                                                    X        X           X     1            |     
+13                             X                                         X           X                        |     
+10        X                                                              X  1                                 |     
+ 3                                                                             X           X              X  X|     
+11                          1                          1                 X  1     1                           |     
+ 1                                         X                          X              X                 X      |     
+ 6     X                 1                                            X                 1           X         |     
+27                                                                                         X  1               |     
+28                                                                                      1     1               |     
+29                                                                                      1        1            |     
+ 7                                                                             X  1                 X         |     
+ 8     X                                                                          1                    X      |     
+35                                                                             X                          X   |     
+36                                                                                                        X  X|     
+ 5                                                                                               1              1   
+16                                      X                                      X                                   1
+
+1: non-null element, X: non-null element related to a state variable
+
+Information about mi_qpm (dynamic model)
+==========================================
+The model has 38 equations and is decomposed into 6 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          5 |   EVALUATE FORWARD             | 4                       pie_tar | 7                       pie_tar |
+|            |            |                                | 9                        rr_bar | 11                       rr_bar |
+|            |            |                                | 15                     dl_z_bar | 15                     dl_z_bar |
+|            |            |                                | 18                        g_bar | 3                         g_bar |
+|            |            |                                | 26                    rr_bar_us | 25                    rr_bar_us |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   EVALUATE FORWARD             | 30                              | 30            AUX_ENDO_LEAD_284 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          4 |   EVALUATE FORWARD             | 31                              | 31             AUX_ENDO_LEAD_87 |
+|            |            |                                | 12                         prem | 18                         prem |
+|            |            |                                | 14                      l_z_bar | 14                      l_z_bar |
+|            |            |                                | 17                    l_gdp_bar | 2                     l_gdp_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |         11 |  SOLVE TWO BOUNDARIES COMPLETE | 24                        rr_us | 24                        rr_us |
+|            |            |                                | 38                              | 38            AUX_ENDO_LAG_20_2 |
+|            |            |                                | 37                              | 37            AUX_ENDO_LAG_20_1 |
+|            |            |                                | 23                        rs_us | 23                        rs_us |
+|            |            |                                | 25                    rr_gap_us | 26                    rr_gap_us |
+|            |            |                                | 20                      ygap_us | 20                      ygap_us |
+|            |            |                                | 21                       pie_us | 21                       pie_us |
+|            |            |                                | 22                      pie4_us | 22                      pie4_us |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_300 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_232 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_206 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |         14 |  SOLVE TWO BOUNDARIES COMPLETE | 10                          z_e | 17                          z_e |
+|            |            |                                | 7                            rr | 10                           rr |
+|            |            |                                | 8                        rr_gap | 12                       rr_gap |
+|            |            |                                | 13                        z_gap | 16                        z_gap |
+|            |            |                                | 36                              | 36             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 6                            rs | 9                            rs |
+|            |            |                                | 35                              | 35             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 11                          l_z | 13                          l_z |
+|            |            |                                | 2                           pie | 5                           pie |
+|            |            |                                | 3                          pie4 | 6                          pie4 |
+|            |            |                                | 1                          ygap | 1                          ygap |
+|            |            |                                | 27                              | 27            AUX_ENDO_LEAD_264 |
+|            |            |                                | 28                              | 28             AUX_ENDO_LEAD_84 |
+|            |            |                                | 29                              | 29             AUX_ENDO_LEAD_35 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          3 |   EVALUATE FORWARD             | 5                      pie4_exp | 8                      pie4_exp |
+|            |            |                                | 19                       dl_gdp | 4                        dl_gdp |
+|            |            |                                | 16                         dl_s | 19                         dl_s |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+ygap                               1     2    19
+l_gdp_bar                         17    19
+g_bar                             18
+pie                                3    35
+pie4                               2
+pie_tar                            4
+rs                                 6
+rr_bar                             9
+rr_gap                             1
+l_z                               10    16
+l_z_bar                           14
+dl_z_bar                          15
+z_gap                              1     2
+ygap_us                           20    21
+pie_us                            22    37
+pie4_us                           21
+rs_us                             23
+rr_bar_us                         26
+rr_gap_us                         20
+AUX_ENDO_LAG_4_1                   3    36
+AUX_ENDO_LAG_4_2                   3
+AUX_ENDO_LAG_20_1                 22    38
+AUX_ENDO_LAG_20_2                 22
+
+The variable                   is used in the following equations contemporaneously
+ygap                               1     6    19
+l_gdp_bar                         17    19
+g_bar                             17    18
+dl_gdp                            19
+pie                                2     3    16
+pie4                               3
+pie_tar                            4
+pie4_exp                           5
+rs                                 6     7
+rr                                 7     8    11
+rr_bar                             6     8     9    12
+rr_gap                             8
+l_z                               11    13    16
+l_z_bar                           13    14
+dl_z_bar                          10    12    14    15
+z_gap                              2    13
+z_e                               10    11
+prem                              11    12
+dl_s                              16
+ygap_us                            1    20    23
+pie_us                            16    21    22
+pie4_us                           22
+rs_us                             23    24
+rr_us                             11    24    25
+rr_bar_us                         12    23    25    26
+rr_gap_us                         25
+AUX_ENDO_LEAD_264                 27
+AUX_ENDO_LEAD_84                  28
+AUX_ENDO_LEAD_35                  29
+AUX_ENDO_LEAD_284                 30
+AUX_ENDO_LEAD_87                  31
+AUX_ENDO_LEAD_300                 32
+AUX_ENDO_LEAD_232                 33
+AUX_ENDO_LEAD_206                 34
+AUX_ENDO_LAG_4_1                  35
+AUX_ENDO_LAG_4_2                  36
+AUX_ENDO_LAG_20_1                 37
+AUX_ENDO_LAG_20_2                 38
+
+The variable                   is used in equations with lead  1
+ygap                               1
+pie                                7
+pie4                              27
+pie_tar                           30
+l_z                               10
+ygap_us                           20
+pie_us                            24
+pie4_us                           32
+AUX_ENDO_LEAD_264                 28
+AUX_ENDO_LEAD_84                   6    29
+AUX_ENDO_LEAD_35                   2     5
+AUX_ENDO_LEAD_284                 31
+AUX_ENDO_LEAD_87                   6
+AUX_ENDO_LEAD_300                 33
+AUX_ENDO_LEAD_232                 23    34
+AUX_ENDO_LEAD_206                 21
+
+
+Information about mi_qpm (dynamic model)
+==========================================
+The model has 38 equations and is decomposed into 6 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          5 |   EVALUATE FORWARD             | 4                       pie_tar | 7                       pie_tar |
+|            |            |                                | 9                        rr_bar | 11                       rr_bar |
+|            |            |                                | 15                     dl_z_bar | 15                     dl_z_bar |
+|            |            |                                | 18                        g_bar | 3                         g_bar |
+|            |            |                                | 26                    rr_bar_us | 25                    rr_bar_us |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          1 |   EVALUATE FORWARD             | 30                              | 30            AUX_ENDO_LEAD_284 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          4 |   EVALUATE FORWARD             | 31                              | 31             AUX_ENDO_LEAD_87 |
+|            |            |                                | 12                         prem | 18                         prem |
+|            |            |                                | 14                      l_z_bar | 14                      l_z_bar |
+|            |            |                                | 17                    l_gdp_bar | 2                     l_gdp_bar |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |         11 |  SOLVE TWO BOUNDARIES COMPLETE | 24                        rr_us | 24                        rr_us |
+|            |            |                                | 38                              | 38            AUX_ENDO_LAG_20_2 |
+|            |            |                                | 37                              | 37            AUX_ENDO_LAG_20_1 |
+|            |            |                                | 23                        rs_us | 23                        rs_us |
+|            |            |                                | 25                    rr_gap_us | 26                    rr_gap_us |
+|            |            |                                | 20                      ygap_us | 20                      ygap_us |
+|            |            |                                | 21                       pie_us | 21                       pie_us |
+|            |            |                                | 22                      pie4_us | 22                      pie4_us |
+|            |            |                                | 32                              | 32            AUX_ENDO_LEAD_300 |
+|            |            |                                | 33                              | 33            AUX_ENDO_LEAD_232 |
+|            |            |                                | 34                              | 34            AUX_ENDO_LEAD_206 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          5 |         14 |  SOLVE TWO BOUNDARIES COMPLETE | 10                          z_e | 17                          z_e |
+|            |            |                                | 7                            rr | 10                           rr |
+|            |            |                                | 8                        rr_gap | 12                       rr_gap |
+|            |            |                                | 13                        z_gap | 16                        z_gap |
+|            |            |                                | 36                              | 36             AUX_ENDO_LAG_4_2 |
+|            |            |                                | 6                            rs | 9                            rs |
+|            |            |                                | 35                              | 35             AUX_ENDO_LAG_4_1 |
+|            |            |                                | 11                          l_z | 13                          l_z |
+|            |            |                                | 2                           pie | 5                           pie |
+|            |            |                                | 3                          pie4 | 6                          pie4 |
+|            |            |                                | 1                          ygap | 1                          ygap |
+|            |            |                                | 27                              | 27            AUX_ENDO_LEAD_264 |
+|            |            |                                | 28                              | 28             AUX_ENDO_LEAD_84 |
+|            |            |                                | 29                              | 29             AUX_ENDO_LEAD_35 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          6 |          3 |   EVALUATE FORWARD             | 5                      pie4_exp | 8                      pie4_exp |
+|            |            |                                | 19                       dl_gdp | 4                        dl_gdp |
+|            |            |                                | 16                         dl_s | 19                         dl_s |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+ygap                               1     2    19
+l_gdp_bar                         17    19
+g_bar                             18
+pie                                3    35
+pie4                               2
+pie_tar                            4
+rs                                 6
+rr_bar                             9
+rr_gap                             1
+l_z                               10    16
+l_z_bar                           14
+dl_z_bar                          15
+z_gap                              1     2
+ygap_us                           20    21
+pie_us                            22    37
+pie4_us                           21
+rs_us                             23
+rr_bar_us                         26
+rr_gap_us                         20
+AUX_ENDO_LAG_4_1                   3    36
+AUX_ENDO_LAG_4_2                   3
+AUX_ENDO_LAG_20_1                 22    38
+AUX_ENDO_LAG_20_2                 22
+
+The variable                   is used in the following equations contemporaneously
+ygap                               1     6    19
+l_gdp_bar                         17    19
+g_bar                             17    18
+dl_gdp                            19
+pie                                2     3    16
+pie4                               3
+pie_tar                            4
+pie4_exp                           5
+rs                                 6     7
+rr                                 7     8    11
+rr_bar                             6     8     9    12
+rr_gap                             8
+l_z                               11    13    16
+l_z_bar                           13    14
+dl_z_bar                          10    12    14    15
+z_gap                              2    13
+z_e                               10    11
+prem                              11    12
+dl_s                              16
+ygap_us                            1    20    23
+pie_us                            16    21    22
+pie4_us                           22
+rs_us                             23    24
+rr_us                             11    24    25
+rr_bar_us                         12    23    25    26
+rr_gap_us                         25
+AUX_ENDO_LEAD_264                 27
+AUX_ENDO_LEAD_84                  28
+AUX_ENDO_LEAD_35                  29
+AUX_ENDO_LEAD_284                 30
+AUX_ENDO_LEAD_87                  31
+AUX_ENDO_LEAD_300                 32
+AUX_ENDO_LEAD_232                 33
+AUX_ENDO_LEAD_206                 34
+AUX_ENDO_LAG_4_1                  35
+AUX_ENDO_LAG_4_2                  36
+AUX_ENDO_LAG_20_1                 37
+AUX_ENDO_LAG_20_2                 38
+
+The variable                   is used in equations with lead  1
+ygap                               1
+pie                                7
+pie4                              27
+pie_tar                           30
+l_z                               10
+ygap_us                           20
+pie_us                            24
+pie4_us                           32
+AUX_ENDO_LEAD_264                 28
+AUX_ENDO_LEAD_84                   6    29
+AUX_ENDO_LEAD_35                   2     5
+AUX_ENDO_LEAD_284                 31
+AUX_ENDO_LEAD_87                   6
+AUX_ENDO_LEAD_300                 33
+AUX_ENDO_LEAD_232                 23    34
+AUX_ENDO_LEAD_206                 21
+
+
+Gross incidence matrix
+=======================
+    y  l  g  d  p  p  p  p  r  r  r  r  l  l  d  z  z  p  d  y  p  p  r  r  r  r  A  A  A  A  A  A  A  A  A  A  A  A
+    g  _  _  l  i  i  i  i  s  r  r  r  _  _  l  _  _  r  l  g  i  i  s  r  r  r  U  U  U  U  U  U  U  U  U  U  U  U
+    a  g  b  _  e  e  e  e        _  _  z  z  _  g  e  e  _  a  e  e  _  _  _  _  X  X  X  X  X  X  X  X  X  X  X  X
+    p  d  a  g     4  _  4        b  g     _  z  a     m  s  p  _  4  u  u  b  g  _  _  _  _  _  _  _  _  _  _  _  _
+       p  r  d        t  _        a  a     b  _  p           _  u  _  s  s  a  a  E  E  E  E  E  E  E  E  E  E  E  E
+       _     p        a  e        r  p     a  b              u  s  u        r  p  N  N  N  N  N  N  N  N  N  N  N  N
+       b              r  x                 r  a              s     s        _  _  D  D  D  D  D  D  D  D  D  D  D  D
+       a                 p                    r                             u  u  O  O  O  O  O  O  O  O  O  O  O  O
+       r                                                                    s  s  _  _  _  _  _  _  _  _  _  _  _  _
+                                                                                  L  L  L  L  L  L  L  L  L  L  L  L
+                                                                                  E  E  E  E  E  E  E  E  A  A  A  A
+                                                                                  A  A  A  A  A  A  A  A  G  G  G  G
+                                                                                  D  D  D  D  D  D  D  D  _  _  _  _
+                                                                                  _  _  _  _  _  _  _  _  4  4  2  2
+                                                                                  2  8  3  2  8  3  2  2  _  _  0  0
+                                                                                  6  4  5  8  7  0  3  0  1  2  _  _
+                                                                                  4        4     0  2  6        1  2
+
+ 1  X                                X           X           X                                                      
+ 2  X           X  X                             X                                      1                           
+ 3              X  X                                                                                      X  X      
+ 4                    X                                                                                             
+ 5                       1                                                              1                           
+ 6  X                       X     X                                                  1        1                     
+ 7              X           X  1                                                                                    
+ 8                             1  X  X                                                                              
+ 9                                X                                                                                 
+10                                      X     X     1                                                               
+11                             1        X           1  1                 1                                          
+12                                X           X        1                    X                                       
+13                                      X  X     X                                                                  
+14                                         X  X                                                                     
+15                                            X                                                                     
+16              X                       X                 1     X                                                   
+17     X  X                                                                                                         
+18        X                                                                                                         
+19  X  X     1                                                                                                      
+20                                                           X                 X                                    
+21                                                           X  X  X                                   1            
+22                                                              X  X                                            X  X
+23                                                           X        X     X                       1               
+24                                                              X     X  1                                          
+25                                                                       1  X  X                                    
+26                                                                          X                                       
+27                 X                                                              1                                 
+28                                                                                1  1                              
+29                                                                                   1  1                           
+30                    X                                                                    1                        
+31                                                                                         1  1                     
+32                                                                 X                             1                  
+33                                                                                               1  1               
+34                                                                                                  1  1            
+35              X                                                                                         X         
+36                                                                                                        X  X      
+37                                                              X                                               X   
+38                                                                                                              X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+    p  r  d  g  r| A| A  p  l  l| r  A  A  r  r  y  p  p  A  A  A| z  r  r  z  A  r  A  l  p  p  y  A  A  A| p  d  d
+    i  r  l  _  r| U| U  r  _  _| r  U  U  s  r  g  i  i  U  U  U| _  r  r  _  U  s  U  _  i  i  g  U  U  U| i  l  l
+    e  _  _  b  _| X| X  e  z  g| _  X  X  _  _  a  e  e  X  X  X| e     _  g  X     X  z  e  e  a  X  X  X| e  _  _
+    _  b  z  a  b| _| _  m  _  d| u  _  _  u  g  p  _  4  _  _  _|       g  a  _     _        4  p  _  _  _| 4  g  s
+    t  a  _  r  a| E| E     b  p| s  E  E  s  a  _  u  _  E  E  E|       a  p  E     E              E  E  E| _  d   
+    a  r  b     r| N| N     a  _|    N  N     p  u  s  u  N  N  N|       p     N     N              N  N  N| e  p   
+    r     a     _| D| D     r  b|    D  D     _  s     s  D  D  D|             D     D              D  D  D| x      
+          r     u| O| O        a|    O  O     u           O  O  O|             O     O              O  O  O| p      
+                s| _| _        r|    _  _     s           _  _  _|             _     _              _  _  _|        
+                 | L| L         |    L  L                 L  L  L|             L     L              L  L  L|        
+                 | E| E         |    A  A                 E  E  E|             A     A              E  E  E|        
+                 | A| A         |    G  G                 A  A  A|             G     G              A  A  A|        
+                 | D| D         |    _  _                 D  D  D|             _     _              D  D  D|        
+                 | _| _         |    2  2                 _  _  _|             4     4              _  _  _|        
+                 | 2| 8         |    0  0                 3  2  2|             _     _              2  8  3|        
+                 | 8| 7         |    _  _                 0  3  0|             2     1              6  4  5|        
+                 | 4|           |    2  1                 0  2  6|                                  4      |        
+
+ 4  X            |  |           |                                |                                         |        
+ 9     X         |  |           |                                |                                         |        
+15        X      |  |           |                                |                                         |        
+18           X   |  |           |                                |                                         |        
+26              X|  |           |                                |                                         |        
+30  X              1|           |                                |                                         |        
+31                 1  1         |                                |                                         |        
+12     X  X     X        1      |                                |                                         |        
+14        X                 X   |                                |                                         |        
+17           X                 X|                                |                                         |        
+24                                1        X        X            |                                         |        
+38                                   X  X                        |                                         |        
+37                                      X           X            |                                         |        
+23              X                          X     X           1   |                                         |        
+25              X                 1           X                  |                                         |        
+20                                            X  X               |                                         |        
+21                                               X  X  X        1|                                         |        
+22                                   X  X           X  X         |                                         |        
+32                                                     X  1      |                                         |        
+33                                                        1  1   |                                         |        
+34                                                           1  1|                                         |        
+10        X                                                        1                    X                  |        
+ 7                                                                    1           X        X               |        
+ 8     X                                                              1  X                                 |        
+13                          X                                               X           X                  |        
+36                                                                             X     X                     |        
+ 6     X              1                                                           X              X     1   |        
+35                                                                                   X     X               |        
+11                       1        1                                1  1                 X                  |        
+ 2                                                                          X              X  X  X        1|        
+ 3                                                                             X     X     X  X            |        
+ 1                                               X                       X  X                    X         |        
+27                                                                                            X     1      |        
+28                                                                                                  1  1   |        
+29                                                                                                     1  1|        
+ 5                                                                                                        1  1      
+19                             X                                                                 X              1   
+16                                                  X                                   X  X                       1
+
+1: non-null element, X: non-null element related to a state variable

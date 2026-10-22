@@ -1,0 +1,15 @@
+var x p q;
+varexo e;
+parameters b k;
+b=0.9; k=0.2;
+model(block);
+x = x(+1) - 0.5*(q - p(+1));
+p = b*p(+1) + k*x + e;
+exp(q) = exp(1.5*p);
+end;
+steady;
+shocks;
+var e; periods 1:2; values 0.1;
+end;
+perfect_foresight_setup(periods=20);
+perfect_foresight_solver;

@@ -1,0 +1,176 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=10 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+
+MATRIX OF COVARIANCE OF MEASUREMENT ERRORS
+Variables        SE_y     SE_pi
+SE_y         0.160000  0.000000
+SE_pi        0.000000  0.062500
+
+POLICY AND TRANSITION FUNCTIONS
+                                  pi               r               y
+r(-1)                      -0.199062        0.400469       -0.800938
+v(-1)                       0.570790        0.485395        1.429210
+u(-1)                       0.663539        0.331769       -0.663539
+ev                          0.713487        0.606744        1.786513
+eu                          1.327077        0.663539       -1.327077
+er                         -0.331769        0.667449       -1.334897
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+pi             0.0000     0.6558     0.4301
+r              0.0000     0.8410     0.7072
+y              0.0000     1.2803     1.6391
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+          ev      eu      er
+pi     54.89   43.89    1.22
+r      83.65   13.35    3.00
+y      71.78   23.04    5.18
+
+
+VARIANCE DECOMPOSITION (in percent) WITH MEASUREMENT ERROR
+          ev      eu      er      ME
+pi     47.92   38.32    1.06   12.69
+y      65.39   21.00    4.72    8.89
+
+CONDITIONAL VARIANCE DECOMPOSITION (in percent)
+Period 1:
+          ev      eu      er
+pi     43.86   54.62    1.52
+r      61.57   26.51   11.92
+y      77.64   15.42    6.94
+Period 4:
+          ev      eu      er
+pi     52.63   46.09    1.28
+r      78.98   17.08    3.94
+y      71.45   23.19    5.35
+
+CONDITIONAL VARIANCE DECOMPOSITION (in percent) - WITH MEASUREMENT ERROR
+Period 1:
+          ev      eu      er      ME
+pi     36.09   44.94    1.25   17.72
+y      67.18   13.35    6.00   13.47
+Period 4:
+          ev      eu      er      ME
+pi     45.65   39.99    1.11   13.25
+y      64.91   21.07    4.86    9.17
+
+
+
+MATRIX OF CORRELATIONS
+Variables        pi       r       y
+pi           1.0000  0.8028  0.3629
+r            0.8028  1.0000  0.4138
+y            0.3629  0.4138  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1
+pi        0.5520
+r         0.8727
+y         0.5983
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+
+MATRIX OF COVARIANCE OF MEASUREMENT ERRORS
+Variables        SE_y     SE_pi
+SE_y         0.160000  0.000000
+SE_pi        0.000000  0.062500
+
+POLICY AND TRANSITION FUNCTIONS
+                                  pi               y
+r(-1)                      -0.199062       -0.800938
+v(-1)                       0.570790        1.429210
+u(-1)                       0.663539       -0.663539
+ev                          0.713487        1.786513
+eu                          1.327077       -1.327077
+er                         -0.331769       -1.334897
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+pi               -0.073412        0.622858        0.387952       -0.066928       -0.068681
+y                -0.100768        1.292002        1.669268        0.102107       -0.105892
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE        pi       y
+pi          1.0000  0.2993
+y           0.2993  1.0000
+
+STOCH_SIMUL: conditional_variance_decomposition requires theoretical moments, i.e. periods=0.
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE         1
+pi          0.5609
+y           0.6390
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
+                    ev                eu                er  Tot. lin. contr.
+pi               56.76             50.31              1.21            108.28
+y                62.61             25.47              4.55             92.63
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent) WITH MEASUREMENT ERROR
+                    ev                eu                er                ME  Tot. lin. contr.
+pi               46.17             40.93              0.98             13.84            101.92
+y                56.75             23.08              4.12              8.39             92.33
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h00m00s

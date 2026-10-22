@@ -1,0 +1,88 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 2).
+Computing static model derivatives w.r.t. parameters (order 2).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Computing dynamic model derivatives w.r.t. parameters (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y  		 0
+pi 		 0
+r  		 0
+g  		 0
+u  		 0
+rr 		 1.0101
+
+======== Identification Analysis ========
+
+Testing prior mean
+  
+Note that differences in the criteria could be due to numerical settings,
+numerical errors or the method used to find problematic parameter sets.
+Settings:
+    Derivation mode for Jacobians:                         Analytic using sylvester equations
+    Method to find problematic parameters:                 Rank condition on all possible subsets
+    Normalize Jacobians:                                   Yes
+    Tolerance level for rank computations:                 robust
+    Tolerance level for selecting nonzero columns:         1e-08
+    Tolerance level for selecting nonzero singular values: 1e-03
+
+REDUCED-FORM:
+    !!!WARNING!!!
+    The rank of Tau (Jacobian of steady state and reduced-form solution matrices) is deficient!
+    Displaying problematic parameter combinations (with maximum dimension 3):
+
+    [alpha,psi] are collinear!
+
+MINIMAL SYSTEM (KOMUNJER AND NG, 2011):
+    !!!WARNING!!!
+    The rank of Deltabar (Jacobian of steady state and minimal system) is deficient!
+    Displaying problematic parameter combinations (with maximum dimension 3):
+
+    [alpha,psi] are collinear!
+
+SPECTRUM (QU AND TKACHENKO, 2012):
+    !!!WARNING!!!
+    The rank of Gbar (Jacobian of mean and spectrum) is deficient!
+    Displaying problematic parameter combinations (with maximum dimension 3):
+
+    SE_eg is not identified!
+    SE_eu is not identified!
+    SE_er is not identified!
+    beta is not identified!
+    sigma is not identified!
+    alpha is not identified!
+    psi is not identified!
+    phipi is not identified!
+    phiy is not identified!
+    rhog is not identified!
+    rhou is not identified!
+
+MOMENTS (ISKREV, 2010):
+    !!!WARNING!!!
+    The rank of J (Jacobian of first two moments) is deficient!
+    Displaying problematic parameter combinations (with maximum dimension 3):
+
+    [alpha,psi] are collinear!
+
+==== Identification analysis completed ====
+
+Total computing time : 0h00m04s

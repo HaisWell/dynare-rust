@@ -1,0 +1,106 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=5 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 1.16285
+c 		 0.689535
+k 		 10.9324
+i 		 0.273311
+n 		 0.385645
+a 		 1
+g 		 0.2
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   3
+  Number of jumpers:           3
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ea        eg
+ea           0.000100  0.000000
+eg           0.000000  0.000400
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c               i               n
+Constant                    1.163254        0.689189        0.274065        0.385847
+(correction)                0.000408       -0.000346        0.000755        0.000202
+k(-1)                       0.015199        0.037683       -0.022485       -0.009851
+g(-1)                       0.139959       -0.118632       -0.541409        0.069278
+a(-1)                       1.486235        0.331666        1.154570        0.188852
+ea                          1.564458        0.349122        1.215336        0.198792
+eg                          0.034990       -0.029658       -0.135352        0.017319
+k(-1),k(-1)                -0.000984       -0.000595       -0.000389        0.000384
+g(-1),k(-1)                -0.003677        0.001417       -0.005094       -0.004495
+g(-1),g(-1)                -0.168842        0.149089        0.082069       -0.081520
+a(-1),k(-1)                 0.041183        0.008498        0.032685        0.005945
+a(-1),g(-1)                 0.034099        0.003680        0.030419       -0.037740
+a(-1),a(-1)                 0.062492       -0.008558        0.071050       -0.133217
+ea,ea                       0.069243       -0.009483        0.078726       -0.147609
+eg,ea                       0.008973        0.000968        0.008005       -0.009932
+eg,eg                       0.011316       -0.009218       -0.079466        0.005730
+k(-1),ea                    0.043350        0.008945        0.034405        0.006258
+k(-1),eg                   -0.000919        0.000354       -0.001274       -0.001124
+g(-1),ea                    0.035894        0.003874        0.032020       -0.039726
+g(-1),eg                    0.090528       -0.073745       -0.635726        0.045837
+a(-1),ea                    0.131562       -0.018017        0.149579       -0.280458
+a(-1),eg                    0.008525        0.000920        0.007605       -0.009435
+
+
+MOMENTS OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+y                 1.153814        0.020796        0.000432        0.014079       -0.200566
+c                 0.682618        0.005277        0.000028       -0.046872       -0.430082
+i                 0.272833        0.016480        0.000272        0.054293       -0.183686
+n                 0.386122        0.002724        0.000007       -0.080165        0.071228
+
+
+CORRELATION OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE         y       c       i       n
+y           1.0000  0.9064  0.9668  0.9596
+c           0.9064  1.0000  0.8673  0.7521
+i           0.9668  0.8673  1.0000  0.9356
+n           0.9596  0.7521  0.9356  1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES (HP filter, lambda = 1600)
+VARIABLE         1       2
+y           0.7364  0.4847
+c           0.8095  0.6103
+i           0.7365  0.4881
+n           0.7189  0.4542
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent) (HP filter, lambda = 1600)
+                   ea                eg  Tot. lin. contr.
+y              100.18              0.16            100.34
+c               97.19              2.07             99.25
+i               95.90              3.59             99.49
+n               98.75              2.23            100.98
+Note: numbers do not add up to 100 due to i) non-zero correlation of simulated shocks in small samples and ii) nonlinearity
+
+Total computing time : 0h00m01s

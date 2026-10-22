@@ -1,0 +1,21 @@
+// simul_replic > 1 with skewed shocks: every replication uses skew-normal draws.
+var c k y;
+varexo x z;
+parameters alph bet sig;
+alph = 0.36; bet = 0.95; sig = 0.01;
+model;
+  c + k = k(-1)^alph*exp(x) + z;
+  1/c = bet/c(+1)*alph*k^(alph-1)*exp(x(+1));
+  y = k(-1)^alph*exp(x);
+end;
+steady_state_model;
+  k = (alph*bet)^(1/(1-alph));
+  c = k^alph - k;
+  y = k^alph;
+end;
+shocks;
+  var x; stderr 0.002;
+  var z; stderr 0.01;
+  skew z = 0.9;
+end;
+stoch_simul(order = 1, irf = 0, periods = 40000, simul_replic = 3, nomoments, nofunctions);

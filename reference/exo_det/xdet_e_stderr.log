@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+shocks: setting a standard error on 'g' is not allowed, because it is neither an exogenous variable nor an observed endogenous variable
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed

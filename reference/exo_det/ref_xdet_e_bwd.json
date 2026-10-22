@@ -1,0 +1,1 @@
+{"err":"var_exo_det not implemented for purely backwards models","exo_names":["e"],"exo_det_names":["g"],"param_names":["rho"],"exo_det_simul":[],"exo_det_steady_state":0.1,"exo_simul":[],"endo_simul":[],"steady_state":[1.0000000000000002,2],"Sigma_e":0.0001,"params":0.9}

@@ -1,0 +1,1 @@
+{"error":"Option dr=cycle_reduction is not compatible with k_order_solver","endo_names":["y","c","k","i","n","a","g"],"exo_names":["ea","eg"],"Sigma_e":[[0.0001,0],[0,0.0004]],"cmds":[]}

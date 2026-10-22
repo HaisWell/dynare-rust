@@ -1,0 +1,34 @@
+// model_local_variable, several model blocks, model_remove, model_replace, var_remove,
+// model_options(differentiate_forward_vars), equation tags (stream PP)
+var y c k i w z;
+varexo e u;
+parameters alpha beta delta rho gam;
+model_local_variable mpk;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9; gam = 0.5;
+model_options(differentiate_forward_vars = (c));
+model;
+# mpk = alpha*exp(z)*k(-1)^(alpha-1);
+[name='res'] c + i = exp(z)*k(-1)^alpha;
+[name='cap'] k = i + (1-delta)*k(-1);
+[name='euler'] 1/c = beta/c(+1)*(mpk(+1) + 1 - delta);
+end;
+model;
+[name='tfp'] z = rho*z(-1) + e;
+[name='out'] y = exp(z)*k(-1)^alpha;
+[name='wedge', endogenous='w'] w = gam*w(-1) + u;
+end;
+model_remove('wedge');
+var_remove u;
+model_replace('out');
+[name='out'] y = c + i;
+end;
+steady_state_model;
+k = ((1/beta-1+delta)/alpha)^(1/(alpha-1));
+i = delta*k;
+c = k^alpha - i;
+y = c + i;
+z = 0;
+end;
+shocks; var e; stderr 0.01; end;
+steady;
+stoch_simul(order=1, irf=0, nograph);

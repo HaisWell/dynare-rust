@@ -1,0 +1,258 @@
+{
+ "endo_names": [
+  "y",
+  "k",
+  "c",
+  "z",
+  "AUX_DIFF_43",
+  "LOG_y",
+  "LOG_k",
+  "AUX_ENDO_LEAD_98",
+  "AUX_ENDO_LAG_10_1",
+  "AUX_ENDO_LAG_10_2"
+ ],
+ "exo_names": [
+  "e"
+ ],
+ "param_names": [
+  "alpha",
+  "beta",
+  "delta",
+  "rho"
+ ],
+ "orig_endo_nbr": 4,
+ "aux_vars": [
+  {
+   "endo_index": 5,
+   "type": 8,
+   "orig_expr": "diff(log(y))"
+  },
+  {
+   "endo_index": 6,
+   "type": 7,
+   "orig_index": 1,
+   "orig_lead_lag": 0,
+   "orig_expr": "log(y)"
+  },
+  {
+   "endo_index": 7,
+   "type": 7,
+   "orig_index": 2,
+   "orig_lead_lag": 0,
+   "orig_expr": "log(k)"
+  },
+  {
+   "endo_index": 8,
+   "type": 0,
+   "orig_expr": "beta/c*(1+alpha*exp(LOG_y(1))/exp(LOG_k(-1))-delta)"
+  },
+  {
+   "endo_index": 9,
+   "type": 1,
+   "orig_index": 6,
+   "orig_lead_lag": -1,
+   "orig_expr": "LOG_y(-1)"
+  },
+  {
+   "endo_index": 10,
+   "type": 1,
+   "orig_index": 6,
+   "orig_lead_lag": -2,
+   "orig_expr": "AUX_ENDO_LAG_10_1(-1)"
+  }
+ ],
+ "lead_lag_incidence": [
+  [
+   0,
+   6,
+   0
+  ],
+  [
+   0,
+   7,
+   0
+  ],
+  [
+   0,
+   8,
+   0
+  ],
+  [
+   1,
+   9,
+   0
+  ],
+  [
+   0,
+   10,
+   0
+  ],
+  [
+   2,
+   11,
+   16
+  ],
+  [
+   3,
+   12,
+   0
+  ],
+  [
+   0,
+   13,
+   17
+  ],
+  [
+   4,
+   14,
+   0
+  ],
+  [
+   5,
+   15,
+   0
+  ]
+ ],
+ "dynamic_g1_sparse_rowval": [
+  4,
+  5,
+  9,
+  1,
+  2,
+  8,
+  10,
+  4,
+  6,
+  7,
+  1,
+  3,
+  8,
+  4,
+  4,
+  5,
+  1,
+  2,
+  5,
+  6,
+  1,
+  7,
+  8,
+  9,
+  10,
+  8,
+  3,
+  2,
+  4
+ ],
+ "dynamic_g1_sparse_colval": [
+  4,
+  6,
+  6,
+  7,
+  7,
+  7,
+  9,
+  10,
+  11,
+  12,
+  13,
+  13,
+  13,
+  14,
+  15,
+  15,
+  16,
+  16,
+  16,
+  16,
+  17,
+  17,
+  18,
+  19,
+  20,
+  26,
+  28,
+  31,
+  31
+ ],
+ "static_g1_sparse_rowval": [
+  6,
+  7,
+  1,
+  3,
+  8,
+  4,
+  4,
+  5,
+  1,
+  2,
+  6,
+  8,
+  9,
+  1,
+  2,
+  7,
+  8,
+  3,
+  8,
+  9,
+  10,
+  4,
+  10
+ ],
+ "static_g1_sparse_colval": [
+  1,
+  2,
+  3,
+  3,
+  3,
+  4,
+  5,
+  5,
+  6,
+  6,
+  6,
+  6,
+  6,
+  7,
+  7,
+  7,
+  7,
+  8,
+  8,
+  9,
+  9,
+  10,
+  10
+ ],
+ "params": [
+  0.36,
+  0.99,
+  0.025,
+  0.9
+ ],
+ "orig_maximum_lag": 3,
+ "orig_maximum_lead": 2,
+ "equations_tags": [
+  [
+   1,
+   "name",
+   "1"
+  ],
+  [
+   2,
+   "name",
+   "y"
+  ],
+  [
+   3,
+   "name",
+   "3"
+  ],
+  [
+   4,
+   "name",
+   "z"
+  ]
+ ]
+}

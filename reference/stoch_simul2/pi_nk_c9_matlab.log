@@ -1,0 +1,80 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=9 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+[Warning: stoch_simul: using order = 1 because Hessian is equal to zero] 
+[> In stoch_simul (line 59)
+In pi_nk.driver (line 303)
+In dynare (line 300)
+In dump_ss2 (line 19)
+In run (line 112)] 
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi
+r(-1)                      -0.800938       -0.199062
+v(-1)                       1.429210        0.570790
+u(-1)                      -0.663539        0.663539
+ev                          1.786513        0.713487
+eu                         -1.327077        1.327077
+er                         -1.334897       -0.331769
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              0.0000     1.2803     1.6391
+pi             0.0000     0.6558     0.4301
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+          ev      eu      er
+y      71.78   23.04    5.18
+pi     54.89   43.89    1.22
+
+
+
+MATRIX OF CORRELATIONS
+Variables         y      pi
+y            1.0000  0.3629
+pi           0.3629  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1
+y         0.5983
+pi        0.5520
+Total computing time : 0h00m00s
+Note: warning(s) encountered in MATLAB/Octave code

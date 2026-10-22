@@ -1,0 +1,13 @@
+var y k c g a;
+varexo e;
+parameters alpha delta s rho;
+alpha=0.3; delta=0.1; s=0.2; rho=0.9;
+model(block);
+y = a*k(-1)^alpha;
+k = (1-delta)*k(-1) + s*y;
+c = (1-s)*y;
+log(g) = log(y) - log(y(-1));
+a = 1 - rho + rho*a(-1) + e;
+end;
+initval; y=1; k=2; c=0.8; g=1; a=1; end;
+steady;

@@ -1,0 +1,30 @@
+tag: msd
+gaussian
+ dim=15
+
+nproposal = 10000  nposterior = 4000
+
+Waggoner-Zha
+log(mdd) = -3.236343e+02   log(cut) = minus infinity in_proposal = 10000   in_posterior = 4000
+log(mdd) = -3.253380e+02   log(cut) = -3.279109e+02  in_proposal = 1820   in_posterior = 3999
+log(mdd) = -3.258771e+02   log(cut) = -3.235515e+02  in_proposal = 1000   in_posterior = 3975
+log(mdd) = -3.259124e+02   log(cut) = -3.201746e+02  in_proposal = 500   in_posterior = 3847
+log(mdd) = -3.259947e+02   log(cut) = -3.155320e+02  in_proposal = 100   in_posterior = 2840
+log(mdd) = -3.260687e+02   log(cut) = -3.143043e+02  in_proposal = 50   in_posterior = 2257
+log(mdd) = -3.259153e+02   log(cut) = -3.138939e+02  in_proposal = 40   in_posterior = 2035
+log(mdd) = -3.258448e+02   log(cut) = -3.134256e+02  in_proposal = 30   in_posterior = 1815
+log(mdd) = -3.257803e+02   log(cut) = -3.130154e+02  in_proposal = 20   in_posterior = 1557
+log(mdd) = -3.257987e+02   log(cut) = -3.122115e+02  in_proposal = 10   in_posterior = 1081
+log(mdd) = -3.241712e+02   log(cut) = -3.093853e+02  in_proposal = 1   in_posterior = 101
+
+Muller log(mdd) = -3.260032e+02
+nproposal = 10000  nposterior = 4000   in_P1 = 9798   in_P2 = 3963
+
+  in_P1 is the number of proposal draws such that the density of the proposal is greater than
+  or equal to the density (properly scaled!) of the posterior.  in_P2 is the number of
+  posterior draws such that the density (properly scaled!) of the posterior is greater than
+  or equal to the density of the proposal.  Both numbers should be somewhat larger than zero.
+  Ideally both should also be somewhat less than the maximum possible value, though in
+  practice this rarely happens.
+
+Bridge log(mdd) = -3.260196e+02

@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+ERROR: A .mod file cannot contain both one of {perfect_foresight_solver, simul, perfect_foresight_with_expectation_errors_solver} and one of {stoch_simul, estimation, osr, ramsey_policy, discretionary_policy}. This is not possible: one cannot mix perfect foresight context with stochastic context in the same file.
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed

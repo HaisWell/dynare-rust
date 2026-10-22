@@ -1,0 +1,55 @@
+# Build output
+target/
+target*/
+# Editors and tools
+.idea/
+.vscode/
+.DS_Store
+.claude/
+__pycache__/
+*.pyc
+# Logs at the top level (the MATLAB diaries under reference/ are test inputs and stay tracked)
+/*.log
+# Dynare work folders created when references are regenerated
+reference/**/+*/
+
+# Per-area regeneration scratch
+reference/analysis/nk/
+reference/analysis/+nk/
+reference/ml/+model_ml/
+reference/identification/+*/
+reference/identification/nk_ident/
+reference/identification/nk_noprior/
+reference/identification/*.log
+# reference models (docs/REFERENCES.md): commit sources, data, refs and *mode*.mat only
+reference/sw07/*/
+!reference/sw07/sw07/
+reference/sw07/sw07/*
+!reference/sw07/sw07/Output/
+reference/sw07/sw07/Output/*
+!reference/sw07/sw07/Output/*_mode*.mat
+reference/sw07/*.log
+reference/sw07/model_ss.mod
+reference/sw07/sw07_post.mod
+reference/sw07/sw07_sim.mod
+reference/sw07/sw07_conditional.mod
+reference/sw07/sw07_timing*.mod
+reference/sw07/calib_tmp.mat
+reference/qpm/*/
+!reference/qpm/model_qpm/
+reference/qpm/model_qpm/*
+!reference/qpm/model_qpm/Output/
+reference/qpm/model_qpm/Output/*
+!reference/qpm/model_qpm/Output/*_mode*.mat
+reference/qpm/*.log
+reference/qpm/model_qpm_sim.mod
+reference/qpm/model_qpm_dump.mod
+reference/gm05/*/
+!reference/gm05/model_gm05/
+reference/gm05/model_gm05/*
+!reference/gm05/model_gm05/Output/
+reference/gm05/model_gm05/Output/*
+!reference/gm05/model_gm05/Output/*_mode*.mat
+reference/gm05/*.log
+reference/gm05/model_gm05_sim.mod
+reference/gm05/model_gm05_dump.mod

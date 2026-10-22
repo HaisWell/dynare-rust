@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+ERROR: xdet_e_endval.mod: line 18, cols 1-9: g is an exogenous deterministic.
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed

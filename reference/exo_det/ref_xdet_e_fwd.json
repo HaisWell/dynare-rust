@@ -1,0 +1,1 @@
+{"err":"var_exo_det not implemented for purely forward models","exo_names":["e"],"exo_det_names":["g"],"param_names":["beta","rho"],"exo_det_simul":[],"exo_det_steady_state":0.1,"exo_simul":[],"endo_simul":[],"steady_state":[9.9999999999999911,99.999999999999886],"Sigma_e":0.0001,"params":[0.99,0.9]}

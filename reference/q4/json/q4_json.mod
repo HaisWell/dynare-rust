@@ -1,0 +1,15 @@
+var a b c d f g h;
+varexo e;
+parameters p q r;
+p = 0.5; q = 2; r = -1.5;
+model;
+a = -(b*c) + (b-c) - (b+c) + -b^2 + p*(-c) + e;
+b = b(-1)/(c/d) + b(-1)/c/d + (a+b)*c + a^-p + a^(-p) + (a^p)^q + a^(p^q);
+c = max(a, b) + min(a, b(-1)) + abs(a) + sign(b) + exp(log(c(-1))) + sqrt(d) + log10(f) + 1.5e-3 + 2 - r;
+d = (a > b) + (a <= b) + (a == b) + (a != b) + normcdf(a) + normpdf(a, p, q) + erf(b) + tan(c) + atanh(0.1*d(-1));
+f = -1 + 2*p - (-p) + p/(q*r) + a*b*c - a/b*c + a/(b*c) - (a-b)/(c+d) + 3/4;
+g = f(+1) + e(+1)*p - a(-2) + 1/2*g(+2);
+h = - 0.5 * h(-1) + p^2*h(-1)^2 - (1-p);
+end;
+shocks; var e; stderr 0.01; end;
+stoch_simul(order=1, irf=0, periods=0);

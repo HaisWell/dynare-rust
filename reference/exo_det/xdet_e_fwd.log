@@ -1,0 +1,31 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+Found 2 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  2 recursive block(s) and 0 simultaneous block(s).
+  the largest simultaneous block has 0 equation(s)
+                                 and 0 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+1 block(s) found:
+  1 recursive block(s) and 0 simultaneous block(s).
+  the largest simultaneous block has 0 equation(s)
+                                 and 0 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c 		 10
+a 		 100
+
+STOCHASTIC_SOLVER: Dynare does not solve purely forward models with var_exo_det.
+STOCHASTIC_SOLVER: To circumvent this restriction, you can add a backward-looking dummy equation of the form:
+STOCHASTIC_SOLVER: junk=0.9*junk(-1);
+ERRMSG: var_exo_det not implemented for purely forward models

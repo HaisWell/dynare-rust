@@ -1,0 +1,22 @@
+// STEADY_STATE() in model equations at order 2 (stream PP)
+var y c k r i;
+varexo e;
+parameters alpha beta delta rho phi;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9; phi = 0.5;
+model;
+c + i = k(-1)^alpha*exp(y);
+k = i + (1-delta)*k(-1);
+1/c = beta/c(+1)*(alpha*exp(y(+1))*k^(alpha-1)+1-delta);
+y = rho*y(-1) + e;
+r = STEADY_STATE(r)*exp(phi*(c/STEADY_STATE(c) - 1)) + 0.001*STEADY_STATE(k)*(i - STEADY_STATE(i))^2;
+end;
+steady_state_model;
+k = ((1/beta-1+delta)/alpha)^(1/(alpha-1));
+i = delta*k;
+c = k^alpha - i;
+y = 0;
+r = 1/beta;
+end;
+shocks; var e; stderr 0.01; end;
+steady;
+stoch_simul(order=2, irf=0, nograph);

@@ -1,0 +1,285 @@
+Information about mi_q1log (static model)
+===========================================
+The model has 10 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   EVALUATE FORWARD             | 5                               | 5                   AUX_DIFF_43 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          4 |   SOLVE FORWARD COMPLETE       | 2                             y | 7                         LOG_k |
+|            |            |                                | 3                             3 | 8              AUX_ENDO_LEAD_98 |
+|            |            |                                | 8                               | 6                         LOG_y |
+|            |            |                                | 1                             1 | 3                             c |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          4 |   EVALUATE FORWARD             | 9                               | 9             AUX_ENDO_LAG_10_1 |
+|            |            |                                | 10                              | 10            AUX_ENDO_LAG_10_2 |
+|            |            |                                | 7                               | 2                             k |
+|            |            |                                | 6                               | 1                             y |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   SOLVE FORWARD SIMPLE         | 4                             z | 4                             z |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+y                                  6
+k                                  7
+c                                  1     3     8
+z                                  4
+AUX_DIFF_43                        4     5
+LOG_y                              1     2     6     8     9
+LOG_k                              1     2     7     8
+AUX_ENDO_LEAD_98                   3     8
+AUX_ENDO_LAG_10_1                  9    10
+AUX_ENDO_LAG_10_2                  4    10
+
+
+Information about mi_q1log (static model)
+===========================================
+The model has 10 equations and is decomposed into 4 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          1 |   EVALUATE FORWARD             | 5                               | 5                   AUX_DIFF_43 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          4 |   SOLVE FORWARD COMPLETE       | 2                             y | 7                         LOG_k |
+|            |            |                                | 3                             3 | 8              AUX_ENDO_LEAD_98 |
+|            |            |                                | 8                               | 6                         LOG_y |
+|            |            |                                | 1                             1 | 3                             c |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          3 |          4 |   EVALUATE FORWARD             | 9                               | 9             AUX_ENDO_LAG_10_1 |
+|            |            |                                | 10                              | 10            AUX_ENDO_LAG_10_2 |
+|            |            |                                | 7                               | 2                             k |
+|            |            |                                | 6                               | 1                             y |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          4 |          1 |   SOLVE FORWARD SIMPLE         | 4                             z | 4                             z |
+================================================================================================================================
+
+The variable                   is used contemporaneously in the following equations:
+y                                  6
+k                                  7
+c                                  1     3     8
+z                                  4
+AUX_DIFF_43                        4     5
+LOG_y                              1     2     6     8     9
+LOG_k                              1     2     7     8
+AUX_ENDO_LEAD_98                   3     8
+AUX_ENDO_LAG_10_1                  9    10
+AUX_ENDO_LAG_10_2                  4    10
+
+
+Gross incidence matrix
+=======================
+   y  k  c  z  A  L  L  A  A  A
+               U  O  O  U  U  U
+               X  G  G  X  X  X
+               _  _  _  _  _  _
+               D  y  k  E  E  E
+               I        N  N  N
+               F        D  D  D
+               F        O  O  O
+               _        _  _  _
+               4        L  L  L
+               3        E  A  A
+                        A  G  G
+                        D  _  _
+                        _  1  1
+                        9  0  0
+                        8  _  _
+                           1  2
+
+ 1        1        X  X         
+ 2                 X  X         
+ 3        1              1      
+ 4           X  1              X
+ 5              1               
+ 6  1              X            
+ 7     1              X         
+ 8        1        X  X  1      
+ 9                 X        X   
+10                          X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+   A| L  A  L  c| A  A  k  y| z
+   U| O  U  O   | U  U      |  
+   X| G  X  G   | X  X      |  
+   _| _  _  _   | _  _      |  
+   D| k  E  y   | E  E      |  
+   I|    N      | N  N      |  
+   F|    D      | D  D      |  
+   F|    O      | O  O      |  
+   _|    _      | _  _      |  
+   4|    L      | L  L      |  
+   3|    E      | A  A      |  
+    |    A      | G  G      |  
+    |    D      | _  _      |  
+    |    _      | 1  1      |  
+    |    9      | 0  0      |  
+    |    8      | _  _      |  
+    |           | 1  2      |  
+
+ 5  1|           |           |  
+ 2     X     X   |           |  
+ 3        1     1|           |  
+ 8     X  1  X  1|           |  
+ 1     X     X  1|           |  
+ 9           X     X         |  
+10                 X  X      |  
+ 7     X                 1   |  
+ 6           X              1|  
+ 4  1                 X        X
+
+1: non-null element, X: non-null element related to a state variable
+
+Information about mi_q1log (dynamic model)
+============================================
+The model has 10 equations and is decomposed into 2 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          4 |  SOLVE TWO BOUNDARIES COMPLETE | 3                             3 | 3                             c |
+|            |            |                                | 1                             1 | 7                         LOG_k |
+|            |            |                                | 2                             y | 6                         LOG_y |
+|            |            |                                | 8                               | 8              AUX_ENDO_LEAD_98 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          6 |   EVALUATE FORWARD             | 9                               | 9             AUX_ENDO_LAG_10_1 |
+|            |            |                                | 10                              | 10            AUX_ENDO_LAG_10_2 |
+|            |            |                                | 7                               | 2                             k |
+|            |            |                                | 6                               | 1                             y |
+|            |            |                                | 5                               | 5                   AUX_DIFF_43 |
+|            |            |                                | 4                             z | 4                             z |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+z                                  4
+LOG_y                              5     9
+LOG_k                              1     2     8
+AUX_ENDO_LAG_10_1                 10
+AUX_ENDO_LAG_10_2                  4
+
+The variable                   is used in the following equations contemporaneously
+y                                  6
+k                                  7
+c                                  1     3     8
+z                                  4
+AUX_DIFF_43                        4     5
+LOG_y                              1     2     5     6
+LOG_k                              1     7
+AUX_ENDO_LEAD_98                   8
+AUX_ENDO_LAG_10_1                  9
+AUX_ENDO_LAG_10_2                 10
+
+The variable                   is used in equations with lead  1
+LOG_y                              8
+AUX_ENDO_LEAD_98                   3
+
+
+Information about mi_q1log (dynamic model)
+============================================
+The model has 10 equations and is decomposed into 2 blocks as follows:
+================================================================================================================================
+|   Block no |       Size |                     Block Type |                        Equation |              Dependent variable |
+|============|============|================================|=================================|=================================|
+|          1 |          4 |  SOLVE TWO BOUNDARIES COMPLETE | 3                             3 | 3                             c |
+|            |            |                                | 1                             1 | 7                         LOG_k |
+|            |            |                                | 2                             y | 6                         LOG_y |
+|            |            |                                | 8                               | 8              AUX_ENDO_LEAD_98 |
+|------------|------------|--------------------------------|---------------------------------|---------------------------------|
+|          2 |          6 |   EVALUATE FORWARD             | 9                               | 9             AUX_ENDO_LAG_10_1 |
+|            |            |                                | 10                              | 10            AUX_ENDO_LAG_10_2 |
+|            |            |                                | 7                               | 2                             k |
+|            |            |                                | 6                               | 1                             y |
+|            |            |                                | 5                               | 5                   AUX_DIFF_43 |
+|            |            |                                | 4                             z | 4                             z |
+================================================================================================================================
+
+The variable                   is used in the following equations with lag  1
+z                                  4
+LOG_y                              5     9
+LOG_k                              1     2     8
+AUX_ENDO_LAG_10_1                 10
+AUX_ENDO_LAG_10_2                  4
+
+The variable                   is used in the following equations contemporaneously
+y                                  6
+k                                  7
+c                                  1     3     8
+z                                  4
+AUX_DIFF_43                        4     5
+LOG_y                              1     2     5     6
+LOG_k                              1     7
+AUX_ENDO_LEAD_98                   8
+AUX_ENDO_LAG_10_1                  9
+AUX_ENDO_LAG_10_2                 10
+
+The variable                   is used in equations with lead  1
+LOG_y                              8
+AUX_ENDO_LEAD_98                   3
+
+
+Gross incidence matrix
+=======================
+   y  k  c  z  A  L  L  A  A  A
+               U  O  O  U  U  U
+               X  G  G  X  X  X
+               _  _  _  _  _  _
+               D  y  k  E  E  E
+               I        N  N  N
+               F        D  D  D
+               F        O  O  O
+               _        _  _  _
+               4        L  L  L
+               3        E  A  A
+                        A  G  G
+                        D  _  _
+                        _  1  1
+                        9  0  0
+                        8  _  _
+                           1  2
+
+ 1        1        X  X         
+ 2                 X  X         
+ 3        1              1      
+ 4           X  1              X
+ 5              1  X            
+ 6  1              X            
+ 7     1              X         
+ 8        1        X  X  1      
+ 9                 X        X   
+10                          X  X
+
+1: non-null element, X: non-null element related to a state variable
+
+Reordered incidence matrix
+==========================
+   c  L  L  A| A  A  k  y  A  z
+      O  O  U| U  U        U   
+      G  G  X| X  X        X   
+      _  _  _| _  _        _   
+      k  y  E| E  E        D   
+            N| N  N        I   
+            D| D  D        F   
+            O| O  O        F   
+            _| _  _        _   
+            L| L  L        4   
+            E| A  A        3   
+            A| G  G            
+            D| _  _            
+            _| 1  1            
+            9| 0  0            
+            8| _  _            
+             | 1  2            
+
+ 3  1        1|                 
+ 1  1  X  X   |                 
+ 2     X  X   |                 
+ 8  1  X  X  1|                 
+ 9        X     X               
+10              X  X            
+ 7     X              1         
+ 6        X              1      
+ 5        X                 1   
+ 4                 X        1  X
+
+1: non-null element, X: non-null element related to a state variable

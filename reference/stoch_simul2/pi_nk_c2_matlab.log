@@ -1,0 +1,67 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: -DMATLAB_DUMP -DCASE=2 nointeractive noclearall
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          ev        eu        er
+ev           0.250000  0.000000  0.000000
+eu           0.000000  0.090000  0.000000
+er           0.000000  0.000000  0.040000
+
+SOLUTION UNDER PARTIAL INFORMATION
+
+ VAROBS LIST NOT SPECIFIED
+ ASSUMED OBSERVED VARIABLES
+    y
+    pi
+    r
+    v
+    u
+
+
+
+THEORETICAL MOMENTS
+VARIABLE         STD. DEV.        VARIANCE
+y             1.2802886064    1.6391389158
+r             0.8409561025    0.7072071664
+
+
+
+MATRIX OF CORRELATIONS
+Variables         y       r
+y            1.0000  0.4138
+r            0.4138  1.0000
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1       2
+y         0.5983  0.3737
+r         0.8727  0.7133
+Total computing time : 0h00m00s

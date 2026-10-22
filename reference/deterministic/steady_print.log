@@ -1,0 +1,40 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive
+Starting preprocessing of the model file ...
+Substitution of endo leads >= 2: added 1 auxiliary variables and equations.
+Substitution of endo lags >= 2: added 2 auxiliary variables and equations.
+Found 8 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m01s.
+
+STEADY-STATE RESULTS:
+
+c                		 2.30662
+k                		 28.3483
+a                		 1
+y                		 3.01532
+z                		 5.32194
+
+STEADY-STATE RESULTS:
+
+c                		 2.30662
+k                		 28.3483
+a                		 1
+y                		 3.01532
+z                		 5.32194
+Total computing time : 0h00m00s

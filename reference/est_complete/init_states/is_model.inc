@@ -1,0 +1,27 @@
+// Small nonlinear RBC model with a parameter-dependent steady state (analytic_derivation tests).
+var y c k i a b s q;
+varexo ea eb;
+parameters alpha beta delta rho rhob sigc;
+alpha = 0.33; beta = 0.99; delta = 0.025; rho = 0.9; rhob = 0.8; sigc = 2;
+model;
+exp(c)^(-sigc)*exp(b) = beta*exp(c(+1))^(-sigc)*exp(b(+1))*(alpha*exp(a(+1))*exp(k)^(alpha-1) + 1 - delta);
+exp(y) = exp(a)*exp(k(-1))^alpha;
+exp(k) = exp(i) + (1-delta)*exp(k(-1));
+exp(y) = exp(c) + exp(i);
+a = rho*a(-1) + ea;
+b = rhob*b(-1) + eb;
+s = 2*a + 0.5*b;
+q = 0.5*q(-1) + 0.1*s(-1);
+end;
+initval;
+k = log(((1/0.99-1+0.025)/0.33)^(1/(0.33-1)));
+y = 0.33*log(((1/0.99-1+0.025)/0.33)^(1/(0.33-1)));
+i = log(0.025) + log(((1/0.99-1+0.025)/0.33)^(1/(0.33-1)));
+c = log(exp(0.33*log(((1/0.99-1+0.025)/0.33)^(1/(0.33-1)))) - 0.025*((1/0.99-1+0.025)/0.33)^(1/(0.33-1)));
+a = 0; b = 0; s = 0; q = 0;
+end;
+shocks;
+var ea; stderr 0.01;
+var eb; stderr 0.02;
+end;
+steady;

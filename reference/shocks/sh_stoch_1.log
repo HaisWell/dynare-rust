@@ -1,0 +1,26 @@
+MODEL SUMMARY
+
+  Number of variables:         4
+  Number of stochastic shocks: 2
+  Number of state variables:   1
+  Number of jumpers:           1
+  Number of static variables:  2
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables           x         z
+x            0.000100  0.000100
+z            0.000100  0.000100
+
+
+COSKEWNESS OF EXOGENOUS SHOCKS
+Entry               Value
+Skew(z)            0.3000
+Skew(x, x, z)      0.0500
+
+
+MATRIX OF COVARIANCE OF MEASUREMENT ERRORS
+Variables        SE_y      SE_c
+SE_y         0.040000  0.002000
+SE_c         0.002000  0.010000
+

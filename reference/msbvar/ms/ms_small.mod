@@ -1,0 +1,17 @@
+var y1 y2;
+varexo e1;
+parameters a;
+a = 0.5;
+model;
+y1 = a*y1(-1) + e1;
+y2 = y1;
+end;
+varobs y1 y2;
+svar_identification;
+upper_cholesky;
+end;
+markov_switching(chain=1, number_of_regimes=2, duration=4);
+svar(variances, chain=1);
+ms_estimation(datafile=d2, freq=4, initial_year=1960, final_year=1988, nlags=2, max_number_of_stages=0, convergence_starting_value=1e-5, convergence_ending_value=1e-7, number_of_large_perturbations=0, number_of_small_perturbations=0);
+ms_compute_probabilities(filtered_probabilities);
+ms_compute_probabilities;

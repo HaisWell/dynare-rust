@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+ERROR: xdet_e_epilogue.mod: line 18, col 6: Symbol 'g' cannot be used inside the epilogue block, because it is an exogenous deterministic variable.
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed

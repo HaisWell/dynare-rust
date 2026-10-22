@@ -1,0 +1,111 @@
+{
+ "endo_names": [
+  "y_fr",
+  "y_de",
+  "y_it",
+  "ybar"
+ ],
+ "exo_names": [
+  "e_fr",
+  "e_de",
+  "e_it"
+ ],
+ "param_names": [
+  "rho"
+ ],
+ "orig_endo_nbr": 4,
+ "aux_vars": [],
+ "lead_lag_incidence": [
+  [
+   1,
+   4
+  ],
+  [
+   2,
+   5
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   0,
+   7
+  ]
+ ],
+ "dynamic_g1_sparse_rowval": [
+  1,
+  2,
+  3,
+  1,
+  4,
+  2,
+  4,
+  3,
+  4,
+  4,
+  1,
+  2,
+  3
+ ],
+ "dynamic_g1_sparse_colval": [
+  1,
+  2,
+  3,
+  5,
+  5,
+  6,
+  6,
+  7,
+  7,
+  8,
+  13,
+  14,
+  15
+ ],
+ "static_g1_sparse_rowval": [
+  1,
+  4,
+  2,
+  4,
+  3,
+  4,
+  4
+ ],
+ "static_g1_sparse_colval": [
+  1,
+  1,
+  2,
+  2,
+  3,
+  3,
+  4
+ ],
+ "params": [
+  0.5
+ ],
+ "orig_maximum_lag": 1,
+ "orig_maximum_lead": 0,
+ "equations_tags": [
+  [
+   1,
+   "name",
+   "y_fr"
+  ],
+  [
+   2,
+   "name",
+   "y_de"
+  ],
+  [
+   3,
+   "name",
+   "y_it"
+  ],
+  [
+   4,
+   "name",
+   "ybar"
+  ]
+ ]
+}

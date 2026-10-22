@@ -1,0 +1,82 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+y 		 3.01532
+c 		 2.20662
+k 		 28.348
+a 		 0
+
+MODEL SUMMARY
+
+  Number of variables:         4
+  Number of stochastic shocks: 1
+  Number of state variables:   2
+  Number of jumpers:           2
+  Number of static variables:  1
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables           e
+e            0.000100
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y               c               k               a
+Constant                    3.015318        2.206653       28.347995               0
+(correction)                       0        0.000036       -0.000036               0
+k(-1)                       0.035101        0.047131        0.962970               0
+a(-1)                       2.713783        0.474745        2.239037        0.900000
+e                           3.015314        0.527495        2.487819        1.000000
+k(-1),k(-1)                -0.000415       -0.000267       -0.000147               0
+a(-1),k(-1)                 0.031591        0.003906        0.027685               0
+a(-1),a(-1)                 1.221202        0.132557        1.088645               0
+e,e                         1.507657        0.163651        1.344006               0
+k(-1),e                     0.035101        0.004340        0.030762               0
+a(-1),e                     2.713783        0.294572        2.419211               0
+
+
+THEORETICAL MOMENTS BASED ON PRUNED STATE SPACE
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              3.0170     0.0862     0.0074
+c              2.2077     0.0445     0.0020
+k             28.3710     0.7923     0.6277
+a              0.0000     0.0229     0.0005
+
+
+
+MATRIX OF CORRELATIONS BASED ON PRUNED STATE SPACE
+Variables         y       c       k       a
+y            1.0000  0.8591  0.7556  0.9593
+c            0.8591  1.0000  0.9844  0.6800
+k            0.7556  0.9844  1.0000  0.5403
+a            0.9593  0.6800  0.5403  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION BASED ON PRUNED STATE SPACE
+Order          1       2       3       4       5
+y         0.9368  0.8785  0.8247  0.7751  0.7292
+c         0.9924  0.9822  0.9697  0.9553  0.9392
+k         0.9980  0.9926  0.9842  0.9733  0.9603
+a         0.9000  0.8100  0.7290  0.6561  0.5905
+ERRMSG: forecasts.run: forecasting with varexo_det does not support pruning.

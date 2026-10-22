@@ -1,0 +1,6 @@
+Starting Dynare (version 7.2).
+Calling Dynare with arguments: nointeractive nograph noclearall
+Starting preprocessing of the model file ...
+ERROR: xdet_e_irfshocks.mod: line 21, cols 29-42: Variables passed to irf_shocks must be exogenous. Caused by: g
+Preprocessing time: 0h00m00s.
+ERRMSG: Dynare: preprocessing failed
