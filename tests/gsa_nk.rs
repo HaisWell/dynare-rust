@@ -55,7 +55,9 @@ const JSON_TOL: f64 = 6e-16;
 /// `betainv.m` stopped at |step| < sqrt(eps) on CDFs computed near 1 - 1e-10, so they carry
 /// the ~1e-10 relative difference between MATLAB's `gammainc`/`betainc` and statrs' in the
 /// tails. The unit-cube points themselves (and the uniform-prior columns) agree exactly.
-const SAMPLE_TOL: f64 = 1e-9;
+/// With glibc's or the MSVC CRT's libm the difference is 1.5e-9; the Newton stopping rule
+/// (|step| < sqrt(eps) = 1.5e-8) is the bound that holds whatever the libm.
+const SAMPLE_TOL: f64 = if cfg!(target_os = "macos") { 1e-9 } else { 1.5e-8 };
 
 /// Columns of lpmat with uniform priors in nk_gsa.mod (phi_pi, rho_g): exact.
 const UNIFORM_COLS: [usize; 2] = [2, 5];
@@ -239,7 +241,9 @@ fn stage3_reduced_form() {
         for (k, w) in want.iter().enumerate() {
             for (c, wv) in w.iter().enumerate() {
                 let v = s.t[k][(row, c)];
-                assert!((v - wv).abs() < 1e-9 * wv.abs().max(1.0), "T_{name}[{k}][{c}]: {v} vs {wv}");
+                // Evaluated at our sample, so it carries the sample's difference (SAMPLE_TOL).
+                let tol = if cfg!(target_os = "macos") { 1e-9 } else { 1e-7 };
+                assert!((v - wv).abs() < tol * wv.abs().max(1.0), "T_{name}[{k}][{c}]: {v} vs {wv}");
             }
         }
     }

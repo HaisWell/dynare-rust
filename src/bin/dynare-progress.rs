@@ -6,7 +6,8 @@
 //! every dynare-rs run), a dynare-rs log (its console output redirected to a file:
 //! only chain 1 and the last optimizer line are shown), or a directory, which shows
 //! the most recently updated of those found in it and one level below.
-//! `--window` opens a small Terminal window per path running this viewer.
+//! `--window` opens a small Terminal window (macOS) or a new console window (Windows)
+//! per path running this viewer.
 //! `dynare-rs --window` does that for its own run.
 
 use std::path::{Path, PathBuf};
@@ -30,6 +31,7 @@ fn main() {
         return;
     }
     let paths: Vec<PathBuf> = args.iter().map(PathBuf::from).collect();
+    enable_ansi();
     if paths.len() == 1 {
         print!("\x1b]0;dynare-rs: {}\x07", label(&paths[0]));
     }
@@ -57,8 +59,60 @@ fn main() {
     }
 }
 
+/// Windows: opens a new console window running this viewer on `path` (placement is
+/// left to the console host). Launched with PowerShell's Start-Process (ShellExecute),
+/// which does not pass on inheritable handles: a viewer created with CreateProcess, as
+/// `std::process::Command` or `cmd /C start` do, would inherit the caller's (possibly
+/// redirected) output handle and keep it open until the window is closed. The paths go
+/// through the environment to avoid quoting them for PowerShell.
+#[cfg(windows)]
+pub fn open_window(path: &Path, _k: usize) -> Result<(), String> {
+    use std::process::Stdio;
+    let exe = std::env::current_exe().map_err(|e| e.to_string())?;
+    let path = std::path::absolute(path).map_err(|e| e.to_string())?;
+    let st = std::process::Command::new("powershell")
+        .args(["-NoProfile", "-NonInteractive", "-Command"])
+        .arg("Start-Process -FilePath $env:DYNARE_PROGRESS_EXE -ArgumentList ('\"' + $env:DYNARE_PROGRESS_PATH + '\"')")
+        .env("DYNARE_PROGRESS_EXE", exe)
+        .env("DYNARE_PROGRESS_PATH", path)
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status()
+        .map_err(|e| e.to_string())?;
+    if !st.success() {
+        return Err(format!("Start-Process failed ({st})"));
+    }
+    Ok(())
+}
+
+/// Windows consoles interpret the ANSI sequences the viewer prints (clear screen, window
+/// title) only with virtual-terminal processing on.
+#[cfg(windows)]
+fn enable_ansi() {
+    unsafe extern "system" {
+        fn GetStdHandle(n: u32) -> *mut std::ffi::c_void;
+        fn GetConsoleMode(h: *mut std::ffi::c_void, mode: *mut u32) -> i32;
+        fn SetConsoleMode(h: *mut std::ffi::c_void, mode: u32) -> i32;
+    }
+    const STD_OUTPUT_HANDLE: u32 = -11i32 as u32;
+    const ENABLE_VIRTUAL_TERMINAL_PROCESSING: u32 = 0x0004;
+    // SAFETY: plain kernel32 calls on this process's own stdout handle.
+    unsafe {
+        let h = GetStdHandle(STD_OUTPUT_HANDLE);
+        let mut mode = 0;
+        if GetConsoleMode(h, &mut mode) != 0 {
+            SetConsoleMode(h, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+        }
+    }
+}
+
+#[cfg(not(windows))]
+fn enable_ansi() {}
+
 /// Opens a small Terminal window running this viewer on `path` (the `k`-th window
 /// is placed below the previous one).
+#[cfg(not(windows))]
 pub fn open_window(path: &Path, k: usize) -> Result<(), String> {
     let exe = std::env::current_exe().map_err(|e| e.to_string())?;
     let path = std::path::absolute(path).map_err(|e| e.to_string())?;

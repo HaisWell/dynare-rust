@@ -3,7 +3,7 @@
 //!
 //! A [`ModelBuilder`] collects declarations and equations while the .mod file is
 //! parsed; [`ModelBuilder::build`] then performs Dynare's transformations
-//! (aux variables for leads/lags >= 2, see [`aux`]), computes the
+//! (aux variables for leads/lags >= 2, see [`aux_subst`]), computes the
 //! lead/lag incidence, takes the symbolic first derivatives of the static and
 //! dynamic models and compiles everything into flat [`tape::Tape`]s.
 //!
@@ -11,7 +11,7 @@
 //! plus a caller-provided [`Workspace`] (the convenience methods without one use a
 //! thread-local workspace).
 
-mod aux;
+mod aux_subst;
 pub mod dtree; // stream PP: the preprocessor's DataTree and transform pass
 pub mod expr;
 pub mod external; // external_function: registry of functions and the .m loader
@@ -716,13 +716,13 @@ impl ModelBuilder {
                 aux_vars.push(a);
                 aux_rhs.push(rhs);
             }
-            aux::name_exprs(&dag, &endo_names, &exo_names, Some(&param_names), &mut aux_vars, &aux_rhs);
+            aux_subst::name_exprs(&dag, &endo_names, &exo_names, Some(&param_names), &mut aux_vars, &aux_rhs);
             let first = aux_vars.len() - tr.shown.len();
             for (k, sh) in tr.shown.iter().enumerate() {
                 if let Some((f, arg)) = sh {
                     let (pre, post) = (format!("{f}("), ")");
                     let mut one = [aux_vars[first + k].clone()];
-                    aux::name_exprs(&dag, &endo_names, &exo_names, Some(&param_names), &mut one, &[*arg]);
+                    aux_subst::name_exprs(&dag, &endo_names, &exo_names, Some(&param_names), &mut one, &[*arg]);
                     aux_vars[first + k].orig_expr = format!("{pre}{}{post}", one[0].orig_expr);
                 }
             }
@@ -759,7 +759,7 @@ impl ModelBuilder {
             let used_locals: Vec<NodeId> =
                 locals.iter().zip(&locals_used).filter(|(_, u)| **u).map(|((_, n), _)| *n).collect();
             {
-                let mut s = aux::Subst {
+                let mut s = aux_subst::Subst {
                     dag: &mut dag,
                     endo_names: &mut endo_names,
                     exo_names: &exo_names,
@@ -771,12 +771,22 @@ impl ModelBuilder {
                 };
                 // Order of ModFile::transformPass. Local variables are already inlined, so their
                 // substituted values only prime the substitution table (same visit order as Dynare).
-                let passes: &[aux::Pass] = if stochastic {
-                    &[aux::Pass::EndoLead, aux::Pass::ExoLead, aux::Pass::EndoLag, aux::Pass::ExoLag]
+                let passes: &[aux_subst::Pass] = if stochastic {
+                    &[
+                        aux_subst::Pass::EndoLead,
+                        aux_subst::Pass::ExoLead,
+                        aux_subst::Pass::EndoLag,
+                        aux_subst::Pass::ExoLag,
+                    ]
                 } else {
                     // Dynare 7 also substitutes exogenous leads/lags in deterministic models (checked
                     // against the 7.1 preprocessor), only leaving endogenous leads/lags of 1 (stream D).
-                    &[aux::Pass::EndoLead, aux::Pass::ExoLead, aux::Pass::EndoLag, aux::Pass::ExoLag]
+                    &[
+                        aux_subst::Pass::EndoLead,
+                        aux_subst::Pass::ExoLead,
+                        aux_subst::Pass::EndoLag,
+                        aux_subst::Pass::ExoLag,
+                    ]
                 };
                 for &p in passes {
                     s.run(p, &used_locals, &mut equations);

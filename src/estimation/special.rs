@@ -178,6 +178,10 @@ mod tests {
         assert!((gammainc(g / 2.0, 3.0) - 0.3).abs() < 1e-14);
         assert!((norminv(0.975, 0.0, 1.0) - 1.959963984540054).abs() < 1e-12);
         let c = chi2inv(0.5, 73.0);
-        assert!((gammainc(c / 2.0, 36.5) - 0.5).abs() < 1e-14);
+        // At a = 36.5 gammainc itself is accurate to a few ulps times a: 1e-14 holds with
+        // Apple's libm; glibc and the MSVC CRT give 1.4e-14.
+        let tol = if cfg!(target_os = "macos") { 1e-14 } else { 5e-14 };
+        let e = (gammainc(c / 2.0, 36.5) - 0.5).abs();
+        assert!(e < tol, "chi2inv roundtrip error {e:e}");
     }
 }

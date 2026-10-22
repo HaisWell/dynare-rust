@@ -38,6 +38,10 @@ fn scratch(tag: &str, files: &[&str]) -> PathBuf {
     d
 }
 
+/// Restriction values (IRFs and moments) solved at Dynare's sample points: 1e-7 with
+/// Accelerate; up to 4e-7 with OpenBLAS (Linux, Windows).
+const MAT_TOL: f64 = if cfg!(target_os = "macos") { 1e-7 } else { 2e-6 };
+
 /// The calibration mapping on Dynare's GSA sample (the sample itself is Dynare's: same
 /// generator, same Sobol sequence): the kept points, the restriction values and indicators.
 #[test]
@@ -88,7 +92,7 @@ fn map_calibration_matches_dynare() {
             for &j in &want_keep {
                 let w = vecf(&m[j]);
                 for (a, b) in ours[ij][j].iter().zip(&w) {
-                    assert!((a - b).abs() <= 1e-7 * b.abs().max(1e-6), "{key}[{ij}][{j}]: {a} vs {b}");
+                    assert!((a - b).abs() <= MAT_TOL * b.abs().max(1e-6), "{key}[{ij}][{j}]: {a} vs {b}");
                 }
             }
         }

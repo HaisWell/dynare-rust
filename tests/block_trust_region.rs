@@ -74,9 +74,20 @@ fn mex_direct_cases() {
         let e = &r[name];
         assert_eq!(o.errorcode as i64, e["errorcode"].as_i64().unwrap(), "{name}: errorcode");
         assert_eq!(o.errorflag, e["errorflag"].as_i64().unwrap() != 0, "{name}: errorflag");
-        for (i, v) in e["x"].as_array().unwrap().iter().enumerate() {
-            let v = v.as_f64().unwrap();
-            assert!((o.x[i] - v).abs() <= 1e-9 * v.abs().max(1.0), "{name}: x[{i}] {} vs {v}", o.x[i]);
+        let mut want: Vec<f64> = e["x"].as_array().unwrap().iter().map(|v| v.as_f64().unwrap()).collect();
+        // chain_f starts on x[2] = x[3], and the system is symmetric in (x[2], x[3]): the
+        // iterates stay on that line up to rounding, so which of the two mirror-image roots
+        // they leave it for is decided by last-bit BLAS/libm differences. MATLAB on macOS
+        // (and Accelerate) picks x[2] < x[3]; OpenBLAS on Linux and Windows picks the other.
+        // The mirror root is reached by a different path, so it agrees only to the solver's
+        // stopping tolerance (2.2e-7).
+        let mut tol = 1e-9;
+        if name == "chain_f" && !cfg!(target_os = "macos") && (o.x[2] - want[3]).abs() < (o.x[2] - want[2]).abs() {
+            want.swap(2, 3);
+            tol = 1e-6;
+        }
+        for (i, &v) in want.iter().enumerate() {
+            assert!((o.x[i] - v).abs() <= tol * v.abs().max(1.0), "{name}: x[{i}] {} vs {v}", o.x[i]);
         }
     }
 }

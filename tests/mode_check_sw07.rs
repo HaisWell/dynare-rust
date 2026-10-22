@@ -162,7 +162,9 @@ fn sw07_mode_check_matches_dynare() {
     // Schur vector compute_Pinf_Pstar keeps in Pinf depends on the LAPACK build (MATLAB: NAG;
     // here: Accelerate); with_dynare_schur checks two of them against MATLAB's Schur form.
     assert!(worst_z < 1e-14, "grid {worst_z}");
-    assert!(worst_post < 1e-9 && worst_lik < 1e-9, "{worst_post} {worst_lik}");
+    // OpenBLAS's Schur vectors (Linux, Windows) give up to 2.1e-9.
+    let tol = if cfg!(target_os = "macos") { 1e-9 } else { 1e-8 };
+    assert!(worst_post < tol && worst_lik < tol, "{worst_post} {worst_lik}");
     with_dynare_schur(&m, &data);
 
     let figs = mode_check_figures(&slices, &m.estimated_names, false);

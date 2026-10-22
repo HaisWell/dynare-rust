@@ -106,7 +106,9 @@ fn open_progress_window(modfile: &std::path::Path) {
     let Some(fname) = modfile.file_stem().and_then(|s| s.to_str()) else { return };
     let dir = modfile.parent().map(PathBuf::from).unwrap_or_default();
     let file = dynare::progress::file_path(&dir, fname);
-    let viewer = std::env::current_exe().ok().map(|e| e.with_file_name("dynare-progress"));
+    let viewer = std::env::current_exe()
+        .ok()
+        .map(|e| e.with_file_name(format!("dynare-progress{}", std::env::consts::EXE_SUFFIX)));
     let ok = viewer
         .is_some_and(|v| std::process::Command::new(v).arg("--window").arg(&file).status().is_ok_and(|s| s.success()));
     if !ok {

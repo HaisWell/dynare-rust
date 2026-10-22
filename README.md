@@ -32,7 +32,8 @@ Coverage: of the 173 commands, blocks and macro directives of the Dynare 7.2 ref
 
 Requirements: Rust 1.89 or later. On macOS, Apple's Accelerate framework provides BLAS/LAPACK;
 on Linux, install OpenBLAS (`sudo apt-get install libopenblas-dev`; another library can be
-named with `DYNARE_RS_LAPACK=lapack,blas`).
+named with `DYNARE_RS_LAPACK=lapack,blas`, and a library directory added with
+`DYNARE_RS_LAPACK_DIR`). On Windows, see [Windows](#windows) below.
 
 ```sh
 git clone https://github.com/HaisWell/dynare-rust
@@ -42,7 +43,34 @@ cargo install --path .         # optional: puts dynare-rs on the PATH
 cargo test --release           # the test suite (no MATLAB needed)
 ```
 
-macOS on Apple silicon is the validated platform. Linux builds and runs; Windows is untested.
+macOS on Apple silicon is the validated platform. Linux and Windows build and run.
+
+### Windows
+
+Requirements: Rust with the `x86_64-pc-windows-msvc` toolchain ([rustup](https://rustup.rs),
+or `winget install Rustlang.Rustup`) and the Visual Studio C++ Build Tools (MSVC linker).
+`scripts/setup-windows.ps1` downloads the prebuilt OpenBLAS (`OpenBLAS-<version>-x64.zip`,
+32-bit integers) into `%LOCALAPPDATA%\OpenBLAS` and sets, for the current user,
+`DYNARE_RS_LAPACK=libopenblas`, `DYNARE_RS_LAPACK_DIR=<prefix>\lib` and `<prefix>\bin` on
+`PATH` (where `dynare-rs.exe` finds `libopenblas.dll` at run time):
+
+```powershell
+git clone https://github.com/HaisWell/dynare-rust
+cd dynare-rust
+powershell -ExecutionPolicy Bypass -File scripts\setup-windows.ps1
+# open a new terminal so the variables are picked up, then
+cargo build --release          # target\release\dynare-rs.exe
+```
+
+`.gitattributes` checks text out with LF on every platform, as the tests compare outputs byte
+for byte with the references. `--window` opens the progress viewer in a new console window. The test
+suite passes on Windows with OpenBLAS 0.3.34 and the MSVC CRT.
+
+The references come from MATLAB on macOS, and the tests keep their tightest tolerances there.
+On Linux and Windows a few comparisons use a wider bound, given at each test with the cause:
+OpenBLAS's Schur vectors, glibc's or the MSVC CRT's last-bit libm differences carried through
+Newton iterations and finite differences, or an optimizer that stops at a slightly different
+point (1e-6 to 1e-14 relative).
 
 ## Usage
 
