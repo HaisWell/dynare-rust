@@ -4,6 +4,19 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [semantic versioning](https://semver.org/).
 
+## [Unreleased]
+
+- Windows support: builds with the MSVC toolchain against the prebuilt OpenBLAS
+  (`scripts/setup-windows.ps1`, `DYNARE_RS_LAPACK_DIR`), `src/model/aux.rs` renamed
+  `aux_subst.rs` (`aux` is a reserved file name on Windows), `.gitattributes` keeps LF
+  checkouts for the byte-for-byte reference comparisons, `--window` opens the progress
+  viewer in a new console window, and CI builds, lints and tests on `windows-latest`.
+- Tests pass on Linux and Windows: comparisons tuned to macOS's Accelerate and libm use a
+  documented, wider bound elsewhere (macOS keeps its tolerances), and `mex_direct_cases`
+  accepts either mirror-image root of `chain_f`, which starts on the symmetry line.
+- Test threads get a 64 MiB stack (`.cargo/config.toml`): four tests overflowed libtest's
+  2 MiB default on Linux and aborted their test binaries.
+
 ## [0.1.0] - 2026-10-22
 
 Initial public release.

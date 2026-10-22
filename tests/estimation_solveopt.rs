@@ -75,9 +75,16 @@ fn check(name: &str, obj: &dyn Objective, x0: &[f64], opts: &SolveoptOptions, r:
     );
     let dx = res.x.iter().zip(&rx).map(|(a, b)| (a - b).abs() / b.abs().max(1.0)).fold(0.0, f64::max);
     // Bit-for-bit on macOS arm64 (the platform the reference was produced on); elsewhere a
-    // different libm can perturb the path, so only the optimum is required to agree closely.
-    assert!(dx < 1e-10, "{name}: x {:?} vs {rx:?}", res.x);
-    assert!((res.fval - rf).abs() <= 1e-10 * rf.abs().max(1e-300), "{name}: f {} vs {rf}", res.fval);
+    // different libm can perturb the path, so only the optimum is required to agree closely:
+    // in Rosenbrock's valley f ~ 1e-14 leaves x free to ~1e-7 (5e-9 on Linux and Windows),
+    // and f itself, ~0 at the optimum, needs an absolute floor. A run stopped by the iteration
+    // limit (exitflag < 0) ends mid-path, wherever the perturbed path has got to, so there only
+    // the exit flag and message are compared.
+    let (tol_x, floor_f) = if cfg!(target_os = "macos") { (1e-10, 0.0) } else { (1e-7, 1e-12) };
+    if cfg!(target_os = "macos") || ref_flag > 0 {
+        assert!(dx < tol_x, "{name}: x {:?} vs {rx:?}", res.x);
+        assert!((res.fval - rf).abs() <= 1e-10 * rf.abs().max(1e-300) + floor_f, "{name}: f {} vs {rf}", res.fval);
+    }
     if cfg!(target_os = "macos") {
         assert!(dx < 1e-15, "{name}: x {:?} vs {rx:?}", res.x);
         assert_eq!(res.iterations, rk, "{name}: iterations");

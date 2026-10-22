@@ -1,0 +1,4 @@
+# Check out text with LF on every platform: the tests compare printouts, LaTeX and other
+# outputs byte for byte with the references under reference/, and Git for Windows
+# (core.autocrlf=true) would otherwise convert them to CRLF.
+* text=auto eol=lf

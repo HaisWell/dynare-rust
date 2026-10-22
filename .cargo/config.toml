@@ -1,0 +1,6 @@
+[env]
+# Stack of the test threads (libtest's default is 2 MiB). The passes over the expression trees
+# are recursive, so `driver::run` works on a 1 GiB thread; tests that call the model code
+# directly run on libtest's threads instead, and four of them overflow 2 MiB with Linux's
+# (glibc, gcc) frame sizes. Does not affect the dynare-rs binary.
+RUST_MIN_STACK = "67108864"

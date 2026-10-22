@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -26,6 +26,9 @@ jobs:
       - name: Install OpenBLAS (Linux)
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libopenblas-dev
+      - name: Install OpenBLAS (Windows)
+        if: runner.os == 'Windows'
+        run: powershell -ExecutionPolicy Bypass -File scripts/setup-windows.ps1
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --all --check
       - run: cargo clippy --release --all-targets
@@ -35,19 +38,23 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     # The references were produced with MATLAB on macOS (Apple Accelerate and Apple libm), the
-    # platform the tolerances are calibrated on. Linux (OpenBLAS + glibc libm) is built and tested
-    # but does not fail the workflow until its results have been confirmed.
-    continue-on-error: ${{ matrix.os == 'ubuntu-latest' }}
+    # platform the tolerances are calibrated on. Linux (OpenBLAS + glibc libm) and Windows
+    # (OpenBLAS + the MSVC CRT's libm) are built and tested but do not fail the workflow until
+    # their results have been confirmed.
+    continue-on-error: ${{ matrix.os != 'macos-latest' }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - name: Install OpenBLAS (Linux)
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libopenblas-dev
+      - name: Install OpenBLAS (Windows)
+        if: runner.os == 'Windows'
+        run: powershell -ExecutionPolicy Bypass -File scripts/setup-windows.ps1
       - uses: Swatinem/rust-cache@v2
       - name: cargo test --release
         run: cargo test --release --no-fail-fast
