@@ -81,6 +81,17 @@ dynare-rs [OPTIONS] model.mod [DYNARE_OPTIONS]...
 `DYNARE_OPTIONS` are Dynare's own options (`nograph`, `savemacro`, `nolog`, `json=compute`,
 `-DNAME=VALUE`, `-I<path>`, ...). Extra options include `--seed N`, `--mh-replic N`,
 `--threads N`, `--blas accelerate|rust` and `--quiet`; `dynare-rs --help` lists them all.
+
+Long MCMC runs can be memory-bound. `--low-memory` stores the chains run-length encoded (a
+rejected proposal repeats the previous draw, so about the acceptance rate's share of the draws
+is kept), reads the MH files back one chain at a time and runs the post-MCMC statistics on four
+threads; the results are identical, the posterior statistics slower. With OpenBLAS (Linux,
+Windows), `--openblas-threads 1` also removes OpenBLAS's per-thread buffers (about 2 GB on 28
+threads) and is usually faster on models of this size, but it changes results at the rounding
+level. A 6 x 1M-draw post-processing of a 56-parameter model went from 10.6 GB to 6.3 GB with
+`--low-memory` and to 3.4 GB with both. Lowering `sub_draws` reduces the memory of the posterior
+smoothed objects and forecasts.
+
 Outputs go where Dynare puts them (`<dir of .mod>/<fname>/Output/`, `<fname>/metropolis/`,
 `<fname>/graphs/`); mode files and MCMC files use Dynare's format, so either program can read
 the other's.

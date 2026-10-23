@@ -64,6 +64,64 @@ pub fn set_blas_backend(b: BlasBackend) {
     BACKEND.store(if b == BlasBackend::Accelerate { 1 } else { 2 }, Ordering::Relaxed);
 }
 
+/// Calls OpenBLAS's `openblas_set_num_threads(n)` when the process is linked against OpenBLAS
+/// (looked up at run time, so other BLAS libraries are unaffected); returns whether it was
+/// found. OpenBLAS commits buffers for each of its threads (about 2 GB with 28), and on the
+/// small matrices of these models its threads only add overhead: dynare-rs parallelizes over
+/// chains and evaluations itself.
+pub fn set_openblas_threads(n: usize) -> bool {
+    let Some(f) = openblas_set_num_threads_fn() else { return false };
+    // SAFETY: the symbol is OpenBLAS's `void openblas_set_num_threads(int)`.
+    unsafe { f(n.min(i32::MAX as usize) as std::ffi::c_int) };
+    true
+}
+
+type SetThreadsFn = unsafe extern "C" fn(std::ffi::c_int);
+
+#[cfg(windows)]
+fn openblas_set_num_threads_fn() -> Option<SetThreadsFn> {
+    unsafe extern "system" {
+        fn GetModuleHandleA(name: *const std::ffi::c_char) -> *mut std::ffi::c_void;
+        fn LoadLibraryA(name: *const std::ffi::c_char) -> *mut std::ffi::c_void;
+        fn GetProcAddress(module: *mut std::ffi::c_void, name: *const std::ffi::c_char) -> *mut std::ffi::c_void;
+    }
+    for dll in [c"libopenblas.dll", c"openblas.dll"] {
+        // SAFETY: NUL-terminated names. libopenblas.dll is delay-loaded (build.rs), so it may
+        // not be loaded yet: load it then (it would be at the first BLAS call anyway).
+        let p = unsafe {
+            let mut h = GetModuleHandleA(dll.as_ptr());
+            if h.is_null() && dll == c"libopenblas.dll" {
+                h = LoadLibraryA(dll.as_ptr());
+            }
+            if h.is_null() {
+                continue;
+            }
+            GetProcAddress(h, c"openblas_set_num_threads".as_ptr())
+        };
+        if !p.is_null() {
+            // SAFETY: a function pointer of the documented signature.
+            return Some(unsafe { std::mem::transmute::<*mut std::ffi::c_void, SetThreadsFn>(p) });
+        }
+    }
+    None
+}
+
+#[cfg(all(unix, not(target_os = "macos")))]
+fn openblas_set_num_threads_fn() -> Option<SetThreadsFn> {
+    unsafe extern "C" {
+        fn dlsym(handle: *mut std::ffi::c_void, symbol: *const std::ffi::c_char) -> *mut std::ffi::c_void;
+    }
+    // SAFETY: RTLD_DEFAULT (a null handle on glibc) searches the loaded libraries.
+    let p = unsafe { dlsym(std::ptr::null_mut(), c"openblas_set_num_threads".as_ptr()) };
+    // SAFETY: a function pointer of the documented signature.
+    (!p.is_null()).then(|| unsafe { std::mem::transmute::<*mut std::ffi::c_void, SetThreadsFn>(p) })
+}
+
+#[cfg(any(target_os = "macos", not(any(windows, unix))))]
+fn openblas_set_num_threads_fn() -> Option<SetThreadsFn> {
+    None // Accelerate
+}
+
 /// C(m x n) <- alpha op(A) op(B) + beta C with matrixmultiply (column-major,
 /// leading dimensions as BLAS). `beta == 0` does not read C, as in BLAS.
 #[allow(clippy::too_many_arguments)]

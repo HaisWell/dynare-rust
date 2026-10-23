@@ -42,6 +42,7 @@ fn chain(points: &[Vec<f64>]) -> Chain {
         npar,
         draws: points.iter().flatten().copied().collect(),
         logpost: vec![0.0; points.len()],
+        runs: Vec::new(),
         first_stored: 0,
         total_draws: points.len(),
         accepted: points.len(),

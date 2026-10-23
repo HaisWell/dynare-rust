@@ -21,5 +21,14 @@ fn main() {
         for lib in libs.split(',').map(str::trim).filter(|l| !l.is_empty()) {
             println!("cargo:rustc-link-lib={lib}");
         }
+        // MSVC: dynare-rs loads libopenblas.dll at the first BLAS call, not at process start,
+        // so that `--openblas-threads` can restart it with OPENBLAS_NUM_THREADS set before
+        // OpenBLAS ever commits its threads' buffers (see main.rs). Only that binary: the
+        // linker warns about a delay-load in one that imports nothing from the DLL.
+        let msvc = std::env::var("CARGO_CFG_TARGET_ENV").as_deref() == Ok("msvc");
+        if target_os == "windows" && msvc && libs.split(',').any(|l| l.trim() == "libopenblas") {
+            println!("cargo:rustc-link-arg-bin=dynare-rs=/DELAYLOAD:libopenblas.dll");
+            println!("cargo:rustc-link-arg-bin=dynare-rs=delayimp.lib");
+        }
     }
 }

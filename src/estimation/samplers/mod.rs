@@ -538,6 +538,7 @@ fn run_chains<'a>(
             npar,
             draws,
             logpost,
+            runs: Vec::new(),
             first_stored: opts.store_from.min(nruns),
             total_draws: nruns,
             accepted: acc_sum.round() as usize,

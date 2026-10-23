@@ -86,14 +86,53 @@ impl MhOptions {
     }
 }
 
+static LOW_MEMORY: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+
+/// `--low-memory`: chains are stored run-length encoded (see [`Chain::runs`]) and the mh
+/// files are read back one chain at a time. Results are unchanged; draw access is slower.
+pub fn set_low_memory(on: bool) {
+    LOW_MEMORY.store(on, std::sync::atomic::Ordering::Relaxed);
+}
+
+/// Whether [`set_low_memory`] is on.
+pub fn low_memory() -> bool {
+    LOW_MEMORY.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+/// Threads of the post-MCMC statistics in low-memory mode.
+const LOW_MEMORY_THREADS: usize = 4;
+
+/// Runs `f` on a pool of [`LOW_MEMORY_THREADS`] threads in low-memory mode, on the current
+/// pool otherwise. The post-MCMC statistics (HPD intervals, the Brooks-Gelman diagnostics,
+/// posterior densities) work on one expanded copy of the draws per parallel item, so their
+/// peak memory grows with the number of threads; each item is computed on its own and the
+/// results are collected in order, so they do not depend on it.
+pub fn bounded<R: Send>(f: impl FnOnce() -> R + Send) -> R {
+    static POOL: std::sync::OnceLock<Option<rayon::ThreadPool>> = std::sync::OnceLock::new();
+    if !low_memory() {
+        return f();
+    }
+    match POOL.get_or_init(|| rayon::ThreadPoolBuilder::new().num_threads(LOW_MEMORY_THREADS).build().ok()) {
+        Some(p) => p.install(f),
+        None => f(),
+    }
+}
+
 /// One chain (block) of draws, stored row-major in f64.
 #[derive(Clone, Debug)]
 pub struct Chain {
     pub npar: usize,
-    /// Draws `store_from..total_draws`, row-major (`npar` values per draw).
+    /// Draws `store_from..total_draws`, row-major (`npar` values per draw); with [`Chain::runs`]
+    /// non-empty, each distinct draw once. Read them through [`Chain::draw`].
     pub draws: Vec<f64>,
-    /// Log posterior kernel of each stored draw.
+    /// Log posterior kernel of each stored draw (each distinct draw with `runs`). Read it
+    /// through [`Chain::logpost_at`].
     pub logpost: Vec<f64>,
+    /// Empty: one row per draw. Otherwise run-length encoding (`--low-memory`): row `i` of
+    /// `draws` stands for the stored draws `runs[i-1]..runs[i]` (cumulative ends, relative to
+    /// `first_stored`). A rejected proposal repeats the previous draw bit for bit, so at an
+    /// acceptance rate `a` this keeps about a fraction `a` of the rows.
+    pub runs: Vec<usize>,
     /// Index (0-based, in the chain) of the first stored draw.
     pub first_stored: usize,
     /// Total number of draws generated.
@@ -106,17 +145,58 @@ pub struct Chain {
 }
 
 impl Chain {
+    /// An empty chain of `npar` parameters, filled with [`Chain::push`].
+    pub fn empty(npar: usize) -> Self {
+        Chain {
+            npar,
+            draws: Vec::new(),
+            logpost: Vec::new(),
+            runs: Vec::new(),
+            first_stored: 0,
+            total_draws: 0,
+            accepted: 0,
+            init: Vec::new(),
+            init_logpost: f64::NAN,
+        }
+    }
+    /// Appends a stored draw; with `rle`, a draw equal bit for bit to the previous one (draw
+    /// and log posterior) only extends the last run.
+    pub fn push(&mut self, x: &[f64], lp: f64, rle: bool) {
+        if rle {
+            let n = self.logpost.len();
+            if n > 0
+                && self.logpost[n - 1].to_bits() == lp.to_bits()
+                && self.draws[(n - 1) * self.npar..].iter().zip(x).all(|(a, b)| a.to_bits() == b.to_bits())
+            {
+                *self.runs.last_mut().expect("a run per stored row") += 1;
+                return;
+            }
+            let end = self.runs.last().copied().unwrap_or(0) + 1;
+            self.runs.push(end);
+        }
+        self.draws.extend_from_slice(x);
+        self.logpost.push(lp);
+    }
+    /// Row of `draws` / `logpost` holding stored draw `r` (0-based from `first_stored`).
+    #[inline]
+    fn row(&self, r: usize) -> usize {
+        if self.runs.is_empty() { r } else { self.runs.partition_point(|&e| e <= r) }
+    }
     /// Draw number `k` (0-based, `k >= first_stored`).
     pub fn draw(&self, k: usize) -> &[f64] {
-        let r = k - self.first_stored;
-        &self.draws[r * self.npar..(r + 1) * self.npar]
+        let i = self.row(k - self.first_stored);
+        &self.draws[i * self.npar..(i + 1) * self.npar]
+    }
+    /// Log posterior kernel of draw number `k` (0-based, `k >= first_stored`).
+    pub fn logpost_at(&self, k: usize) -> f64 {
+        self.logpost[self.row(k - self.first_stored)]
     }
     /// Number of stored draws.
     pub fn len(&self) -> usize {
-        self.logpost.len()
+        if self.runs.is_empty() { self.logpost.len() } else { self.runs.last().copied().unwrap_or(0) }
     }
     pub fn is_empty(&self) -> bool {
-        self.logpost.is_empty()
+        self.len() == 0
     }
     /// `record.AcceptanceRatio`.
     pub fn acceptance_ratio(&self) -> f64 {
@@ -508,8 +588,13 @@ pub fn rw_metropolis(
         };
         let mut writer = ses.and_then(|s| s.take_writer(b));
         let mut w = Walker::new(obj, bounds, rng, &ix2[b], ilogpo2[b], width);
-        let mut draws = Vec::with_capacity(nkeep * npar);
-        let mut logpost = Vec::with_capacity(nkeep);
+        let rle = low_memory();
+        let mut store = Chain::empty(npar);
+        if !rle {
+            // dense: the final size is known (run-length encoded, it depends on the acceptance)
+            store.draws.reserve_exact(nkeep * npar);
+            store.logpost.reserve_exact(nkeep);
+        }
         let mut it = 0usize;
         let mut accepted = 0usize;
         let mut done = 0;
@@ -521,8 +606,7 @@ pub fn rw_metropolis(
                     wr.push(last, last_lp, acc as u8 as f64, 1.0);
                 }
                 if it >= opts.store_from {
-                    draws.extend_from_slice(last);
-                    logpost.push(last_lp);
+                    store.push(last, last_lp, rle);
                 }
                 it += 1;
                 if let Some(cb) = progress
@@ -540,10 +624,16 @@ pub fn rw_metropolis(
         if let Some(s) = ses {
             s.finish_chain(b, writer, &w.rng, &w.last, w.last_lp, w.accepted as f64, nruns as f64, nruns);
         }
+        if rle {
+            store.draws.shrink_to_fit();
+            store.logpost.shrink_to_fit();
+            store.runs.shrink_to_fit();
+        }
         Chain {
             npar,
-            draws,
-            logpost,
+            draws: store.draws,
+            logpost: store.logpost,
+            runs: store.runs,
             first_stored: opts.store_from.min(nruns),
             total_draws: nruns,
             accepted: w.accepted,

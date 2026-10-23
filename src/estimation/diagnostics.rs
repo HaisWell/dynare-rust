@@ -321,7 +321,7 @@ pub fn brooks_gelman_multivariate(chains: &[Chain], mh_drop: f64) -> Option<(Vec
     let mut tmp: Vec<(f64, u32, u32)> = Vec::with_capacity(ndraws * nblck);
     for (b, c) in chains.iter().enumerate() {
         for t in 0..ndraws {
-            tmp.push((c.logpost[t], b as u32, (t + 1) as u32));
+            tmp.push((c.logpost_at(c.first_stored + t), b as u32, (t + 1) as u32));
         }
     }
     tmp.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(std::cmp::Ordering::Equal));
