@@ -16,6 +16,16 @@ All notable changes to this project are documented here. The format follows
   accepts either mirror-image root of `chain_f`, which starts on the symmetry line.
 - Test threads get a 64 MiB stack (`.cargo/config.toml`): four tests overflowed libtest's
   2 MiB default on Linux and aborted their test binaries.
+- `--low-memory`: MCMC chains stored run-length encoded (`Chain::runs`; read through
+  `Chain::draw` / `Chain::logpost_at`), MH files read back one chain at a time, and the
+  post-MCMC statistics run on four threads. Identical results.
+- `--openblas-threads N`: OpenBLAS's thread count, set before the library loads (dynare-rs
+  restarts itself with `OPENBLAS_NUM_THREADS`: `exec` on Unix; on Windows dynare-rs.exe
+  delay-loads libopenblas.dll so the waiting process never loads it), which also drops the
+  other threads' buffers.
+  Changes results at the rounding level.
+- MH files are read without an extra copy of their draws; the progress viewer shows a
+  separate "MCMC diagnostics and posterior densities" phase.
 
 ## [0.1.0] - 2026-10-22
 

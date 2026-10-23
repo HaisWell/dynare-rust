@@ -688,7 +688,7 @@ fn trace_plot(o: &Options, ctx: &Ctx) -> Result<()> {
     }
     let c = &pc.chains[b - 1];
     let draws: Vec<f64> =
-        (c.first_stored..c.total_draws).map(|t| j.map_or(c.logpost[t - c.first_stored], |j| c.draw(t)[j])).collect();
+        (c.first_stored..c.total_draws).map(|t| j.map_or(c.logpost_at(t), |j| c.draw(t)[j])).collect();
     let (what, plot_name) = match &name {
         None => ("the posterior density".to_string(), "Posterior".to_string()),
         Some(n) => (format!("parameter {n}"), crate::estimation::plots::dynare_param_name(n)),

@@ -290,7 +290,7 @@ pub fn modified_harmonic_mean(
                     (None, None) => f64::NAN,
                 };
                 dev.push(d);
-                lp.push(c.logpost[t - c.first_stored]);
+                lp.push(c.logpost_at(t));
             }
             (dev, lp)
         })
@@ -435,7 +435,7 @@ pub fn posterior_stats(chains: &[Chain], opts: &PosteriorOptions) -> Result<Post
     let mut mode = vec![f64::NAN; npar];
     for c in chains {
         for t in first..first + nkeep {
-            let lp = c.logpost[t - c.first_stored];
+            let lp = c.logpost_at(t);
             if lp > kernel_at_mode {
                 kernel_at_mode = lp;
                 mode = c.draw(t).to_vec();
@@ -584,6 +584,7 @@ mod tests {
             npar: 1,
             draws: draws.clone(),
             logpost: draws.iter().map(|x| -0.5 * x * x + shift).collect(),
+            runs: Vec::new(),
             first_stored: 0,
             total_draws: n,
             accepted: n,

@@ -584,7 +584,7 @@ pub fn generate_trace_plots(ctx: &McmcPlotContext, chain_numbers: &[usize]) -> a
     }
     let series = |b: usize, j: Option<usize>| -> Vec<f64> {
         let c = &ctx.chains[b - 1];
-        (c.first_stored..c.total_draws).map(|t| j.map_or(c.logpost[t - c.first_stored], |j| c.draw(t)[j])).collect()
+        (c.first_stored..c.total_draws).map(|t| j.map_or(c.logpost_at(t), |j| c.draw(t)[j])).collect()
     };
     // (what, plot name, column): posterior first, then parameters, shocks' stderr, corr
     let mut items: Vec<(String, String, Option<usize>)> =

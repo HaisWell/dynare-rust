@@ -1295,10 +1295,9 @@ fn estimation(
             None
         };
         crate::progress::phase("posterior statistics (HPD, MHM)");
-        let stats = posterior_stats(
-            &res.chains,
-            &PosteriorOptions { mh_drop, mh_conf_sig: num(o, "mh_conf_sig").unwrap_or(0.9), ..Default::default() },
-        )?;
+        let post_opts =
+            PosteriorOptions { mh_drop, mh_conf_sig: num(o, "mh_conf_sig").unwrap_or(0.9), ..Default::default() };
+        let stats = crate::estimation::mcmc::bounded(|| posterior_stats(&res.chains, &post_opts))?;
         if previous_results.is_none() {
             println!(
                 "\nESTIMATION RESULTS\n\nLog data density (Modified Harmonic Mean) is {:.6}.",
@@ -1338,17 +1337,20 @@ fn estimation(
             last_file_lines: Some(res.record.last_line_number),
             ..crate::estimation::convergence::ConvergenceOptions::from_options(o)
         };
-        crate::estimation::plots::mcmc_figures(
-            &res.chains,
-            &stats,
-            &dsge.priors,
-            &dsge.estimated_names,
-            mh_drop,
-            diagnostics,
-            fname,
-            &gopts,
-            &conv,
-        )?;
+        crate::progress::phase("MCMC diagnostics and posterior densities");
+        crate::estimation::mcmc::bounded(|| {
+            crate::estimation::plots::mcmc_figures(
+                &res.chains,
+                &stats,
+                &dsge.priors,
+                &dsge.estimated_names,
+                mh_drop,
+                diagnostics,
+                fname,
+                &gopts,
+                &conv,
+            )
+        })?;
         results["mcmc"] = json!({
             "replic": res.record.total_draws(), "new_draws": res.new_draws, "nblocks": res.chains.len(),
             "jscale": res.jscale.first().copied().unwrap_or(jscale), "seconds": mcmc_secs,

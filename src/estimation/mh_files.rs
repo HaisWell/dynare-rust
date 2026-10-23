@@ -454,8 +454,8 @@ impl MhFile {
             if m.nrows() != logpo2.len() {
                 bail!("{}: x2 has {} rows and logpo2 {}", p.display(), m.nrows(), logpo2.len());
             }
-            let t = m.transpose();
-            (t.as_slice().to_vec(), m.ncols())
+            // the transpose's own buffer, not a copy of it
+            (Vec::from(m.transpose().data), m.ncols())
         } else {
             (vec![], 0)
         };
@@ -809,9 +809,13 @@ pub fn read_chains(
     let npar = rec.npar();
     let total = rec.total_draws();
     let nfiles = rec.total_files();
+    let rle = crate::estimation::mcmc::low_memory();
     let read_block = |b: usize| -> Result<crate::estimation::Chain> {
-        let mut draws = Vec::with_capacity(total.saturating_sub(from) * npar);
-        let mut logpost = Vec::with_capacity(total.saturating_sub(from));
+        let mut store = crate::estimation::Chain::empty(npar);
+        if !rle {
+            store.draws.reserve_exact(total.saturating_sub(from) * npar);
+            store.logpost.reserve_exact(total.saturating_sub(from));
+        }
         let mut pos = 0usize; // index of the first draw of the current file
         let mut init = vec![f64::NAN; npar];
         let mut init_lp = f64::NAN;
@@ -829,8 +833,7 @@ pub fn read_chains(
             let n = f.rows();
             let lo = from.saturating_sub(pos).min(n);
             for i in lo..n {
-                draws.extend_from_slice(f.row(i));
-                logpost.push(f.logpo2[i]);
+                store.push(f.row(i), f.logpo2[i], rle);
             }
             pos += n;
         }
@@ -838,10 +841,16 @@ pub fn read_chains(
             bail!("chain {}: {} draws in the mh files, the history records {total}", b + 1, pos);
         }
         let acc = accepted.get(b).copied().unwrap_or(f64::NAN);
+        if rle {
+            store.draws.shrink_to_fit();
+            store.logpost.shrink_to_fit();
+            store.runs.shrink_to_fit();
+        }
         Ok(crate::estimation::Chain {
             npar,
-            draws,
-            logpost,
+            draws: store.draws,
+            logpost: store.logpost,
+            runs: store.runs,
             first_stored: from.min(total),
             total_draws: total,
             accepted: (acc * total as f64).round().max(0.0) as usize,
@@ -853,6 +862,11 @@ pub fn read_chains(
             init_logpost: rec.initial_log_post.get(b).copied().unwrap_or(init_lp),
         })
     };
+    if rle {
+        // one chain at a time: a file in flight holds its bytes, the parsed matrix and its
+        // transpose, so reading every chain at once multiplies that by the number of chains
+        return (0..rec.nblck).map(read_block).collect();
+    }
     use rayon::prelude::*;
     (0..rec.nblck).into_par_iter().map(read_block).collect()
 }
